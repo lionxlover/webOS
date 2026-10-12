@@ -1,0 +1,15 @@
+/* small screens + preferences */
+@media (max-width:900px){#widgets{display:none}}
+@media (max-width:700px){
+  :root{--taskbar-h:52px}
+  .win:not(.maximized){max-width:100vw}
+  .tb-clock .tb-date,.tb-search,.tb-showdesk{display:none}
+  .tb-tray{padding:0 6px;gap:6px}
+  #notifs{width:calc(100vw - 20px)}
+  .sidebar{width:150px}
+  .dlg-places{display:none}
+  .lx-grid{grid-template-columns:repeat(auto-fill,minmax(76px,1fr))}
+}
+@media (max-height:520px){.lk-time{font-size:56px}.lk-date{margin-bottom:16px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+@media print{#taskbar,#launcher,#cc,#notif-panel{display:none}}

@@ -1,0 +1,67 @@
+/* taskbar */
+#taskbar{position:fixed;left:0;right:0;bottom:0;height:var(--taskbar-h);z-index:5000;display:flex;align-items:center;gap:8px;padding:0 10px;background:var(--surface);backdrop-filter:var(--glass);-webkit-backdrop-filter:var(--glass);border-top:1px solid var(--border)}
+body.tb-top #taskbar{bottom:auto;top:0;border-top:none;border-bottom:1px solid var(--border)}
+.tb-left,.tb-right{display:flex;align-items:center;gap:4px}.tb-apps{flex:1;display:flex;align-items:center;justify-content:center;gap:4px;min-width:0;overflow:hidden}
+.tb-start,.tb-search,.tb-app,.tb-tray,.tb-clock{height:42px;border-radius:10px;display:flex;align-items:center;justify-content:center;transition:background .15s,transform .15s var(--ease);position:relative}
+.tb-start,.tb-search,.tb-app{width:44px}.tb-start:hover,.tb-search:hover,.tb-app:hover,.tb-tray:hover,.tb-clock:hover{background:var(--surface-3)}
+.tb-app:active,.tb-start:active{transform:scale(.92)}
+.tb-app.running::after{content:'';position:absolute;bottom:3px;width:6px;height:3px;border-radius:3px;background:var(--text-faint);transition:all .2s}
+.tb-app.focused::after{width:16px;background:var(--accent);box-shadow:0 0 8px var(--accent-glow)}.tb-app.focused{background:var(--surface-2)}
+.tb-count{position:absolute;top:2px;right:2px;font-size:9px;background:var(--accent);color:var(--accent-fg);border-radius:8px;padding:0 4px;font-weight:700}
+.tb-tray{gap:10px;padding:0 12px}.tray-ico{display:inline-flex;align-items:center;gap:5px;font-size:12px;color:var(--text)}.tray-ico.off{opacity:.4}.tray-ico.low{color:var(--danger)}.tray-ico.dnd{color:var(--warning)}
+.tb-clock{gap:8px;padding:0 10px;text-align:right}.tb-time{font-size:13.5px;font-weight:600;line-height:1.15}.tb-date{font-size:11px;color:var(--text-muted);line-height:1.15}
+.tb-showdesk{width:8px;height:42px;border-left:1px solid var(--border);margin-left:4px}.tb-showdesk:hover{background:var(--surface-3)}
+
+/* ===== Leonux OS 2.2 — global menubar (layout: dock+menubar) ===== */
+#menubar{position:fixed;top:0;left:0;right:0;height:30px;z-index:5500;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 6px;font-size:13px;
+  background:rgba(12,14,22,.5);backdrop-filter:blur(34px) saturate(190%);-webkit-backdrop-filter:blur(34px) saturate(190%);border-bottom:1px solid var(--border);box-shadow:0 1px 0 rgba(255,255,255,.03) inset;transition:transform .32s var(--ease),background .3s;user-select:none}
+[data-theme=light] #menubar{background:rgba(248,250,254,.58)}
+.mb-left,.mb-right{display:flex;align-items:center;gap:1px;min-width:0}
+.mb-left{flex:1;overflow:hidden}.mb-right{flex-shrink:0}
+.mb-btn{height:24px;padding:0 9px;border-radius:7px;display:inline-flex;align-items:center;gap:6px;color:var(--text);white-space:nowrap;font-size:13px;transition:background .12s}
+.mb-btn:hover{background:var(--surface-3)}.mb-btn.open,.mb-btn:active{background:rgba(var(--accent-rgb),.32)}
+.mb-logo{padding:0 8px}.mb-logo .logo-mark{width:15px;height:15px;box-shadow:0 0 10px var(--accent-glow)}.mb-logo .logo-mark::after{inset:4px}
+.mb-appname{font-weight:700;padding:0 10px}
+.mb-appname:is(span){display:inline-flex;align-items:center;height:24px;padding:0 10px}
+.mb-menu{color:var(--text)}.mb-menu.faint{opacity:.92}
+.mb-status{padding:0 7px}.mb-status.off{opacity:.4}.mb-status.low{color:var(--danger)}.mb-batt span{font-size:12px;font-variant-numeric:tabular-nums}
+.mb-focus{background:rgba(var(--accent-rgb),.22);color:var(--text);font-size:12px;padding:0 9px}.mb-focus span{font-weight:600}
+.mb-space span{font-size:12px;font-weight:600}
+.mb-clock{padding:0 10px;font-weight:500;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+body:not(.has-mb) #menubar{display:none}
+body.fs-mode #menubar{transform:translateY(-100%)}body.fs-mode #menubar.reveal{transform:none}
+body.has-mb .win-menubar.hidden{display:none}
+body.menus-global .win-menubar{display:none!important}
+@media(max-width:768px){body.menus-global .win-menubar:not(.hidden){display:flex!important}#menubar .mb-menu,#menubar .mb-space,#menubar .mb-appname~.mb-btn{display:none}.mb-clock{padding:0 6px}}
+@media(max-width:560px){#menubar .mb-status:not(.mb-batt):not(:last-of-type){display:none}}
+/* calendar popover (menubar clock) */
+#cal-panel{top:calc(var(--mb-h) + 8px);right:8px;width:min(320px,calc(100vw - 16px));padding:16px 18px 14px;border-radius:18px;transform-origin:top right}
+#cal-panel:not(.open){transform:translateY(-10px) scale(.96)}
+.cp-big{font-size:34px;font-weight:200;letter-spacing:-.02em;line-height:1}.cp-sub{font-size:12.5px;color:var(--text-muted);margin:6px 0 12px}
+.cp-foot{display:flex;justify-content:space-between;margin-top:10px;padding-top:10px;border-top:1px solid var(--border)}
+#cal-panel .cal-day.dim{color:var(--text-faint)}
+/* dock sits alone when the menubar owns the tray + clock */
+.tb-sep,.tb-trash{display:none}
+body.dock .tb-sep{display:block;width:1px;height:34px;background:var(--border-strong);margin:0 7px;flex-shrink:0}
+body.dock .tb-trash{display:flex}
+body.has-mb #taskbar{width:auto;max-width:94vw;gap:4px;padding:0 12px}
+body.has-mb .tb-right,body.has-mb .tb-search{display:none}
+body.has-mb .tb-apps{flex:none;overflow:visible;max-width:calc(94vw - 90px);justify-content:flex-start}
+body.dock .tb-app{width:var(--dock-icon);height:var(--dock-icon)}
+body.dock #taskbar{transition:transform .38s var(--ease),opacity .3s}
+body.dock-hide #taskbar{transform:translate(-50%,calc(100% + 24px));opacity:.0}
+body.dock-hide #taskbar.reveal{transform:translateX(-50%);opacity:1}
+body.fs-mode #taskbar{transform:translate(-50%,calc(100% + 30px));opacity:0;pointer-events:none}
+body.fs-mode:not(.dock) #taskbar{transform:translateY(100%)}
+/* panels drop from the menubar */
+body.has-mb #cc,body.has-mb #notif-panel{bottom:auto;top:calc(var(--mb-h) + 8px);right:8px;transform-origin:top right}
+body.has-mb #cc:not(.open),body.has-mb #notif-panel:not(.open){transform:translateY(-10px) scale(.96)}
+body.has-mb #notif-panel{height:min(640px,calc(100vh - var(--mb-h) - 20px))}
+body.has-mb #notifs{top:calc(var(--mb-h) + 10px)}
+body.has-mb #desktop-icons{top:var(--mb-h);bottom:0}
+body.has-mb #widgets{top:calc(var(--mb-h) + 18px)}
+
+/* Calendar popover header (menubar clock) */
+#cal-panel .cp-head{padding:4px 6px 10px;display:flex;flex-direction:column;gap:2px}
+#cal-panel .cp-big{font-size:28px;font-weight:300;line-height:1.1}
+#cal-panel .cp-sub{font-size:12.5px;color:var(--text-muted)}

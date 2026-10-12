@@ -1,0 +1,152 @@
+/* Leonux OS 2 — App Store (ast-*) */
+.ast-side{width:216px}
+.ast-brand{display:flex;align-items:center;gap:10px;padding:10px 12px 14px;font-size:16px}
+.ast-brand-ico{display:grid;place-items:center;width:34px;height:34px;border-radius:10px;background:linear-gradient(140deg,#FAB387,#F28B82);color:#fff}
+.ast-cat{font-size:13px}
+.ast-nbadge{background:var(--danger);color:#fff}
+.ast-side-foot{margin-top:auto;padding:12px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:4px}
+.ast-main{flex:1;min-width:0;display:flex;flex-direction:column}
+.ast-scroll{flex:1;min-height:0;overflow:auto;padding:18px 22px}
+.ast-search{width:min(420px,50vw)}
+.ast-sec{margin-bottom:26px}
+.ast-sec-t{font-size:17px;font-weight:800;margin:0 0 12px}
+/* hero carousel */
+.ast-hero-wrap{margin-bottom:18px}
+.ast-hero{position:relative;border-radius:20px;min-height:190px;display:flex;align-items:center;gap:18px;padding:24px 30px;overflow:hidden;color:#fff;box-shadow:0 24px 60px -24px rgba(0,0,0,.7)}
+.ast-hero.hidden{display:none}
+.ast-hero-txt{position:relative;z-index:1;display:flex;flex-direction:column;gap:6px;max-width:60%}
+.ast-hero-kicker{font-size:10.5px;font-weight:800;letter-spacing:.14em;opacity:.85}
+.ast-hero h2{margin:0;font-size:30px;letter-spacing:-.5px}
+.ast-hero p{margin:0 0 10px;font-size:13.5px;opacity:.92}
+.ast-ico{display:grid;place-items:center;flex-shrink:0;width:46px;height:46px;border-radius:13px;color:#fff;box-shadow:0 8px 22px -8px rgba(0,0,0,.55)}
+.ast-ico.big{width:76px;height:76px;border-radius:22px}
+.ast-hero .ast-ico.big{margin-left:auto;transform:scale(1.25) rotate(4deg)}
+.ast-hero-dots{display:flex;gap:7px;justify-content:center;margin-bottom:22px}
+.ast-hero-dots button{width:8px;height:8px;padding:0;border:none;border-radius:50%;background:var(--surface-3);cursor:pointer;transition:all .2s}
+.ast-hero-dots button.on{width:24px;border-radius:5px;background:var(--accent)}
+/* grids & cards */
+.ast-hgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.ast-card{display:flex;gap:12px;align-items:center;text-align:left;padding:14px;cursor:pointer;transition:transform .15s var(--ease),border-color .15s}
+.ast-card:hover{transform:translateY(-2px);border-color:rgba(var(--accent-rgb),.45)}
+.ast-info{flex:1;min-width:0}
+.ast-name{font-weight:700;font-size:13.5px}
+.ast-desc{font-size:11.5px;color:var(--text-muted);margin:2px 0 4px}
+.ast-stars{display:flex;align-items:center;gap:6px;font-size:12px}
+.ast-stars b{color:var(--warning)}
+.ast-star-txt{color:var(--warning);letter-spacing:1px}
+.ast-stars.sm{font-size:11px;flex-direction:column;align-items:flex-start;gap:1px}
+.ast-card-act{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+/* chart rows */
+.ast-rows{display:flex;flex-direction:column;gap:4px}
+.ast-chrow{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;cursor:pointer;transition:background .12s}
+.ast-chrow:hover{background:var(--surface-2)}
+.ast-rank{width:22px;text-align:center;font-weight:800;color:var(--text-faint);font-size:13px}
+.ast-chrow .ast-name{font-size:13.5px}
+.ast-chrow .ast-desc{font-size:11px}
+.ast-updrow{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+/* category cards */
+.ast-catcard{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:18px;border-radius:16px;background:var(--surface-2);border:1px solid var(--border);cursor:pointer;transition:all .15s var(--ease)}
+.ast-catcard:hover{transform:translateY(-3px);border-color:rgba(var(--accent-rgb),.5);box-shadow:0 14px 34px -18px rgba(0,0,0,.7)}
+.ast-catcard b{font-size:14px}
+.ast-catcard small{font-size:11.5px}
+.ast-foot-note{font-size:12px;line-height:1.6;max-width:520px}
+/* progress install widget */
+.ast-act{display:flex;align-items:center;gap:8px}
+.ast-prog{display:flex;align-items:center;gap:8px;min-width:150px}
+.ast-prog .progress{flex:1;min-width:90px}
+.ast-prog-t{font-size:11px;min-width:86px}
+/* detail */
+.ast-detail-head{display:flex;gap:16px;align-items:center;padding-bottom:16px}
+.ast-d-name{margin:0;font-size:24px}
+.ast-d-act{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.ast-back{margin-bottom:14px}
+.ast-shots{display:flex;gap:12px;overflow:auto;padding:4px 2px 12px}
+.ast-shot{flex:0 0 300px;height:190px;border-radius:16px;border:1px solid var(--border);position:relative;overflow:hidden}
+.ast-shot-ui{position:absolute;inset:14px;display:flex;gap:10px}
+.ast-shot-side{flex:0 0 44px;border-radius:10px;background:rgba(0,0,0,.22)}
+.ast-shot-main{flex:1;display:flex;flex-direction:column;gap:9px;padding-top:6px}
+.ast-shot-bar{height:14px;border-radius:7px;background:rgba(255,255,255,.35)}
+.ast-shot-bar.thin{height:9px;width:70%}
+.ast-shot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;flex:1}
+.ast-shot-grid span{background:rgba(255,255,255,.22);border-radius:8px}
+.ast-shot-ico{position:absolute;right:18px;bottom:18px;color:rgba(255,255,255,.9);filter:drop-shadow(0 4px 10px rgba(0,0,0,.4))}
+.ast-cols{display:grid;grid-template-columns:1.2fr .9fr;gap:26px;margin-top:8px}
+.ast-col h3{font-size:15px;margin:0 0 10px}
+.ast-long{font-size:13.5px;line-height:1.65;color:var(--text)}
+.ast-review{padding:12px;border-radius:12px;background:var(--surface-2);margin-bottom:10px}
+.ast-rv-head{display:flex;align-items:center;gap:9px;margin-bottom:6px;font-size:13px}
+.ast-rv-av{width:26px;height:26px;border-radius:50%;background:linear-gradient(140deg,var(--accent),rgba(var(--accent-rgb),.5));display:grid;place-items:center;font-size:12px;font-weight:800;color:var(--accent-fg)}
+.ast-info-tbl{display:flex;flex-direction:column;gap:1px;border-radius:12px;overflow:hidden;border:1px solid var(--border)}
+.ast-irow{display:flex;justify-content:space-between;gap:14px;padding:9px 12px;font-size:12.5px;background:var(--surface-2)}
+.ast-irow+.ast-irow{border-top:1px solid var(--border)}
+.ast-empty{display:flex;flex-direction:column;align-items:center;padding:60px;color:var(--text-muted);font-size:13px}
+.ast-empty svg{opacity:.5}
+@media(max-width:720px){.ast-cols{grid-template-columns:1fr}.ast-shot{flex:0 0 240px;height:160px}.ast-hero h2{font-size:22px}.ast-hero{min-height:150px;padding:18px}}
+
+/* ===== App Store 3.0 — live repositories, themes, widgets, sound packs ===== */
+.ast-grp{font-size:10.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--text-muted);padding:14px 12px 5px;font-weight:700}
+.spin{animation:spin360 1s linear infinite}
+@keyframes spin360{to{transform:rotate(360deg)}}
+.ast-cta{display:flex;align-items:center;gap:14px;padding:14px 16px;margin-bottom:18px;cursor:pointer}
+.ast-cta:hover{border-color:var(--accent)}
+.ast-cta-ico{width:46px;height:46px;border-radius:13px;display:grid;place-items:center;background:rgba(var(--accent-rgb),.14);color:var(--accent);flex:0 0 auto}
+.ast-cta b{font-size:14.5px}
+.ast-chiprow{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.ast-repo-chip{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;padding:2.5px 8px;border-radius:999px;background:rgba(126,231,135,.1);color:#7EE787;border:1px solid rgba(126,231,135,.22);vertical-align:middle;cursor:default}
+.ast-card .ast-repo-chip{cursor:default}
+.ast-live-dot{width:6px;height:6px;border-radius:50%;background:#7EE787;box-shadow:0 0 6px #7EE787;animation:pulse-dot 2.2s ease-in-out infinite;flex:0 0 auto}
+@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.35}}
+.ast-live-badge{background:rgba(126,231,135,.14);color:#7EE787;border-color:rgba(126,231,135,.3)}
+/* themes */
+.scroll-x{overflow-x:auto;padding-bottom:6px}
+.ast-themerow{display:flex;gap:12px}
+.ast-themerow .ast-themecard{flex:0 0 158px}
+.ast-themegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.ast-themecard{border-radius:14px;border:1px solid var(--border);overflow:hidden;cursor:pointer;background:var(--surface-2);transition:transform .18s,border-color .18s}
+.ast-themecard:hover{transform:translateY(-3px);border-color:var(--accent)}
+.ast-themecard-prev{height:104px;position:relative;background-size:cover}
+.ast-mode-chip{position:absolute;top:8px;right:8px;background:rgba(0,0,0,.5);color:#fff;font-size:10.5px;padding:3px 8px;border-radius:999px;backdrop-filter:blur(6px)}
+.ast-accent-dot{position:absolute;bottom:8px;right:8px;width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.75);box-shadow:0 2px 8px rgba(0,0,0,.4)}
+.ast-accent-dot.big{width:30px;height:30px}
+.ast-themecard-txt{padding:9px 11px 10px;display:flex;flex-direction:column;gap:2px;font-size:12px}
+.ast-themecard-txt b{white-space:normal}
+.ast-theme-hero{height:230px;border-radius:16px;border:1px solid var(--border);margin-bottom:14px;position:relative;background-size:cover;box-shadow:inset 0 -40px 60px -30px rgba(0,0,0,.45)}
+/* widget preview + frames */
+.ast-wprev{padding:12px;margin-bottom:14px}
+.dyn-body{padding:0 !important}
+.dyn-frame{position:absolute;inset:0;width:100%;height:100%;border:0;background:transparent;color-scheme:light dark}
+.wg-dyn{padding:0;overflow:hidden;display:flex}
+.dyn-wframe{width:100%;border:0;background:transparent;flex:1}
+/* sound packs */
+.ast-sndcard{padding:14px;margin-bottom:14px}
+.ast-sndlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px}
+.ast-sndrow{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:10px;background:var(--surface-3);border:1px solid var(--border);color:var(--text);font-size:12.5px;cursor:pointer;transition:border-color .15s,transform .15s}
+.ast-sndrow:hover{border-color:var(--accent);transform:translateY(-1px)}
+.ast-sndrow svg{color:var(--accent)}
+/* sources */
+.ast-src-add{padding:16px;margin:2px 0 16px}
+.ast-add-msg{font-size:12.5px;margin-top:9px;min-height:16px}
+.ast-add-msg.ok{color:#7EE787}
+.ast-add-msg.err{color:var(--danger,#F28B82)}
+.ast-srclist{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.ast-repo{display:flex;gap:13px;align-items:center;padding:13px 15px}
+.ast-repo.err{border-color:rgba(242,139,130,.4)}
+.ast-repo-ico{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;color:#fff;font-weight:800;font-size:19px;flex:0 0 auto;text-shadow:0 2px 6px rgba(0,0,0,.3)}
+.ast-repo-act{display:flex;gap:6px;flex:0 0 auto}
+.ast-howto{padding:16px 18px}
+.ast-howto ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px;font-size:13px;line-height:1.55;color:var(--text-muted)}
+.ast-howto b{color:var(--text)}
+.ast-howto code{background:var(--surface-3);border:1px solid var(--border);padding:1px 6px;border-radius:6px;font-size:12px;color:var(--accent)}
+.ast-empty-act{display:flex;justify-content:center;margin-top:-30px;padding-bottom:20px}
+.row.gap-s{gap:6px;align-items:center}
+
+/* --- multi-file ZIP app chips (v2.2) --- */
+.ast-zip-chip{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:700;letter-spacing:.03em;padding:2.5px 7px;border-radius:999px;background:rgba(91,157,250,.12);color:#8AB8FA;border:1px solid rgba(91,157,250,.28);vertical-align:middle;cursor:default;text-transform:uppercase;white-space:nowrap}
+.ast-card{position:relative}
+.ast-card .ast-zip-chip{position:absolute;top:8px;right:8px;z-index:2;background:rgba(16,22,34,.92)}
+.ast-chrow .ast-zip-chip{background:rgba(91,157,250,.14);color:#8AB8FA;border-color:rgba(91,157,250,.3)}
+.ast-zip-hero{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.06em;padding:3px 9px;border-radius:999px;background:rgba(91,157,250,.16);color:#9CC7FF;border:1px solid rgba(91,157,250,.35);margin-bottom:8px}
+.ast-filetree{margin:10px 0 0;padding:12px 14px;border-radius:12px;background:var(--surface-2);border:1px solid var(--border);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;line-height:1.8;color:var(--text-2);max-height:220px;overflow:auto}
+.ast-filetree b{color:var(--text-1)}
+.ast-filetree .dir{color:#8AB8FA;font-weight:700}
+.ast-filetree .sz{float:right;color:var(--text-3);font-size:10.5px}

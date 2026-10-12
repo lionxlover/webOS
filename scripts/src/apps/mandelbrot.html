@@ -1,0 +1,22 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mandelbrot</title><style><!--BASE-->
+.wrap{padding:10px;gap:8px}canvas{border-radius:8px;cursor:zoom-in;width:100%;flex:1;min-height:0;image-rendering:auto}
+</style></head><body><div class="wrap">
+<div class="bar"><select id="mode"><option value="m">Mandelbrot</option><option value="j">Julia</option></select><select id="pal"><option value="0">Fire</option><option value="1">Ocean</option><option value="2">Neon</option><option value="3">Mono</option></select>
+<label>Iterations <input type="range" id="it" min="40" max="800" value="200"></label><button id="reset">Reset view</button><button id="back">Zoom out</button><span class="muted" id="inf"></span></div>
+<canvas id="c"></canvas><div class="muted">Click to zoom in · drag to pan · wheel to zoom</div>
+</div><script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s);let cx=-.6,cy=0,sc=3.2,job=0,jc=[-.8,.156];
+function col(i,max,p){if(i>=max)return[0,0,0];const t=i/48;const f=[(t)=>[255*Math.min(1,t*2),255*Math.max(0,t*1.4-.4),255*Math.max(0,t-.8)*4],(t)=>[40*t*5,150+90*Math.sin(t*3),255],(t)=>[128+127*Math.sin(t*6),128+127*Math.sin(t*6+2.1),128+127*Math.sin(t*6+4.2)],(t)=>{const v=255*(.5+.5*Math.sin(t*5));return[v,v,v]}][p];
+ return f(Math.min(t%1+ (p>=2?t:0),p>=2?99:1)).map(v=>Math.max(0,Math.min(255,v)))}
+function render(){const id=++job,w=cv.width=Math.max(120,cv.clientWidth/2|0),h=cv.height=Math.max(80,cv.clientHeight/2|0);const img=x.createImageData(w,h),max=+$('#it').value,p=+$('#pal').value,jl=$('#mode').value==='j',asp=h/w;let y=0;
+ const chunk=()=>{if(id!==job)return;const end=Math.min(h,y+12);for(;y<end;y++)for(let i=0;i<w;i++){let re=cx+(i/w-.5)*sc,im=cy+(y/h-.5)*sc*asp,a,b;if(jl){a=re;b=im;re=jc[0];im=jc[1]}else{a=b=0}let k=0,a2=0,b2=0;if(jl){a2=a*a;b2=b*b}
+  while(k<max&&a2+b2<4){const t=jl?a*a-b*b+re:a2-b2+re;b=2*a*b+im;a=t;a2=a*a;b2=b*b;k++}const c=col(k,max,p),o=(y*w+i)*4;img.data[o]=c[0];img.data[o+1]=c[1];img.data[o+2]=c[2];img.data[o+3]=255}
+  x.putImageData(img,0,0);if(y<h)setTimeout(chunk,0);else $('#inf').textContent='zoom ×'+(3.2/sc).toFixed(sc<1e-3?0:1)};chunk()}
+function at(e){const r=cv.getBoundingClientRect(),asp=r.height/r.width;return[cx+((e.clientX-r.left)/r.width-.5)*sc,cy+((e.clientY-r.top)/r.height-.5)*sc*asp]}
+let d=null;cv.onpointerdown=e=>{d={x:e.clientX,y:e.clientY,cx,cy,m:false};cv.setPointerCapture(e.pointerId)};
+cv.onpointermove=e=>{if(!d)return;const dx=e.clientX-d.x,dy=e.clientY-d.y;if(Math.abs(dx)+Math.abs(dy)>5)d.m=true;if(d.m){const r=cv.getBoundingClientRect();cx=d.cx-dx/r.width*sc;cy=d.cy-dy/r.width*sc;render()}};
+cv.onpointerup=e=>{if(d&&!d.m){const[a,b]=at(e);cx=a;cy=b;sc/=2.5;render()}d=null};
+cv.onwheel=e=>{e.preventDefault();const[a,b]=at(e);const f=e.deltaY<0?.6:1.6;cx=a+(cx-a)*f;cy=b+(cy-b)*f;sc*=f;render()};
+$('#reset').onclick=()=>{cx=$('#mode').value==='j'?0:-.6;cy=0;sc=3.2;render()};$('#back').onclick=()=>{sc*=2.5;render()};['mode','pal','it'].forEach(i=>$('#'+i).onchange=()=>{if(i==='mode'){cx=$('#mode').value==='j'?0:-.6;cy=0;sc=3.2}render()});
+addEventListener('resize',()=>render());render();
+</script></body></html>

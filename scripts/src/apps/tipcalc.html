@@ -1,0 +1,21 @@
+<!--HEAD:Tip & Split--><!--BASE-->
+.wrap{justify-content:center}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;width:100%;max-width:380px;display:flex;flex-direction:column;gap:12px}
+.pcts{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.pcts .on{background:var(--ac);color:#0b1020;font-weight:700}
+.line{display:flex;justify-content:space-between;align-items:center}.stepper{display:flex;align-items:center;gap:10px}.stepper b{min-width:22px;text-align:center}
+.res{background:rgba(0,0,0,.25);border-radius:12px;padding:12px}.res .line{padding:3px 0;font-size:13px}.res .tot{font-size:22px;color:var(--ac);font-weight:800;border-top:1px solid var(--line);margin-top:6px;padding-top:8px}
+</style></head><body><div class="wrap"><div class="card">
+<h1>Tip &amp; <span>Split</span></h1>
+<div class="line"><label>Bill</label><input type="number" id="b" value="86.50" step="0.01" min="0" style="width:120px;text-align:right"></div>
+<label>Tip</label><div class="pcts" id="p"></div>
+<div class="line"><label>Custom %</label><input type="number" id="cp" value="18" min="0" max="100" style="width:80px;text-align:right"></div>
+<div class="line"><label>People</label><div class="stepper"><button id="mi">&minus;</button><b id="n">2</b><button id="pl">+</button></div></div>
+<label class="line"><span>Round up per person</span><input type="checkbox" id="ru"></label>
+<div class="res"><div class="line"><span>Tip</span><b id="t"></b></div><div class="line"><span>Total</span><b id="to"></b></div><div class="line tot"><span>Each pays</span><b id="e"></b></div></div>
+</div></div><script>
+const $=s=>document.querySelector(s);let pct=18,n=2;
+[10,15,18,20].forEach(v=>{const b=document.createElement('button');b.textContent=v+'%';b.onclick=()=>{pct=v;$('#cp').value=v;calc()};$('#p').appendChild(b)});
+function calc(){const bill=+$('#b').value||0;pct=+$('#cp').value||0;const tip=bill*pct/100;let tot=bill+tip,each=tot/n;if($('#ru').checked){each=Math.ceil(each);tot=each*n}
+ $('#t').textContent=tip.toFixed(2);$('#to').textContent=tot.toFixed(2);$('#e').textContent=each.toFixed(2);$('#n').textContent=n;
+ [...$('#p').children].forEach(b=>b.className=parseInt(b.textContent)==pct?'on':'')}
+$('#mi').onclick=()=>{n=Math.max(1,n-1);calc()};$('#pl').onclick=()=>{n=Math.min(50,n+1);calc()};['#b','#cp','#ru'].forEach(s=>$(s).oninput=calc);calc();
+</script></body></html>

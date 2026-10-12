@@ -1,0 +1,22 @@
+{
+  "id": "reaction",
+  "type": "app",
+  "name": "Reaction Timer",
+  "version": "1.2.0",
+  "category": "Utilities",
+  "icon": "⚡",
+  "color": "#F6C177",
+  "desc": "Measure your reflexes in milliseconds",
+  "long": "The classic reaction test: wait for green, tap as fast as you can. Tracks your last, best and rolling 5-run average, and ranks you from Zen master to Cheetah tier. Watch out for the too-early trap!",
+  "changelog": "Rolling average and rank titles",
+  "developer": "Leonux Community",
+  "permissions": [
+    "Runs offline",
+    "Sandboxed"
+  ],
+  "window": {
+    "width": 460,
+    "height": 520
+  },
+  "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Reaction Timer</title>\n<style>\n*{box-sizing:border-box;margin:0}\nbody{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;user-select:none;padding:16px;cursor:pointer;transition:background .12s;color:#fff}\nbody{background:#1a1d29}\nbody.wait{background:#8b1d2f}\nbody.go{background:#1f7a4d}\nbody.early{background:#5b2a8b}\nh1{font-size:17px}\n.stage{flex:1;display:grid;place-items:center;text-align:center}\n.big{font-size:34px;font-weight:800;letter-spacing:.5px}\n.sub{font-size:14px;opacity:.75;margin-top:10px;font-weight:600}\n.stats{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;padding:10px 0 4px}\n.stats div{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 14px;font-size:11px;font-weight:700;opacity:.9;text-align:center;min-width:70px}\n.stats b{display:block;font-size:17px}\n</style></head><body class=\"idle\">\n<h1>⚡ Reaction Timer</h1>\n<div class=\"stage\"><div><div class=\"big\" id=\"big\">Tap to start</div><div class=\"sub\" id=\"sub\">Measures your reflexes in milliseconds</div></div></div>\n<div class=\"stats\">\n  <div>LAST<b id=\"last\">—</b></div>\n  <div>BEST<b id=\"best\">—</b></div>\n  <div>AVG·5<b id=\"avg\">—</b></div>\n  <div>RUNS<b id=\"runs\">0</b></div>\n</div>\n<script>\n'use strict';\nvar S={IDLE:0,WAIT:1,GO:2,RESULT:3,EARLY:4},state=S.IDLE,t0,runs=[],bestN=null,timeout;\nvar body=document.body,big=document.getElementById('big'),sub=document.getElementById('sub');\nfunction set(cls,b,s){body.className=cls;big.textContent=b;sub.textContent=s;}\nfunction press(){\n  if(state===S.IDLE||state===S.RESULT||state===S.EARLY){\n    state=S.WAIT;set('wait','Wait for green…','Tap as soon as the screen turns green');\n    timeout=setTimeout(function(){state=S.GO;t0=performance.now();set('go','TAP NOW!','');},900+Math.random()*2600);\n  }else if(state===S.WAIT){\n    clearTimeout(timeout);state=S.EARLY;set('early','Too early! 😅','Tap to try again');\n  }else if(state===S.GO){\n    var ms=Math.round(performance.now()-t0);runs.push(ms);\n    if(bestN===null||ms<bestN)bestN=ms;\n    state=S.RESULT;set('idle',ms+' ms',rank(ms)+' · tap for another round');\n    document.getElementById('last').textContent=ms+'ms';\n    document.getElementById('best').textContent=bestN+'ms';\n    var last5=runs.slice(-5);\n    document.getElementById('avg').textContent=Math.round(last5.reduce(function(a,b){return a+b},0)/last5.length)+'ms';\n    document.getElementById('runs').textContent=runs.length;\n  }\n}\nfunction rank(ms){\n  if(ms<180)return '🐆 Cheetah tier — elite reflexes!';\n  if(ms<230)return '⚡ Excellent — well above average';\n  if(ms<290)return '👍 Solid human average territory';\n  if(ms<380)return '☕ Decent — maybe skip the coffee';\n  return '🐢 Zen master mode — very relaxed';\n}\nbody.addEventListener('pointerdown',press);\nbody.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter')press();});\n</script></body></html>\n"
+}

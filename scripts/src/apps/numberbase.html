@@ -1,0 +1,20 @@
+<!--HEAD:Base Converter--><!--BASE-->
+.wrap{align-items:stretch;max-width:520px;margin:auto}.g{display:grid;grid-template-columns:90px 1fr;gap:8px;align-items:center}.g input{font-family:ui-monospace,Menlo,monospace;font-size:15px}.g input.bad{border-color:#ef4444}
+.bits button{padding:6px 0;font:12px ui-monospace,monospace}.bits .on{background:var(--ac);color:#0b1020}
+.grp{display:grid;grid-template-columns:repeat(16,1fr);gap:3px}.bits button{width:auto}
+</style></head><body><div class="wrap">
+<h1>Base <span>Converter</span></h1>
+<div class="g"><label>Decimal</label><input id="d" inputmode="numeric"><label>Binary</label><input id="b"><label>Octal</label><input id="o"><label>Hex</label><input id="h"><label>Base <input id="cb" type="number" min="2" max="36" value="5" style="width:60px"></label><input id="cv"></div>
+<div class="muted" style="text-align:center">Toggle bits (32-bit, click to flip)</div><div class="grp bits" id="bt"></div>
+<div class="muted" id="m" style="text-align:center"></div>
+</div><script>
+const $=s=>document.querySelector(s),F=[['d',10],['b',2],['o',8],['h',16]];let val=0n;
+const valid=(s,b)=>{s=s.trim().toLowerCase();if(!s)return null;for(const c of s){const v=parseInt(c,36);if(isNaN(v)||v>=b)return false}return true};
+function parse(s,b){let r=0n;for(const c of s.trim().toLowerCase())r=r*BigInt(b)+BigInt(parseInt(c,36));return r}
+function show(skip){F.forEach(([id,b])=>{if(id!=skip)$('#'+id).value=val.toString(b).toUpperCase();$('#'+id).className=''});const cb=+$('#cb').value||5;if(skip!='cv')$('#cv').value=val.toString(Math.min(36,Math.max(2,cb))).toUpperCase();
+ const v=Number(val&0xFFFFFFFFn);document.querySelectorAll('#bt button').forEach(b=>{const on=(v>>>(31-b.dataset.i))&1;b.className=on?'on':'';b.textContent=on});$('#m').textContent=val>0xFFFFFFFFn?'Value exceeds 32 bits':'ASCII: '+(val>31n&&val<127n?String.fromCharCode(Number(val)):'(non-printable)')}
+F.forEach(([id,b])=>{$('#'+id).oninput=e=>{const s=e.target.value,v=valid(s,b);e.target.className=v===false?'bad':'';if(v){val=parse(s,b);show(id)}else if(v===null){val=0n;show(id)}}});
+$('#cv').oninput=e=>{const b=+$('#cb').value||5,v=valid(e.target.value,b);e.target.className=v===false?'bad':'';if(v){val=parse(e.target.value,b);show('cv')}};$('#cb').oninput=()=>show();
+for(let i=0;i<32;i++){const b=document.createElement('button');b.textContent=0;b.dataset.i=i;b.onclick=()=>{val=(val&0xFFFFFFFFn)^(1n<<BigInt(31-i));show()};$('#bt').appendChild(b);}
+val=2026n;show();
+</script></body></html>

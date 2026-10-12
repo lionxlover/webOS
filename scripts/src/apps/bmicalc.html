@@ -1,0 +1,24 @@
+<!--HEAD:BMI Calculator--><!--BASE-->
+.wrap{justify-content:center}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;width:100%;max-width:400px;display:flex;flex-direction:column;gap:12px}
+.seg{display:flex;gap:6px}.seg button{flex:1}.seg .on{background:var(--ac);color:#0b1020;font-weight:700}
+.in{display:flex;gap:8px;align-items:center}.in input{flex:1;min-width:0}
+.scale{position:relative;height:14px;border-radius:7px;background:linear-gradient(90deg,#4f8cff 0 18%,#7EE787 18% 45%,#f5c542 45% 62%,#f97316 62% 80%,#ef4444 80%)}.scale i{position:absolute;top:-4px;width:4px;height:22px;background:#fff;border-radius:2px;transition:left .3s}
+#bmi{font-size:44px;font-weight:800;text-align:center;color:var(--ac)}#cat{text-align:center;font-size:14px}
+</style></head><body><div class="wrap"><div class="card">
+<h1>BMI <span>Calculator</span></h1>
+<div class="seg"><button id="m" class="on">Metric</button><button id="i">Imperial</button></div>
+<div class="in"><label id="l1" style="width:70px">Height cm</label><input type="number" id="h" value="172"><input type="number" id="h2" value="0" style="display:none"></div>
+<div class="in"><label id="l2" style="width:70px">Weight kg</label><input type="number" id="w" value="68"></div>
+<div id="bmi">--</div><div id="cat" class="muted"></div><div class="scale"><i id="pin"></i></div>
+<div class="muted" id="rng"></div><div class="muted">For adults only. BMI is a rough screening tool, not a diagnosis.</div>
+</div></div><script>
+const $=s=>document.querySelector(s);let imp=false;
+function mode(v){imp=v;$('#m').className=v?'':'on';$('#i').className=v?'on':'';$('#l1').textContent=v?'Height ft / in':'Height cm';$('#l2').textContent=v?'Weight lb':'Weight kg';$('#h2').style.display=v?'':'none';
+ if(v){$('#h').value=5;$('#h2').value=8;$('#w').value=150}else{$('#h').value=172;$('#w').value=68}calc()}
+function calc(){let h=+$('#h').value,w=+$('#w').value;if(imp){h=(h*12+(+$('#h2').value||0))*2.54;w*=0.45359237}
+ if(h<=0||w<=0){$('#bmi').textContent='--';return}const m=h/100,b=w/(m*m);$('#bmi').textContent=b.toFixed(1);
+ const c=b<18.5?'Underweight':b<25?'Healthy weight':b<30?'Overweight':'Obese';$('#cat').textContent=c;
+ $('#pin').style.left=Math.max(0,Math.min(97,(b-12)/(40-12)*100))+'%';
+ const lo=18.5*m*m,hi=24.9*m*m;$('#rng').textContent='Healthy range for your height: '+(imp?(lo/.45359237).toFixed(0)+'–'+(hi/.45359237).toFixed(0)+' lb':lo.toFixed(1)+'–'+hi.toFixed(1)+' kg')}
+$('#m').onclick=()=>mode(false);$('#i').onclick=()=>mode(true);['#h','#h2','#w'].forEach(s=>$(s).oninput=calc);calc();
+</script></body></html>

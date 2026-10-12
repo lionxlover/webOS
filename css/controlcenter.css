@@ -1,0 +1,23 @@
+/* control centre */
+#cc{right:10px;bottom:calc(var(--taskbar-h) + 10px);width:min(370px,calc(100vw - 20px));padding:18px;display:flex;flex-direction:column;gap:16px}
+body.tb-top #cc{bottom:auto;top:calc(var(--taskbar-h) + 10px)}
+.cc-head{display:flex;justify-content:space-between;align-items:center}.cc-time{font-size:22px;font-weight:600}.cc-user{font-size:12.5px;color:var(--text-muted)}.cc-head-btns{display:flex;gap:2px}
+.cc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cc-tile{display:flex;align-items:center;gap:11px;padding:12px;border-radius:16px;background:var(--surface-2);text-align:left;transition:background .2s,transform .12s}
+.cc-tile:active{transform:scale(.97)}.cc-tile:hover{background:var(--surface-3)}
+.cc-tile-ico{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--surface-3);flex-shrink:0;transition:all .2s}
+.cc-tile-txt{display:flex;flex-direction:column;min-width:0}.cc-tile-txt b{font-size:13px}.cc-tile-txt small{font-size:11.5px;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cc-tile.on{background:rgba(var(--accent-rgb),.22)}.cc-tile.on .cc-tile-ico{background:var(--accent);color:var(--accent-fg);box-shadow:0 0 14px var(--accent-glow)}
+.cc-sliders{display:flex;flex-direction:column;gap:10px}.cc-slider{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:16px;background:var(--surface-2)}.cc-slider .slider{flex:1}
+.cc-row{display:flex;gap:8px}.cc-chip{flex:1;display:flex;align-items:center;justify-content:center;gap:7px;padding:10px 6px;border-radius:12px;background:var(--surface-2);font-size:12.5px}.cc-chip:hover{background:var(--surface-3)}
+
+/* Leonux OS 2 — extra tiles & store chip */
+.cc-chip-store{color:var(--warning)}
+.cc-grid .cc-tile.act:hover{border-color:rgba(var(--accent-rgb),.4)}
+
+/* Focus tile + slider icons */
+.cc-sub{font-size:11.5px;color:var(--text-muted)}
+.cc-tile.on .cc-sub{color:inherit;opacity:.8}
+.cc-more{margin-left:auto;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;color:var(--text-muted);flex:none;transition:background .15s}
+.cc-more:hover{background:var(--surface-3);color:var(--text)}
+.cc-sl-ico{display:grid;place-items:center;width:24px;flex:none;color:var(--text-muted)}

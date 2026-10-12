@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Maze Runner</title><style><!--BASE-->
+canvas{border-radius:10px;background:#0b0e16;touch-action:none}
+</style></head><body><div class="wrap">
+<h1>Maze <span>Runner</span></h1>
+<div class="bar"><div class="stat">Level<b id="lv">1</b></div><div class="stat">Steps<b id="st">0</b></div><button id="hint">Show path</button><button class="pri" id="new">New maze</button></div>
+<canvas id="c" width="440" height="440"></canvas>
+<div class="muted">Arrow keys / WASD · or swipe on the maze</div>
+</div><script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s);let n,cell,m,px,py,steps,level=1,path=null;
+function gen(){n=7+level*2;if(n>31)n=31;cell=cv.width/n;m=Array.from({length:n},()=>Array.from({length:n},()=>({w:15,v:0})));const st=[[0,0]];m[0][0].v=1;
+ while(st.length){const[cx,cy]=st[st.length-1];const nb=[[0,-1,1,4],[1,0,2,8],[0,1,4,1],[-1,0,8,2]].filter(([dx,dy])=>{const a=cx+dx,b=cy+dy;return a>=0&&b>=0&&a<n&&b<n&&!m[b][a].v});
+  if(!nb.length){st.pop();continue}const[dx,dy,r,o]=nb[Math.random()*nb.length|0];m[cy][cx].w&=~r;m[cy+dy][cx+dx].w&=~o;m[cy+dy][cx+dx].v=1;st.push([cx+dx,cy+dy])}
+ px=py=0;steps=0;path=null;$('#lv').textContent=level;$('#st').textContent=0;draw()}
+function solve(){const q=[[0,0]],prev={'0,0':null};while(q.length){const[a,b]=q.shift();if(a===n-1&&b===n-1)break;[[0,-1,1],[1,0,2],[0,1,4],[-1,0,8]].forEach(([dx,dy,r])=>{const k=(a+dx)+','+(b+dy);if(!(m[b][a].w&r)&&!(k in prev)){prev[k]=[a,b];q.push([a+dx,b+dy])}})}
+ const p=[];let c=[n-1,n-1];while(c){p.push(c);c=prev[c[0]+','+c[1]]}return p}
+function draw(){x.clearRect(0,0,440,440);x.strokeStyle='#64748b';x.lineWidth=2;x.lineCap='round';x.beginPath();
+ for(let j=0;j<n;j++)for(let i=0;i<n;i++){const w=m[j][i].w,X=i*cell,Y=j*cell;if(w&1){x.moveTo(X,Y);x.lineTo(X+cell,Y)}if(w&2){x.moveTo(X+cell,Y);x.lineTo(X+cell,Y+cell)}if(w&4){x.moveTo(X,Y+cell);x.lineTo(X+cell,Y+cell)}if(w&8){x.moveTo(X,Y);x.lineTo(X,Y+cell)}}x.stroke();
+ if(path){x.strokeStyle='rgba(77,208,225,.6)';x.lineWidth=cell/4;x.beginPath();path.forEach(([a,b],i)=>{const X=(a+.5)*cell,Y=(b+.5)*cell;i?x.lineTo(X,Y):x.moveTo(X,Y)});x.stroke()}
+ x.fillStyle='#F6C177';x.fillRect((n-1)*cell+cell*.25,(n-1)*cell+cell*.25,cell*.5,cell*.5);
+ x.fillStyle='#7EE787';x.beginPath();x.arc((px+.5)*cell,(py+.5)*cell,cell*.3,0,7);x.fill()}
+function move(dx,dy,r){if(m[py][px].w&r)return;px+=dx;py+=dy;steps++;$('#st').textContent=steps;path=null;draw();if(px===n-1&&py===n-1){level++;setTimeout(gen,350);parent.postMessage({lx:'title',value:'Maze Runner · level '+level},'*')}}
+document.addEventListener('keydown',e=>{const k=e.key.toLowerCase();const mp={arrowup:[0,-1,1],w:[0,-1,1],arrowright:[1,0,2],d:[1,0,2],arrowdown:[0,1,4],s:[0,1,4],arrowleft:[-1,0,8],a:[-1,0,8]}[k];if(mp){e.preventDefault();move(...mp)}});
+let t=null;cv.addEventListener('pointerdown',e=>t=[e.clientX,e.clientY]);cv.addEventListener('pointerup',e=>{if(!t)return;const dx=e.clientX-t[0],dy=e.clientY-t[1];t=null;if(Math.max(Math.abs(dx),Math.abs(dy))<20)return;Math.abs(dx)>Math.abs(dy)?(dx>0?move(1,0,2):move(-1,0,8)):(dy>0?move(0,1,4):move(0,-1,1))});
+$('#hint').onclick=()=>{path=solve();draw()};$('#new').onclick=()=>{level=1;gen()};gen();
+</script></body></html>

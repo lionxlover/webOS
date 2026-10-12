@@ -1,0 +1,2785 @@
+{
+ "spec": 1,
+ "id": "leonux-appstore",
+ "name": "Leonux App Store",
+ "maintainer": "Leonux Community",
+ "website": "https://github.com/your-username/leonux-appstore",
+ "version": "2.1.0",
+ "updated": "2026-10-12",
+ "description": "The live Leonux store repository — apps (single-file and multi-file zip packages), themes, widgets and sound packs, served straight from GitHub. Publish this folder anywhere static and paste the repo link into Leonux OS → App Store → Sources.",
+ "sections": {
+  "apps": [
+   {
+    "id": "neonsnake",
+    "name": "Neon Snake",
+    "version": "1.1.0",
+    "category": "Games",
+    "icon": "🐍",
+    "color": "#7EE787",
+    "desc": "A glowing, multi-file take on the classic snake",
+    "long": "Neon Snake is the classic arcade snake rebuilt as a real multi-file app: a separate game engine, input controller, renderer and stylesheet, all shipped inside one .zip package. Glide around the grid eating energy orbs, grow longer, and speed up with every bite — how long can you get before you bite yourself?",
+    "size": 6,
+    "rating": 4.8,
+    "downloads": 14200,
+    "developer": "Leonux Community",
+    "format": "zip",
+    "package": "apps/neonsnake.zip",
+    "files": 6,
+    "sha256": "b01b783cf535d46177e9079968941be6efb26f82c60840c84580a1cc92d79feb",
+    "window": {
+     "width": 520,
+     "height": 660,
+     "minWidth": 380,
+     "minHeight": 480
+    },
+    "changelog": "First multi-file release — index.html + css + js in one package",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "starpainter",
+    "name": "Star Painter",
+    "version": "1.0.0",
+    "category": "Media",
+    "icon": "🌟",
+    "color": "#F6C177",
+    "desc": "Paint with glowing, rainbow and star-scatter brushes",
+    "long": "A pocket atelier with three hand-tuned brush engines: neon glow that leaves light trails, a rainbow brush that cycles the spectrum as you draw, and a star scatter that throws twinkling particles across the canvas. Pick colours, resize the brush, clear or export your art as PNG — all in a multi-file .zip package.",
+    "size": 5,
+    "rating": 4.8,
+    "downloads": 14200,
+    "developer": "Leonux Community",
+    "format": "zip",
+    "package": "apps/starpainter.zip",
+    "files": 5,
+    "sha256": "f1637263301c4d511afb1a01e8250199eb86aa40bc395a8e2cc9a0158e8a3aed",
+    "window": {
+     "width": 640,
+     "height": 600,
+     "minWidth": 440,
+     "minHeight": 440
+    },
+    "changelog": "First multi-file release — index.html + css + js in one package",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "synthwave",
+    "name": "Synthwave Sequencer",
+    "version": "1.0.0",
+    "category": "Media",
+    "icon": "🎛️",
+    "color": "#FF2E97",
+    "desc": "A 16-step grid sequencer with synthesized drums and bass",
+    "long": "Build beats in seconds: four fully synthesized tracks — kick, snare, hats and a sliding acid bass — arranged on a 16-step grid. Dial the tempo, pick a preset, hit play and watch the playhead sweep. All audio is generated live with Web Audio, and the app ships as a multi-file .zip with separate audio engine, sequencer UI and stylesheet.",
+    "size": 6,
+    "rating": 4.8,
+    "downloads": 14200,
+    "developer": "Leonux Community",
+    "format": "zip",
+    "package": "apps/synthwave.zip",
+    "files": 5,
+    "sha256": "ffc7a4cd49939f493bba27e3b6f2d73e276f8c4a8cb0ac30b744050a61357c25",
+    "window": {
+     "width": 720,
+     "height": 540,
+     "minWidth": 460,
+     "minHeight": 420
+    },
+    "changelog": "First multi-file release — index.html + css + js in one package",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "zenboard",
+    "name": "Zenboard",
+    "version": "1.0.0",
+    "category": "Productivity",
+    "icon": "🗂️",
+    "color": "#CBA6F7",
+    "desc": "A calm three-lane kanban board for your day",
+    "long": "Zenboard keeps your day calm and organised: three lanes — To do, Doing and Done — with quick-add tasks, one-tap moves, priorities and a focus counter that celebrates every finished item. Built as a true multi-file app with separate data store, UI layer and two stylesheets, packaged in a single .zip.",
+    "size": 6,
+    "rating": 4.8,
+    "downloads": 14200,
+    "developer": "Leonux Community",
+    "format": "zip",
+    "package": "apps/zenboard.zip",
+    "files": 6,
+    "sha256": "60472f5ad7d187c76ea9e13af59a772a0c065db462284f10a1dc52f2be643e50",
+    "window": {
+     "width": 780,
+     "height": 560,
+     "minWidth": 480,
+     "minHeight": 380
+    },
+    "changelog": "First multi-file release — index.html + css + js in one package",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "tictactoe",
+    "name": "Tic-Tac-Toe XL",
+    "version": "1.2.0",
+    "category": "Games",
+    "icon": "⭕",
+    "color": "#F48FB1",
+    "desc": "Classic ✕◯ with an unbeatable minimax AI",
+    "long": "Tic-Tac-Toe XL brings the timeless duel to Leonux: play against a perfect minimax AI that never makes a mistake, or pass the keyboard for two-player matches. Score tracking, win highlighting and instant rematches included.",
+    "size": 6,
+    "rating": 4.7,
+    "downloads": 15200,
+    "developer": "Leonux Community",
+    "path": "apps/tictactoe.json",
+    "changelog": "Smarter AI, win-line highlighting and session scores",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "whackamole",
+    "name": "Whack-a-Mole",
+    "version": "1.2.0",
+    "category": "Games",
+    "icon": "🔨",
+    "color": "#9ECE6A",
+    "desc": "30 seconds of pure mole-smashing arcade",
+    "long": "Moles pop from nine burrows and you have 30 seconds to smash as many as possible. Build combos, watch for bonus rabbits worth 5 points, and chase your session best as the pace ramps up.",
+    "size": 5,
+    "rating": 4.5,
+    "downloads": 9800,
+    "developer": "Leonux Community",
+    "path": "apps/whackamole.json",
+    "changelog": "Bonus rabbits and combo scoring",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "reaction",
+    "name": "Reaction Timer",
+    "version": "1.2.0",
+    "category": "Utilities",
+    "icon": "⚡",
+    "color": "#F6C177",
+    "desc": "Measure your reflexes in milliseconds",
+    "long": "The classic reaction test: wait for green, tap as fast as you can. Tracks your last, best and rolling 5-run average, and ranks you from Zen master to Cheetah tier. Watch out for the too-early trap!",
+    "size": 3,
+    "rating": 4.6,
+    "downloads": 12100,
+    "developer": "Leonux Community",
+    "path": "apps/reaction.json",
+    "changelog": "Rolling average and rank titles",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "dicecoin",
+    "name": "Dice & Coin",
+    "version": "1.2.0",
+    "category": "Games",
+    "icon": "🎲",
+    "color": "#CBA6F7",
+    "desc": "d4–d20 dice roller with coin flips",
+    "long": "A tabletop companion: roll any die from d4 to d20 (pips for the classics), flip a coin, or roll two and three dice at once with sums. Every result lands in the history strip so your table can audit your luck.",
+    "size": 6,
+    "rating": 4.4,
+    "downloads": 8600,
+    "developer": "Leonux Community",
+    "path": "apps/dicecoin.json",
+    "changelog": "Multi-dice rolls and roll history",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "passforge",
+    "name": "Password Forge",
+    "version": "1.2.0",
+    "category": "Utilities",
+    "icon": "🔐",
+    "color": "#4DD0E1",
+    "desc": "Cryptographically strong password generator",
+    "long": "Forge passwords with the Web Crypto API: pick your length and character sets, watch live entropy bits and a strength meter, then copy with one tap. Nothing is stored or transmitted — generated locally, gone when you close the window.",
+    "size": 6,
+    "rating": 4.8,
+    "downloads": 18700,
+    "developer": "Leonux Community",
+    "path": "apps/passforge.json",
+    "changelog": "Entropy readout and click-anywhere-to-copy",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "agecalc",
+    "name": "Age Calculator",
+    "version": "1.2.0",
+    "category": "Utilities",
+    "icon": "🎂",
+    "color": "#FF8A65",
+    "desc": "Your life, in delightfully nerdy numbers",
+    "long": "Enter your birthday and get your age in days, weeks, heartbeats, breaths and trips around the sun — plus a countdown to your next birthday. A fun little statistics toy for your Leonux desktop.",
+    "size": 5,
+    "rating": 4.3,
+    "downloads": 6400,
+    "developer": "Leonux Community",
+    "path": "apps/agecalc.json",
+    "changelog": "Full moons, Earth-laps and sleep estimates",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "pianokeys",
+    "name": "Piano Keys",
+    "version": "1.2.0",
+    "category": "Media",
+    "icon": "🎹",
+    "color": "#E0AF68",
+    "desc": "A playable synthesizer keyboard",
+    "long": "A real Web Audio synthesizer: one or two octaves of ivory with proper black-key geometry, three voices (piano, electric, music box), adjustable sustain, and full keyboard mapping — the on-key letters show you where to press.",
+    "size": 6,
+    "rating": 4.7,
+    "downloads": 21900,
+    "developer": "Leonux Community",
+    "path": "apps/pianokeys.json",
+    "changelog": "Second octave and voice selection",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "drumpads",
+    "name": "Drum Pads",
+    "version": "1.2.0",
+    "category": "Media",
+    "icon": "🥁",
+    "color": "#F28B82",
+    "desc": "12 synthesized drum pads with keyboard mapping",
+    "long": "A 12-pad drum machine synthesized entirely with Web Audio — kicks, snares, hats, toms, crash, cowbell and even a laser. Tap the pads or use the on-pad keyboard keys and start making beats in seconds.",
+    "size": 4,
+    "rating": 4.5,
+    "downloads": 14300,
+    "developer": "Leonux Community",
+    "path": "apps/drumpads.json",
+    "changelog": "New laser pad and velocity tuning",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "typingsprint",
+    "name": "Typing Sprint",
+    "version": "1.2.0",
+    "category": "Productivity",
+    "icon": "⌨️",
+    "color": "#5B9DFA",
+    "desc": "A 30-word race for your WPM",
+    "long": "Sprint through 30 random words while live WPM, accuracy and the clock tick beside you. Mistake tracking, session bests and a satisfying rank at the finish line. Great for warming up your fingers before real work.",
+    "size": 5,
+    "rating": 4.4,
+    "downloads": 10200,
+    "developer": "Leonux Community",
+    "path": "apps/typingsprint.json",
+    "changelog": "Live stats panel and rank titles",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "pixelart",
+    "name": "Pixel Art Studio",
+    "version": "1.2.0",
+    "category": "Media",
+    "icon": "🎨",
+    "color": "#FF9ECD",
+    "desc": "Draw 16×16 pixel art and export PNG",
+    "long": "A pocket pixel editor: 12-colour palette, pen, flood-fill bucket and eraser on a 16×16 canvas, with a live miniature preview and one-tap PNG export at 16× zoom. Ships with a starter heart so you can start remixing immediately.",
+    "size": 6,
+    "rating": 4.6,
+    "downloads": 13500,
+    "developer": "Leonux Community",
+    "path": "apps/pixelart.json",
+    "changelog": "Flood-fill bucket tool and in-app export",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "wordscramble",
+    "name": "Word Scramble",
+    "version": "1.2.0",
+    "category": "Games",
+    "icon": "🔤",
+    "color": "#7EE787",
+    "desc": "Unscramble tech words against the clock",
+    "long": "A word puzzle with a Leonux flavour: every round scrambles a tech word (with a topical hint), gives you 30 seconds, and rewards streaks with compounding points. Buy a letter hint for 3 points if you get stuck.",
+    "size": 6,
+    "rating": 4.2,
+    "downloads": 5900,
+    "developer": "Leonux Community",
+    "path": "apps/wordscramble.json",
+    "changelog": "Streak bonuses and letter hints",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "metronome",
+    "name": "Metronome",
+    "version": "1.2.0",
+    "category": "Media",
+    "icon": "🎵",
+    "color": "#94B3FD",
+    "desc": "Precision metronome with tap tempo",
+    "long": "A musician's metronome built on Web Audio scheduling: 30–240 BPM with a big tap-tempo dial, 2/4 to 6/8 time signatures with accented downbeats, and visual beat dots. Space bar starts and stops.",
+    "size": 5,
+    "rating": 4.8,
+    "downloads": 16700,
+    "developer": "Leonux Community",
+    "path": "apps/metronome.json",
+    "changelog": "Tap tempo dial and 6/8 support",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "simon",
+    "name": "Simon Memory",
+    "version": "1.2.0",
+    "category": "Games",
+    "icon": "🧠",
+    "color": "#6EE7B7",
+    "desc": "The classic four-tone memory game",
+    "long": "Watch the pattern grow, then repeat it back. Each round adds a tone — how deep can your memory go? Synthesized tones, glowing pads and a round tracker keep your brain honest.",
+    "size": 5,
+    "rating": 4.5,
+    "downloads": 7300,
+    "developer": "Leonux Community",
+    "path": "apps/simon.json",
+    "changelog": "Round progress dots and best-round tracking",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "asciiart",
+    "name": "ASCII Art",
+    "version": "1.0.0",
+    "category": "Media",
+    "icon": "🔤",
+    "color": "#a3e635",
+    "desc": "Turn images and text into ASCII art",
+    "long": "Drop in a picture to convert it into characters, or render big block text. Adjust width, invert shades and copy the result.",
+    "size": 5,
+    "rating": 4.4,
+    "downloads": 5600,
+    "developer": "Leonux Community",
+    "path": "apps/asciiart.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "barcode",
+    "name": "Barcode Maker",
+    "version": "1.0.0",
+    "category": "Utilities",
+    "icon": "▮▯▮",
+    "color": "#e5e7eb",
+    "desc": "Create Code 39 barcodes and export as SVG",
+    "long": "Type text and get a scannable Code 39 barcode instantly. Adjust the height, download a crisp vector SVG or copy its markup.",
+    "size": 4,
+    "rating": 4.3,
+    "downloads": 4200,
+    "developer": "Leonux Community",
+    "path": "apps/barcode.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "bmicalc",
+    "name": "BMI Calculator",
+    "version": "1.0.0",
+    "category": "Health",
+    "icon": "⚖️",
+    "color": "#4ade80",
+    "desc": "Body-mass index with metric and imperial units",
+    "long": "Enter height and weight in metric or imperial units and see your BMI, category, a colour scale and the healthy weight range.",
+    "size": 4,
+    "rating": 4.2,
+    "downloads": 5100,
+    "developer": "Leonux Community",
+    "path": "apps/bmicalc.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "boxshadow",
+    "name": "Shadow Lab",
+    "version": "1.0.0",
+    "category": "Design",
+    "icon": "🔲",
+    "color": "#94a3b8",
+    "desc": "Design box-shadows and copy the CSS",
+    "long": "Sliders for offset, blur, spread, opacity and radius, inset toggle and custom colours — with ready-to-paste CSS output.",
+    "size": 4,
+    "rating": 4.5,
+    "downloads": 6200,
+    "developer": "Leonux Community",
+    "path": "apps/boxshadow.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "connectfour",
+    "name": "Connect Four",
+    "version": "1.0.0",
+    "category": "Games",
+    "icon": "🔴",
+    "color": "#f43f5e",
+    "desc": "Drop discs, line up four — vs a minimax CPU",
+    "long": "The classic vertical strategy game with a depth-limited minimax opponent. Choose Easy, Medium or Hard, track wins and draws, and hover a column to preview your drop.",
+    "size": 6,
+    "rating": 4.7,
+    "downloads": 9800,
+    "developer": "Leonux Community",
+    "path": "apps/connectfour.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "emicalc",
+    "name": "Loan EMI Calculator",
+    "version": "1.0.0",
+    "category": "Finance",
+    "icon": "🏦",
+    "color": "#60a5fa",
+    "desc": "Monthly instalments, interest and totals at a glance",
+    "long": "Slide amount, rate and tenure to see your EMI, total interest and total payment, with a principal-vs-interest chart.",
+    "size": 4,
+    "rating": 4.6,
+    "downloads": 8800,
+    "developer": "Leonux Community",
+    "path": "apps/emicalc.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "fractaltree",
+    "name": "Fractal Tree",
+    "version": "1.0.0",
+    "category": "Education",
+    "icon": "🌳",
+    "color": "#4ade80",
+    "desc": "A wind-swept recursive tree through the seasons",
+    "long": "Tweak depth, branch angle and shrink factor, add wind and flip through the seasons. Every seed grows a different tree.",
+    "size": 4,
+    "rating": 4.6,
+    "downloads": 6400,
+    "developer": "Leonux Community",
+    "path": "apps/fractaltree.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "gameoflife",
+    "name": "Game of Life",
+    "version": "1.0.0",
+    "category": "Education",
+    "icon": "🧬",
+    "color": "#7EE787",
+    "desc": "Conway's cellular automaton, draw and evolve",
+    "long": "Paint cells, choose a preset pattern such as a glider or pulsar, and watch generations unfold at an adjustable speed on a wrap-around grid.",
+    "size": 5,
+    "rating": 4.8,
+    "downloads": 11200,
+    "developer": "Leonux Community",
+    "path": "apps/gameoflife.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "gradientgen",
+    "name": "Gradient Studio",
+    "version": "1.0.0",
+    "category": "Design",
+    "icon": "🌈",
+    "color": "#c084fc",
+    "desc": "Build CSS gradients visually and copy the code",
+    "long": "Linear, radial and conic gradients with up to eight colour stops, a live preview, randomise button and one-click CSS copy.",
+    "size": 4,
+    "rating": 4.7,
+    "downloads": 9100,
+    "developer": "Leonux Community",
+    "path": "apps/gradientgen.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "hangman",
+    "name": "Hangman",
+    "version": "1.0.0",
+    "category": "Games",
+    "icon": "🪢",
+    "color": "#f59e0b",
+    "desc": "Guess the word before the gallows is complete",
+    "long": "Four word categories, on-screen and physical keyboard input, streak tracking and a hand-drawn gallows.",
+    "size": 5,
+    "rating": 4.4,
+    "downloads": 6100,
+    "developer": "Leonux Community",
+    "path": "apps/hangman.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "loremgen",
+    "name": "Lorem Forge",
+    "version": "1.0.0",
+    "category": "Utilities",
+    "icon": "📝",
+    "color": "#fcd34d",
+    "desc": "Placeholder text in four flavours",
+    "long": "Generate paragraphs, sentences or words in classic Latin, hipster, corporate-tech or space-opera vocabularies — then copy.",
+    "size": 5,
+    "rating": 4.3,
+    "downloads": 3900,
+    "developer": "Leonux Community",
+    "path": "apps/loremgen.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "mandelbrot",
+    "name": "Mandelbrot Explorer",
+    "version": "1.0.0",
+    "category": "Education",
+    "icon": "🌌",
+    "color": "#818cf8",
+    "desc": "Zoom endlessly into the Mandelbrot set",
+    "long": "Click to zoom, right-click to zoom out, change the iteration depth and colour palette. Rendering is progressive so the UI stays responsive.",
+    "size": 5,
+    "rating": 4.7,
+    "downloads": 8300,
+    "developer": "Leonux Community",
+    "path": "apps/mandelbrot.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "matrixrain",
+    "name": "Matrix Rain",
+    "version": "1.0.0",
+    "category": "Media",
+    "icon": "💊",
+    "color": "#00ff66",
+    "desc": "Cascading code rain with adjustable style",
+    "long": "Falling glyphs in katakana, binary, hex or symbols, with speed, size and colour controls including a rainbow mode. Great as a screensaver window.",
+    "size": 4,
+    "rating": 4.6,
+    "downloads": 10400,
+    "developer": "Leonux Community",
+    "path": "apps/matrixrain.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "mazerunner",
+    "name": "Maze Runner",
+    "version": "1.0.0",
+    "category": "Games",
+    "icon": "🧭",
+    "color": "#38bdf8",
+    "desc": "Procedural mazes — race through at growing sizes",
+    "long": "Every maze is freshly generated with a recursive backtracker. Steer with arrows or WASD and beat the clock as mazes grow larger each level.",
+    "size": 5,
+    "rating": 4.5,
+    "downloads": 6900,
+    "developer": "Leonux Community",
+    "path": "apps/mazerunner.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "morse",
+    "name": "Morse Translator",
+    "version": "1.0.0",
+    "category": "Utilities",
+    "icon": "📡",
+    "color": "#34d399",
+    "desc": "Text to Morse and back, with audio playback",
+    "long": "Translate both ways as you type, hear the code via Web Audio at your chosen words-per-minute, and keep a reference chart at hand.",
+    "size": 4,
+    "rating": 4.5,
+    "downloads": 5300,
+    "developer": "Leonux Community",
+    "path": "apps/morse.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "numberbase",
+    "name": "Base Converter",
+    "version": "1.0.0",
+    "category": "Utilities",
+    "icon": "💾",
+    "color": "#22d3ee",
+    "desc": "Decimal, binary, octal, hex and any base to 36",
+    "long": "Edit any field and the others follow. Includes a 32-bit toggle grid, an ASCII preview and a custom base up to 36.",
+    "size": 4,
+    "rating": 4.4,
+    "downloads": 4600,
+    "developer": "Leonux Community",
+    "path": "apps/numberbase.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "particles",
+    "name": "Particle Toy",
+    "version": "1.0.0",
+    "category": "Media",
+    "icon": "✨",
+    "color": "#f472b6",
+    "desc": "Thousands of particles that follow your pointer",
+    "long": "Attract, repel, swirl or burst up to 1,500 colourful particles with the mouse or touch. Toggle motion trails and watch the patterns.",
+    "size": 4,
+    "rating": 4.7,
+    "downloads": 9700,
+    "developer": "Leonux Community",
+    "path": "apps/particles.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "reversi",
+    "name": "Reversi",
+    "version": "1.0.0",
+    "category": "Games",
+    "icon": "⚫",
+    "color": "#10b981",
+    "desc": "Flip the board in this 8x8 strategy classic",
+    "long": "Outflank your opponent to flip their discs. Legal moves are highlighted, the CPU plays corner-aware, and scores update live.",
+    "size": 5,
+    "rating": 4.6,
+    "downloads": 7400,
+    "developer": "Leonux Community",
+    "path": "apps/reversi.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "solarsystem",
+    "name": "Solar System",
+    "version": "1.0.0",
+    "category": "Education",
+    "icon": "🪐",
+    "color": "#fbbf24",
+    "desc": "Animated orrery of the eight planets",
+    "long": "Watch the planets orbit at relative speeds, click any world for facts, pause the clock, hide orbit lines and scrub the simulation speed.",
+    "size": 5,
+    "rating": 4.8,
+    "downloads": 12800,
+    "developer": "Leonux Community",
+    "path": "apps/solarsystem.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "sortviz",
+    "name": "Sort Visualizer",
+    "version": "1.0.0",
+    "category": "Education",
+    "icon": "📊",
+    "color": "#fb7185",
+    "desc": "Watch six sorting algorithms race",
+    "long": "Bubble, insertion, selection, quick, merge and heap sort animated on up to 150 bars with adjustable speed and a comparison counter.",
+    "size": 5,
+    "rating": 4.6,
+    "downloads": 7100,
+    "developer": "Leonux Community",
+    "path": "apps/sortviz.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "tipcalc",
+    "name": "Tip & Split",
+    "version": "1.0.0",
+    "category": "Finance",
+    "icon": "🧾",
+    "color": "#fb923c",
+    "desc": "Tip and bill splitter for dinner with friends",
+    "long": "Choose a tip percentage, set the number of diners and optionally round up each share. Clear totals, nothing more.",
+    "size": 4,
+    "rating": 4.6,
+    "downloads": 7700,
+    "developer": "Leonux Community",
+    "path": "apps/tipcalc.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "wordcounter",
+    "name": "Word Counter",
+    "version": "1.0.0",
+    "category": "Productivity",
+    "icon": "🔢",
+    "color": "#38bdf8",
+    "desc": "Words, characters, reading time and top keywords",
+    "long": "Live counts for words, characters, sentences and paragraphs, estimated read time, keyword frequency and quick case tools.",
+    "size": 4,
+    "rating": 4.5,
+    "downloads": 6800,
+    "developer": "Leonux Community",
+    "path": "apps/wordcounter.json",
+    "changelog": "First release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "bookmarks",
+    "name": "Bookmarks",
+    "version": "1.0.0",
+    "category": "Productivity",
+    "icon": "🔖",
+    "color": "#60a5fa",
+    "desc": "Tagged, searchable link collection that remembers offline",
+    "long": "A tag-filterable bookmark manager with seeded favourites, visit counts, sorting, JSON import/export and persistent storage.",
+    "size": 4,
+    "rating": 4.5,
+    "downloads": 5200,
+    "developer": "Leonux Community",
+    "format": "zip",
+    "package": "apps/bookmarks.zip",
+    "files": 5,
+    "sha256": "bfe9d9a3e9af13d7994c64176132c548a9ce56735ddaadb2016a0d46bf35d6cd",
+    "window": {
+     "width": 760,
+     "height": 520,
+     "minWidth": 420,
+     "minHeight": 340
+    },
+    "changelog": "First multi-file release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "journal",
+    "name": "Daily Journal",
+    "version": "1.0.0",
+    "category": "Productivity",
+    "icon": "📔",
+    "color": "#fbbf24",
+    "desc": "Private journal with moods, search and Markdown export",
+    "long": "A private daily journal: dated entries, mood picker, search, word count, autosave to on-device storage and Markdown export. Split into store.js and app.js modules.",
+    "size": 4,
+    "rating": 4.7,
+    "downloads": 8600,
+    "developer": "Leonux Community",
+    "format": "zip",
+    "package": "apps/journal.zip",
+    "files": 5,
+    "sha256": "d0b3ad4324b50ea3e39d266f07deec8e67a9ef40426714b369a1547e77e0e04d",
+    "window": {
+     "width": 760,
+     "height": 520,
+     "minWidth": 480,
+     "minHeight": 340
+    },
+    "changelog": "First multi-file release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "palettes",
+    "name": "Color Palettes",
+    "version": "1.0.0",
+    "category": "Design",
+    "icon": "🎨",
+    "color": "#f472b6",
+    "desc": "Generate harmonious palettes, lock favourites, copy CSS",
+    "long": "Generate analogous, complementary, triadic, split or random palettes from a base colour, lock swatches, save favourites and copy CSS variables. Ships its own SVG logo asset.",
+    "size": 4,
+    "rating": 4.7,
+    "downloads": 7800,
+    "developer": "Leonux Community",
+    "format": "zip",
+    "package": "apps/palettes.zip",
+    "files": 6,
+    "sha256": "6148f41f1f341448d7f408628ef3fafba5ef55d7edd0c24bfdd079641eeee21c",
+    "window": {
+     "width": 720,
+     "height": 480,
+     "minWidth": 420,
+     "minHeight": 340
+    },
+    "changelog": "First multi-file release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "periodictable",
+    "name": "Periodic Table",
+    "version": "1.0.0",
+    "category": "Education",
+    "icon": "⚛️",
+    "color": "#5eead4",
+    "desc": "All 118 elements, searchable and colour-coded",
+    "long": "All 118 elements in a colour-coded table with search, category filters, electron configurations and a detail panel. Data lives in its own js file — a multi-file package.",
+    "size": 5,
+    "rating": 4.8,
+    "downloads": 10900,
+    "developer": "Leonux Community",
+    "format": "zip",
+    "package": "apps/periodictable.zip",
+    "files": 5,
+    "sha256": "7192cd92c17d50d425edf43061019cb36eb552930fb99b316b50836e4649c7d9",
+    "window": {
+     "width": 900,
+     "height": 560,
+     "minWidth": 560,
+     "minHeight": 380
+    },
+    "changelog": "First multi-file release",
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "spirograph",
+    "name": "Spirograph",
+    "version": "1.0.0",
+    "category": "Design",
+    "icon": "🌀",
+    "color": "#a78bfa",
+    "desc": "Draw mesmerising hypotrochoid curves and save them as PNG",
+    "long": "Hypotrochoid curve designer with a maths module, progressive rendering, random presets and PNG export.",
+    "size": 3,
+    "rating": 4.6,
+    "downloads": 6300,
+    "developer": "Leonux Community",
+    "format": "zip",
+    "package": "apps/spirograph.zip",
+    "files": 5,
+    "sha256": "99e230cf3090ddaf6cec04f5a2bdfa8dd7e3990ff1280abd5756aeff3574b995",
+    "window": {
+     "width": 720,
+     "height": 500,
+     "minWidth": 420,
+     "minHeight": 340
+    },
+    "changelog": "First multi-file release",
+    "updated": "Oct 2026"
+   }
+  ],
+  "themes": [
+   {
+    "id": "sakura",
+    "type": "theme",
+    "name": "Sakura",
+    "version": "1.1.0",
+    "mode": "light",
+    "accent": "#F48FB1",
+    "wallpaper": "radial-gradient(55% 45% at 25% 20%, rgba(244,143,177,.5), transparent 65%), radial-gradient(50% 40% at 85% 25%, rgba(203,166,247,.45), transparent 65%), radial-gradient(65% 55% at 55% 100%, rgba(255,218,225,.75), transparent 70%), linear-gradient(160deg,#fdeef4,#f9dce6 55%,#f4c9d9)",
+    "desc": "Soft cherry-blossom pastels for spring mornings — a light theme with a rosy accent.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 8200,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "cyberpunk",
+    "type": "theme",
+    "name": "Cyberpunk 2099",
+    "version": "1.1.0",
+    "mode": "dark",
+    "accent": "#FF2E97",
+    "wallpaper": "radial-gradient(45% 35% at 15% 85%, rgba(255,46,151,.38), transparent 62%), radial-gradient(40% 35% at 85% 15%, rgba(0,240,255,.32), transparent 62%), radial-gradient(30% 25% at 60% 55%, rgba(124,77,255,.22), transparent 62%), linear-gradient(160deg,#0a0114,#12041f 55%,#050210)",
+    "desc": "Neon magenta and cyan bleeding over midnight black. The night city never sleeps.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 8200,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "nord",
+    "type": "theme",
+    "name": "Nord Frost",
+    "version": "1.1.0",
+    "mode": "dark",
+    "accent": "#88C0D0",
+    "wallpaper": "radial-gradient(60% 50% at 80% 10%, rgba(136,192,208,.3), transparent 65%), radial-gradient(50% 45% at 10% 90%, rgba(94,129,172,.32), transparent 65%), linear-gradient(170deg,#2E3440,#3B4252 60%,#434C5E)",
+    "desc": "The beloved polar palette — calm blue-grey glaciers with a frost-blue accent.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 8200,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "dracula",
+    "type": "theme",
+    "name": "Dracula",
+    "version": "1.1.0",
+    "mode": "dark",
+    "accent": "#BD93F9",
+    "wallpaper": "radial-gradient(50% 40% at 30% 20%, rgba(189,147,249,.36), transparent 65%), radial-gradient(45% 40% at 80% 80%, rgba(255,121,198,.3), transparent 65%), radial-gradient(35% 30% at 70% 45%, rgba(80,250,123,.12), transparent 65%), linear-gradient(160deg,#282A36,#343746 60%,#21222C)",
+    "desc": "Purple, pink and green over deep night — the classic dark theme, perfectly brewed.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 8200,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "retromac",
+    "type": "theme",
+    "name": "Retro Mac",
+    "version": "1.1.0",
+    "mode": "light",
+    "accent": "#4756D7",
+    "wallpaper": "repeating-linear-gradient(0deg, rgba(0,0,0,.05) 0 1px, transparent 1px 4px), radial-gradient(90% 65% at 50% 0%, rgba(255,255,255,.95), transparent 72%), linear-gradient(180deg,#dcdcdc,#b8b8b8 70%,#a9a9a9)",
+    "desc": "Platinum desktop stripes straight out of 1991 — System 7 nostalgia with modern glass.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 8200,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "matrix",
+    "type": "theme",
+    "name": "Matrix Rain",
+    "version": "1.1.0",
+    "mode": "dark",
+    "accent": "#00FF41",
+    "wallpaper": "repeating-linear-gradient(0deg, rgba(0,255,65,.05) 0 2px, transparent 2px 5px), radial-gradient(60% 50% at 50% 18%, rgba(0,255,65,.16), transparent 70%), radial-gradient(40% 35% at 85% 80%, rgba(0,255,65,.1), transparent 70%), #010402",
+    "desc": "Scanlines and phosphor green. There is no spoon, only the falling code.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 8200,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "candypop",
+    "type": "theme",
+    "name": "Candy Pop",
+    "version": "1.1.0",
+    "mode": "light",
+    "accent": "#FF6F91",
+    "wallpaper": "radial-gradient(45% 40% at 20% 25%, rgba(255,191,222,.8), transparent 65%), radial-gradient(45% 40% at 80% 20%, rgba(179,240,255,.8), transparent 65%), radial-gradient(55% 50% at 55% 100%, rgba(255,224,178,.85), transparent 70%), linear-gradient(160deg,#fff6f9,#eef9ff 60%,#fff8ec)",
+    "desc": "Bubblegum, cotton candy and sunny afternoons — a joyful light theme.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 8200,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "deepspace",
+    "type": "theme",
+    "name": "Deep Space",
+    "version": "1.1.0",
+    "mode": "dark",
+    "accent": "#9EA7FF",
+    "wallpaper": "radial-gradient(1.5px 1.5px at 12% 22%, rgba(255,255,255,.9), transparent), radial-gradient(1.2px 1.2px at 34% 68%, rgba(255,255,255,.7), transparent), radial-gradient(1.6px 1.6px at 58% 14%, rgba(255,255,255,.85), transparent), radial-gradient(1.2px 1.2px at 72% 48%, rgba(255,255,255,.6), transparent), radial-gradient(1.5px 1.5px at 88% 76%, rgba(255,255,255,.8), transparent), radial-gradient(1.2px 1.2px at 22% 86%, rgba(255,255,255,.65), transparent), radial-gradient(1.4px 1.4px at 45% 40%, rgba(255,255,255,.5), transparent), radial-gradient(1.3px 1.3px at 92% 18%, rgba(255,255,255,.75), transparent), radial-gradient(50% 40% at 75% 30%, rgba(112,84,220,.32), transparent 70%), radial-gradient(45% 40% at 15% 70%, rgba(64,74,148,.3), transparent 70%), linear-gradient(180deg,#04030d,#0a0718 60%,#120b24)",
+    "desc": "A quiet starfield with a lavender nebula — for deep focus at 2 AM.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 8200,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "aurora",
+    "type": "theme",
+    "name": "Aurora",
+    "version": "1.0.0",
+    "mode": "dark",
+    "accent": "#5eead4",
+    "wallpaper": "radial-gradient(60% 50% at 20% 25%, rgba(94,234,212,.45), transparent 65%), radial-gradient(50% 45% at 80% 20%, rgba(129,140,248,.45), transparent 65%), radial-gradient(70% 40% at 50% 85%, rgba(74,222,128,.28), transparent 70%), linear-gradient(170deg,#050b1a,#0a1630 60%,#0b1f2a)",
+    "desc": "Northern lights ribbons over a polar night sky.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 4100,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "solardusk",
+    "type": "theme",
+    "name": "Solar Dusk",
+    "version": "1.0.0",
+    "mode": "dark",
+    "accent": "#b58900",
+    "wallpaper": "radial-gradient(70% 60% at 70% 20%, rgba(203,75,22,.25), transparent 65%), linear-gradient(160deg,#002b36,#073642 60%,#0a3f4b)",
+    "desc": "A warm solarized-style dark theme that is easy on the eyes.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 4100,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "oceanbreeze",
+    "type": "theme",
+    "name": "Ocean Breeze",
+    "version": "1.0.0",
+    "mode": "light",
+    "accent": "#0ea5e9",
+    "wallpaper": "radial-gradient(60% 45% at 25% 15%, rgba(255,255,255,.8), transparent 60%), radial-gradient(70% 50% at 80% 100%, rgba(14,165,233,.45), transparent 70%), linear-gradient(180deg,#d9f1ff,#a9dcf7 55%,#6fc0ea)",
+    "desc": "Bright seaside blues for sunny-day computing.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 4100,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "mono",
+    "type": "theme",
+    "name": "Mono Paper",
+    "version": "1.0.0",
+    "mode": "light",
+    "accent": "#111827",
+    "wallpaper": "radial-gradient(60% 50% at 50% 0%, #ffffff, transparent 70%), linear-gradient(180deg,#f3f4f6,#e5e7eb 60%,#d1d5db)",
+    "desc": "Minimal black-on-paper greys with a calm, focused feel.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 4100,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "sunsetblvd",
+    "type": "theme",
+    "name": "Sunset Boulevard",
+    "version": "1.0.0",
+    "mode": "dark",
+    "accent": "#fb7185",
+    "wallpaper": "radial-gradient(80% 50% at 50% 100%, rgba(251,146,60,.65), transparent 70%), radial-gradient(60% 40% at 20% 30%, rgba(244,63,94,.35), transparent 65%), linear-gradient(180deg,#1b0b33,#3b1048 55%,#6b1d4a)",
+    "desc": "Magenta-to-orange dusk gradients over a violet horizon.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 4100,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "forestcabin",
+    "type": "theme",
+    "name": "Forest Cabin",
+    "version": "1.0.0",
+    "mode": "dark",
+    "accent": "#86efac",
+    "wallpaper": "radial-gradient(55% 45% at 30% 20%, rgba(134,239,172,.2), transparent 65%), radial-gradient(70% 50% at 80% 90%, rgba(21,128,61,.35), transparent 70%), linear-gradient(165deg,#06150d,#0d2a18 55%,#123521)",
+    "desc": "Mossy greens and deep pine shadows — cosy and quiet.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 4100,
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "vaporwave",
+    "type": "theme",
+    "name": "Vaporwave",
+    "version": "1.0.0",
+    "mode": "dark",
+    "accent": "#f0abfc",
+    "wallpaper": "radial-gradient(50% 40% at 25% 25%, rgba(240,171,252,.5), transparent 65%), radial-gradient(55% 45% at 80% 75%, rgba(34,211,238,.45), transparent 65%), linear-gradient(160deg,#1a0b3a,#2a1058 55%,#3a1b6e)",
+    "desc": "Neon pink and cyan haze straight out of 1986.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 4100,
+    "updated": "Oct 2026"
+   }
+  ],
+  "widgets": [
+   {
+    "id": "analogclock",
+    "type": "widget",
+    "name": "Analog Clock",
+    "version": "1.0.0",
+    "desc": "A classic analog clock with sweeping second hand",
+    "size": {
+     "w": 240,
+     "h": 200
+    },
+    "developer": "Leonux Community",
+    "rating": 4.7,
+    "downloads": 12400,
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden}\nsvg{width:150px;height:150px}.face{fill:rgba(255,255,255,.05);stroke:rgba(255,255,255,.25);stroke-width:2}.tick{stroke:rgba(255,255,255,.4);stroke-width:1.5}.tick.maj{stroke:rgba(255,255,255,.85);stroke-width:2.5}.hand{stroke:#e9edf5;stroke-linecap:round}.hh{stroke-width:5}.mh{stroke-width:3.5}.sh{stroke:#F6C177;stroke-width:1.8}.cap{fill:#F6C177}</style></head><body>\n<svg viewBox=\"0 0 100 100\"><circle class=\"face\" cx=\"50\" cy=\"50\" r=\"46\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(0 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(6 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(12 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(18 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(24 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(30 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(36 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(42 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(48 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(54 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(60 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(66 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(72 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(78 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(84 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(90 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(96 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(102 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(108 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(114 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(120 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(126 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(132 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(138 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(144 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(150 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(156 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(162 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(168 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(174 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(180 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(186 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(192 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(198 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(204 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(210 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(216 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(222 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(228 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(234 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(240 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(246 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(252 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(258 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(264 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(270 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(276 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(282 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(288 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(294 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(300 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(306 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(312 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(318 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(324 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(330 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(336 50 50)\"/><line class=\"tick maj\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"10\" transform=\"rotate(342 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(348 50 50)\"/><line class=\"tick\" x1=\"50\" y1=\"6\" x2=\"50\" y2=\"8.5\" transform=\"rotate(354 50 50)\"/><g id=\"h\"><line class=\"hand hh\" x1=\"50\" y1=\"50\" x2=\"50\" y2=\"29\"/></g><g id=\"m\"><line class=\"hand mh\" x1=\"50\" y1=\"50\" x2=\"50\" y2=\"18\"/></g><g id=\"s\"><line class=\"hand sh\" x1=\"50\" y1=\"54\" x2=\"50\" y2=\"14\"/></g><circle class=\"cap\" cx=\"50\" cy=\"50\" r=\"2.6\"/></svg>\n<script>function tick(){var d=new Date(),s=d.getSeconds()+d.getMilliseconds()/1000,m=d.getMinutes()+s/60,h=d.getHours()%12+m/60;document.getElementById('s').setAttribute('transform','rotate('+s*6+' 50 50)');document.getElementById('m').setAttribute('transform','rotate('+m*6+' 50 50)');document.getElementById('h').setAttribute('transform','rotate('+h*30+' 50 50)');}tick();setInterval(tick,50);</script></body></html>"
+   },
+   {
+    "id": "dailyquote",
+    "type": "widget",
+    "name": "Daily Quote",
+    "version": "1.0.0",
+    "desc": "A rotating collection of wise words",
+    "size": {
+     "w": 240,
+     "h": 190
+    },
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 9800,
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden}\n.wrap{padding:16px 18px;text-align:center}.q{font-size:13.5px;line-height:1.55;font-weight:600;min-height:60px;display:flex;align-items:center;justify-content:center}.a{font-size:11px;color:#F6C177;margin-top:8px;font-weight:700;letter-spacing:.04em}.dots{display:flex;gap:4px;justify-content:center;margin-top:10px}.dots i{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.18)}.dots i.on{background:#F6C177}</style></head><body><div class=\"wrap\"><div class=\"q\" id=\"q\"></div><div class=\"a\" id=\"a\"></div><div class=\"dots\" id=\"d\"></div></div>\n<script>var Q=[[\"The best way to predict the future is to invent it.\",\"Alan Kay\"],[\"Simplicity is the ultimate sophistication.\",\"Leonardo da Vinci\"],[\"Programs must be written for people to read.\",\"Harold Abelson\"],[\"Any sufficiently advanced technology is indistinguishable from magic.\",\"Arthur C. Clarke\"],[\"Talk is cheap. Show me the code.\",\"Linus Torvalds\"],[\"Perfection is achieved when there is nothing left to take away.\",\"Antoine de Saint-Exupéry\"],[\"The desktop is a metaphor... make it yours.\",\"Leonux Handbook\"],[\"First, solve the problem. Then, write the code.\",\"John Johnson\"],[\"Make it work, make it right, make it fast.\",\"Kent Beck\"],[\"The most disastrous thing that you can ever learn is your first programming language.\",\"Alan Kay\"],[\"Design is not just what it looks like. Design is how it works.\",\"Steve Jobs\"],[\"In theory there is no difference between theory and practice. In practice there is.\",\"Yogi Berra\"]];\nvar i=Math.floor(Date.now()/8000)%Q.length,el=document.getElementById('q'),au=document.getElementById('a'),d=document.getElementById('d');\nfor(var k=0;k<Q.length;k++)d.appendChild(document.createElement('i'));\nfunction show(){el.textContent='“'+Q[i][0]+'”';au.textContent='— '+Q[i][1];for(var k=0;k<d.children.length;k++)d.children[k].className=k===i?'on':'';i=(i+1)%Q.length;}\nshow();setInterval(show,8000);</script></body></html>"
+   },
+   {
+    "id": "countdown",
+    "type": "widget",
+    "name": "Countdown",
+    "version": "1.0.0",
+    "desc": "Days until a date you choose (defaults to New Year)",
+    "size": {
+     "w": 240,
+     "h": 170
+    },
+    "developer": "Leonux Community",
+    "rating": 4.3,
+    "downloads": 7100,
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden}\n.n{font-size:44px;font-weight:200;letter-spacing:-1px;line-height:1}.l{font-size:11px;color:#a9b3c7;margin-top:6px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.set{margin-top:9px;font-size:10px;color:#7ECE6A;font-weight:700;cursor:pointer;border:1px solid rgba(126,206,106,.3);padding:3px 10px;border-radius:999px}</style></head><body><div class=\"n\" id=\"n\">—</div><div class=\"l\" id=\"l\">until New Year</div><div class=\"set\" id=\"s\">⏱ set date</div>\n<script>var target=localStorage.getItem('cd');try{target=JSON.parse(target)}catch(e){}\nfunction ny(){var n=new Date();return new Date(n.getFullYear()+1,0,1);}\nfunction t(){return target?new Date(target):ny();}\nfunction paint(){var ms=t()-new Date();if(ms<0){document.getElementById('n').textContent='🎉';document.getElementById('l').textContent='the day is here!';return;}\nvar d=Math.floor(ms/86400000),h=Math.floor(ms%3600000/3600000),m=Math.floor(ms%3600000/60000);\ndocument.getElementById('n').textContent=d>0?d:h>0?h+':'+String(m).padStart(2,'0'):m;\ndocument.getElementById('l').textContent=d>0?'days to go':'hours to go';}\ndocument.getElementById('s').onclick=function(){var v=prompt('Countdown to (YYYY-MM-DD):',t().toISOString().slice(0,10));if(v){target=v;try{localStorage.setItem('cd',JSON.stringify(v))}catch(e){}paint();}};\npaint();setInterval(paint,30000);</script></body></html>"
+   },
+   {
+    "id": "quicknotes",
+    "type": "widget",
+    "name": "Quick Notes",
+    "version": "1.0.0",
+    "desc": "A tiny scratchpad for instant thoughts (in-session)",
+    "size": {
+     "w": 240,
+     "h": 190
+    },
+    "developer": "Leonux Community",
+    "rating": 4.1,
+    "downloads": 8900,
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden}\n.wrap{width:100%;height:100%;padding:10px 12px;box-sizing:border-box;display:flex;flex-direction:column}.hd{font-size:10px;font-weight:800;letter-spacing:.1em;color:#a9b3c7;margin-bottom:6px}textarea{flex:1;background:transparent;border:0;outline:none;color:#e9edf5;font-size:12.5px;line-height:1.55;resize:none;font-family:inherit}</style></head><body><div class=\"wrap\"><div class=\"hd\">✏️ QUICK NOTE</div><textarea id=\"t\" placeholder=\"type here…\"></textarea></div>\n<script>try{var s=window.sessionStorage.getItem('qn');if(s)document.getElementById('t').value=s;document.getElementById('t').oninput=function(){try{sessionStorage.setItem('qn',this.value)}catch(e){}}}catch(e){}</script></body></html>"
+   },
+   {
+    "id": "battery",
+    "type": "widget",
+    "name": "Battery Gauge",
+    "version": "1.0.0",
+    "desc": "Live device battery level and charging state",
+    "size": {
+     "w": 240,
+     "h": 170
+    },
+    "developer": "Leonux Community",
+    "rating": 4.4,
+    "downloads": 10200,
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden}\n.pct{font-size:46px;font-weight:200;line-height:1}.st{font-size:11px;font-weight:700;letter-spacing:.08em;margin-top:5px;color:#a9b3c7}.bar{width:120px;height:9px;border:1.5px solid rgba(255,255,255,.35);border-radius:5px;margin-top:12px;padding:1.5px;box-sizing:border-box}.bar i{display:block;height:100%;border-radius:3px;background:#7ECE6A;transition:width .5s,background .5s}</style></head><body><div class=\"pct\" id=\"p\">—%</div><div class=\"st\" id=\"s\">checking…</div><div class=\"bar\"><i id=\"b\" style=\"width:50%\"></i></div>\n<script>function paint(b){var lvl=Math.round(b.level*100);var p=document.getElementById('p');p.textContent=lvl+'%';document.getElementById('b').style.width=lvl+'%';\nvar col=lvl>45?'#7ECE6A':lvl>18?'#F6C177':'#F28B82';document.getElementById('b').style.background=col;\ndocument.getElementById('s').textContent=b.charging?'⚡ charging':'on battery';\ndocument.getElementById('s').style.color=b.charging?'#7ECE6A':'#a9b3c7';}\nif(navigator.getBattery){navigator.getBattery().then(function(b){paint(b);b.addEventListener('levelchange',function(){paint(b)});b.addEventListener('chargingchange',function(){paint(b)});});}\nelse{document.getElementById('p').textContent='n/a';document.getElementById('s').textContent='battery api unavailable';}</script></body></html>"
+   },
+   {
+    "id": "minicalendar",
+    "type": "widget",
+    "name": "Mini Calendar",
+    "version": "1.0.0",
+    "desc": "This month at a glance with today highlighted",
+    "size": {
+     "w": 240,
+     "h": 210
+    },
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 11600,
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden}\n.mn{font-size:13px;font-weight:800;margin-bottom:7px;letter-spacing:.03em}.g{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;font-size:10.5px}.dow{color:#a9b3c7;font-weight:800;text-align:center;padding:2px 0}.d{text-align:center;padding:3.5px 0;border-radius:6px;font-weight:600}.today{background:#F6C177;color:#1c1204;font-weight:800}.wk{color:rgba(255,255,255,.45)}</style></head><body>\n<div class=\"mn\" id=\"m\"></div><div class=\"g\" id=\"g\"></div>\n<script>var n=new Date(),y=n.getFullYear(),mo=n.getMonth();\ndocument.getElementById('m').textContent=n.toLocaleDateString('en-GB',{month:'long',year:'numeric'});\nvar g=document.getElementById('g');['M','T','W','T','F','S','S'].forEach(function(d){var e=document.createElement('div');e.className='dow';e.textContent=d;g.appendChild(e);});\nvar first=new Date(y,mo,1),start=(first.getDay()+6)%7,dim=new Date(y,mo+1,0).getDate();\nfor(var i=0;i<start;i++){g.appendChild(document.createElement('div'));}\nfor(var d=1;d<=dim;d++){var e=document.createElement('div');e.className='d'+(d===n.getDate()?' today':'');if((d+start)%7>=5)e.className+=' wk';if(d===n.getDate())e.className='d today';e.textContent=d;g.appendChild(e);}\n</script></body></html>"
+   },
+   {
+    "id": "moonphase",
+    "type": "widget",
+    "name": "Moon Phase",
+    "version": "1.0.0",
+    "desc": "Tonight's moon phase, illumination and age.",
+    "size": {
+     "w": 240,
+     "h": 180
+    },
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 5200,
+    "updated": "Oct 2026",
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden;text-align:center}canvas{width:90px;height:90px}.n{font-size:15px;font-weight:700;margin-top:6px}.s{font-size:11px;color:#9aa4b8;margin-top:2px}</style></head><body><canvas id=\"c\" width=\"180\" height=\"180\"></canvas><div class=\"n\" id=\"n\"></div><div class=\"s\" id=\"s\"></div><script>function age(d){return((d.getTime()/86400000-1.913)%29.530588+29.530588)%29.530588}function draw(){var a=age(new Date()),f=a/29.530588,x=document.getElementById(\"c\").getContext(\"2d\");x.clearRect(0,0,180,180);x.fillStyle=\"#1d2437\";x.beginPath();x.arc(90,90,70,0,7);x.fill();x.save();x.beginPath();x.arc(90,90,70,0,7);x.clip();x.fillStyle=\"#f5efd2\";var k=Math.cos(f*2*Math.PI);x.beginPath();if(f<.5){x.arc(90,90,70,-Math.PI/2,Math.PI/2);x.ellipse(90,90,Math.abs(k)*70,70,0,Math.PI/2,-Math.PI/2,k>0)}else{x.arc(90,90,70,Math.PI/2,-Math.PI/2);x.ellipse(90,90,Math.abs(k)*70,70,0,-Math.PI/2,Math.PI/2,k>0)}x.fill();x.restore();var N=[\"New Moon\",\"Waxing Crescent\",\"First Quarter\",\"Waxing Gibbous\",\"Full Moon\",\"Waning Gibbous\",\"Last Quarter\",\"Waning Crescent\"];document.getElementById(\"n\").textContent=N[Math.round(f*8)%8];document.getElementById(\"s\").textContent=Math.round((1-Math.cos(f*2*Math.PI))/2*100)+\"% lit · day \"+a.toFixed(1)}draw();setInterval(draw,600000)</script></body></html>"
+   },
+   {
+    "id": "worldclock",
+    "type": "widget",
+    "name": "World Clock",
+    "version": "1.0.0",
+    "desc": "Five cities, live time with day/night dots.",
+    "size": {
+     "w": 240,
+     "h": 200
+    },
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 5200,
+    "updated": "Oct 2026",
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden;text-align:center}body{justify-content:center;gap:2px;padding:6px 14px;align-items:stretch}.r{display:flex;align-items:center;justify-content:space-between;padding:5px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:13px}.r:last-child{border:0}.t{font:600 15px ui-monospace,Menlo,monospace}.d{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:7px}.z{font-size:10px;color:#8b94ab}</style></head><body><div id=\"l\"></div><script>var C=[[\"Los Angeles\",\"America/Los_Angeles\"],[\"New York\",\"America/New_York\"],[\"London\",\"Europe/London\"],[\"Mumbai\",\"Asia/Kolkata\"],[\"Tokyo\",\"Asia/Tokyo\"]];function tick(){var now=new Date();document.getElementById(\"l\").innerHTML=C.map(function(c){var t,h;try{t=now.toLocaleTimeString([],{timeZone:c[1],hour:\"2-digit\",minute:\"2-digit\",hour12:false});h=+now.toLocaleString(\"en-GB\",{timeZone:c[1],hour:\"2-digit\",hour12:false})}catch(e){t=\"--:--\";h=12}return '<div class=\"r\"><span><i class=\"d\" style=\"background:'+(h>=6&&h<19?\"#fbbf24\":\"#6366f1\")+'\"></i>'+c[0]+'</span><span class=\"t\">'+t+\"</span></div>\"}).join(\"\")}tick();setInterval(tick,5000)</script></body></html>"
+   },
+   {
+    "id": "breathe",
+    "type": "widget",
+    "name": "Breathing Guide",
+    "version": "1.0.0",
+    "desc": "A calming 4-4-6 breathing circle.",
+    "size": {
+     "w": 240,
+     "h": 190
+    },
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 5200,
+    "updated": "Oct 2026",
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden;text-align:center}.o{width:100px;height:100px;border-radius:50%;background:radial-gradient(circle,#5eead4,#0ea5e9);box-shadow:0 0 30px rgba(94,234,212,.5);transition:transform 4s ease-in-out;display:grid;place-items:center;color:#06202a;font-weight:800;font-size:13px}.s{font-size:11px;color:#9aa4b8;margin-top:12px}</style></head><body><div class=\"o\" id=\"o\">Inhale</div><div class=\"s\" id=\"s\">Cycle 0</div><script>var o=document.getElementById(\"o\"),s=document.getElementById(\"s\"),n=0,P=[[\"Inhale\",4,1.3],[\"Hold\",4,1.3],[\"Exhale\",6,.7]],i=0;function step(){var p=P[i];o.textContent=p[0];o.style.transitionDuration=p[1]+\"s\";if(i!=1)o.style.transform=\"scale(\"+p[2]+\")\";if(i==2){n++;s.textContent=\"Cycle \"+n}setTimeout(function(){i=(i+1)%3;step()},p[1]*1000)}step()</script></body></html>"
+   },
+   {
+    "id": "yearprogress",
+    "type": "widget",
+    "name": "Year Progress",
+    "version": "1.0.0",
+    "desc": "How much of the year has passed, with a day counter.",
+    "size": {
+     "w": 240,
+     "h": 150
+    },
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 5200,
+    "updated": "Oct 2026",
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden;text-align:center}.p{font-size:34px;font-weight:800;color:#7EE787}.b{width:80%;height:8px;border-radius:4px;background:rgba(255,255,255,.1);margin:8px 0;overflow:hidden}.b i{display:block;height:100%;background:linear-gradient(90deg,#7EE787,#38bdf8)}.s{font-size:11px;color:#9aa4b8}</style></head><body><div class=\"p\" id=\"p\"></div><div class=\"b\"><i id=\"f\"></i></div><div class=\"s\" id=\"s\"></div><script>function u(){var n=new Date(),y=n.getFullYear(),a=new Date(y,0,1),b=new Date(y+1,0,1),f=(n-a)/(b-a),d=Math.floor((n-a)/864e5)+1,t=Math.round((b-a)/864e5);document.getElementById(\"p\").textContent=(f*100).toFixed(1)+\"%\";document.getElementById(\"f\").style.width=f*100+\"%\";document.getElementById(\"s\").textContent=y+\" · day \"+d+\" of \"+t+\" · \"+(t-d)+\" left\"}u();setInterval(u,60000)</script></body></html>"
+   },
+   {
+    "id": "luckydice",
+    "type": "widget",
+    "name": "Lucky Dice",
+    "version": "1.0.0",
+    "desc": "Tap to roll a pair of dice.",
+    "size": {
+     "w": 240,
+     "h": 150
+    },
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 5200,
+    "updated": "Oct 2026",
+    "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><style>html,body{margin:0;height:100%}body{background:linear-gradient(165deg,rgba(17,21,32,.86),rgba(10,13,20,.9));color:#e9edf5;font-family:-apple-system,'Segoe UI',system-ui,sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;user-select:none;overflow:hidden;text-align:center}.r{display:flex;gap:14px}.d{width:56px;height:56px;border-radius:12px;background:#f8fafc;display:grid;grid-template:repeat(3,1fr)/repeat(3,1fr);padding:7px;box-shadow:0 4px 12px rgba(0,0,0,.4);cursor:pointer;transition:transform .25s}.d i{border-radius:50%;margin:1px}.d i.on{background:#10131c}.s{font-size:12px;color:#9aa4b8;margin-top:10px}</style></head><body><div class=\"r\" id=\"r\"></div><div class=\"s\" id=\"s\">Tap the dice</div><script>var M=[[4],[0,8],[0,4,8],[0,2,6,8],[0,2,4,6,8],[0,2,3,5,6,8]],v=[1,1],r=document.getElementById(\"r\");function paint(){r.innerHTML=v.map(function(n){var h=\"\";for(var i=0;i<9;i++)h+='<i class=\"'+(M[n-1].indexOf(i)>=0?\"on\":\"\")+'\"></i>';return '<div class=\"d\">'+h+\"</div>\"}).join(\"\");[].forEach.call(r.children,function(d){d.onclick=roll})}function roll(){var k=0,t=setInterval(function(){v=[1+Math.random()*6|0,1+Math.random()*6|0];paint();if(++k>8){clearInterval(t);document.getElementById(\"s\").textContent=\"Total: \"+(v[0]+v[1])+(v[0]==v[1]?\" - doubles!\":\"\")}},60)}paint();roll()</script></body></html>"
+   }
+  ],
+  "soundpacks": [
+   {
+    "id": "crystal",
+    "type": "soundpack",
+    "name": "Crystal Bells",
+    "version": "1.0.0",
+    "desc": "Glassy sine bells in a high register — delicate and precise.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 6400,
+    "sounds": {
+     "startup": [
+      {
+       "f": 783.99,
+       "t": 0,
+       "d": 0.6,
+       "w": "sine",
+       "v": 0.42
+      },
+      {
+       "f": 1046.5,
+       "t": 0.13,
+       "d": 0.6,
+       "w": "sine",
+       "v": 0.4
+      },
+      {
+       "f": 1318.5,
+       "t": 0.26,
+       "d": 0.7,
+       "w": "sine",
+       "v": 0.38
+      },
+      {
+       "f": 1568,
+       "t": 0.4,
+       "d": 0.9,
+       "w": "sine",
+       "v": 0.36
+      }
+     ],
+     "shutdown": [
+      {
+       "f": 1318.5,
+       "t": 0,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.35
+      },
+      {
+       "f": 1046.5,
+       "t": 0.12,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.32
+      },
+      {
+       "f": 783.99,
+       "t": 0.24,
+       "d": 0.6,
+       "w": "sine",
+       "v": 0.3
+      }
+     ],
+     "unlock": [
+      {
+       "f": 1174.66,
+       "t": 0,
+       "d": 0.14,
+       "w": "sine",
+       "v": 0.3
+      },
+      {
+       "f": 1567.98,
+       "t": 0.1,
+       "d": 0.22,
+       "w": "sine",
+       "v": 0.28
+      }
+     ],
+     "lock": [
+      {
+       "f": 1567.98,
+       "t": 0,
+       "d": 0.14,
+       "w": "sine",
+       "v": 0.26
+      },
+      {
+       "f": 1174.66,
+       "t": 0.1,
+       "d": 0.22,
+       "w": "sine",
+       "v": 0.28
+      }
+     ],
+     "launch": [
+      {
+       "f": 1318.5,
+       "t": 0,
+       "d": 0.07,
+       "w": "sine",
+       "v": 0.12
+      }
+     ],
+     "notify": [
+      {
+       "f": 1318.5,
+       "t": 0,
+       "d": 0.16,
+       "w": "sine",
+       "v": 0.18
+      },
+      {
+       "f": 1760,
+       "t": 0.12,
+       "d": 0.24,
+       "w": "sine",
+       "v": 0.16
+      }
+     ],
+     "install": [
+      {
+       "f": 1046.5,
+       "t": 0,
+       "d": 0.15,
+       "w": "sine",
+       "v": 0.3
+      },
+      {
+       "f": 1318.5,
+       "t": 0.12,
+       "d": 0.15,
+       "w": "sine",
+       "v": 0.3
+      },
+      {
+       "f": 2093,
+       "t": 0.24,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.32
+      }
+     ],
+     "error": [
+      {
+       "f": 220,
+       "t": 0,
+       "d": 0.2,
+       "w": "sine",
+       "v": 0.14
+      },
+      {
+       "f": 174.61,
+       "t": 0.16,
+       "d": 0.28,
+       "w": "sine",
+       "v": 0.13
+      }
+     ],
+     "trash": [
+      {
+       "f": 987.77,
+       "t": 0,
+       "d": 0.1,
+       "w": "sine",
+       "v": 0.22
+      },
+      {
+       "f": 659.25,
+       "t": 0.08,
+       "d": 0.1,
+       "w": "sine",
+       "v": 0.2
+      },
+      {
+       "f": 440,
+       "t": 0.16,
+       "d": 0.2,
+       "w": "sine",
+       "v": 0.2
+      }
+     ],
+     "click": [
+      {
+       "f": 1800,
+       "t": 0,
+       "d": 0.03,
+       "w": "sine",
+       "v": 0.08
+      }
+     ]
+    },
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "retro8bit",
+    "type": "soundpack",
+    "name": "Retro 8-Bit",
+    "version": "1.0.0",
+    "desc": "Chiptune square waves straight from a 1989 handheld.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 6400,
+    "sounds": {
+     "startup": [
+      {
+       "f": 523.25,
+       "t": 0,
+       "d": 0.09,
+       "w": "square",
+       "v": 0.2
+      },
+      {
+       "f": 659.25,
+       "t": 0.09,
+       "d": 0.09,
+       "w": "square",
+       "v": 0.2
+      },
+      {
+       "f": 783.99,
+       "t": 0.18,
+       "d": 0.09,
+       "w": "square",
+       "v": 0.2
+      },
+      {
+       "f": 1046.5,
+       "t": 0.27,
+       "d": 0.22,
+       "w": "square",
+       "v": 0.22
+      }
+     ],
+     "shutdown": [
+      {
+       "f": 783.99,
+       "t": 0,
+       "d": 0.08,
+       "w": "square",
+       "v": 0.18
+      },
+      {
+       "f": 523.25,
+       "t": 0.09,
+       "d": 0.08,
+       "w": "square",
+       "v": 0.18
+      },
+      {
+       "f": 392,
+       "t": 0.18,
+       "d": 0.2,
+       "w": "square",
+       "v": 0.18
+      }
+     ],
+     "unlock": [
+      {
+       "f": 740,
+       "t": 0,
+       "d": 0.06,
+       "w": "square",
+       "v": 0.18
+      },
+      {
+       "f": 988,
+       "t": 0.06,
+       "d": 0.1,
+       "w": "square",
+       "v": 0.18
+      }
+     ],
+     "lock": [
+      {
+       "f": 988,
+       "t": 0,
+       "d": 0.06,
+       "w": "square",
+       "v": 0.16
+      },
+      {
+       "f": 740,
+       "t": 0.06,
+       "d": 0.1,
+       "w": "square",
+       "v": 0.16
+      }
+     ],
+     "launch": [
+      {
+       "f": 1318.5,
+       "t": 0,
+       "d": 0.05,
+       "w": "square",
+       "v": 0.1
+      }
+     ],
+     "notify": [
+      {
+       "f": 880,
+       "t": 0,
+       "d": 0.07,
+       "w": "square",
+       "v": 0.16
+      },
+      {
+       "f": 1174.66,
+       "t": 0.08,
+       "d": 0.12,
+       "w": "square",
+       "v": 0.16
+      }
+     ],
+     "install": [
+      {
+       "f": 659.25,
+       "t": 0,
+       "d": 0.06,
+       "w": "square",
+       "v": 0.2
+      },
+      {
+       "f": 783.99,
+       "t": 0.07,
+       "d": 0.06,
+       "w": "square",
+       "v": 0.2
+      },
+      {
+       "f": 1046.5,
+       "t": 0.14,
+       "d": 0.16,
+       "w": "square",
+       "v": 0.22
+      }
+     ],
+     "error": [
+      {
+       "f": 196,
+       "t": 0,
+       "d": 0.1,
+       "w": "square",
+       "v": 0.12
+      },
+      {
+       "f": 146.83,
+       "t": 0.1,
+       "d": 0.16,
+       "w": "square",
+       "v": 0.12
+      }
+     ],
+     "trash": [
+      {
+       "f": 660,
+       "t": 0,
+       "d": 0.06,
+       "w": "square",
+       "v": 0.18
+      },
+      {
+       "f": 494,
+       "t": 0.06,
+       "d": 0.06,
+       "w": "square",
+       "v": 0.16
+      },
+      {
+       "f": 330,
+       "t": 0.12,
+       "d": 0.12,
+       "w": "square",
+       "v": 0.16
+      }
+     ],
+     "click": [
+      {
+       "f": 1975,
+       "t": 0,
+       "d": 0.03,
+       "w": "square",
+       "v": 0.07
+      }
+     ]
+    },
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "zen",
+    "type": "soundpack",
+    "name": "Zen Garden",
+    "version": "1.0.0",
+    "desc": "Soft low pads with long decay — calm and unhurried.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 6400,
+    "sounds": {
+     "startup": [
+      {
+       "f": 261.63,
+       "t": 0,
+       "d": 1.2,
+       "w": "sine",
+       "v": 0.3
+      },
+      {
+       "f": 329.63,
+       "t": 0.3,
+       "d": 1.2,
+       "w": "sine",
+       "v": 0.28
+      },
+      {
+       "f": 392,
+       "t": 0.6,
+       "d": 1.5,
+       "w": "sine",
+       "v": 0.26
+      },
+      {
+       "f": 523.25,
+       "t": 0.9,
+       "d": 1.8,
+       "w": "sine",
+       "v": 0.24
+      }
+     ],
+     "shutdown": [
+      {
+       "f": 392,
+       "t": 0,
+       "d": 0.9,
+       "w": "sine",
+       "v": 0.26
+      },
+      {
+       "f": 329.63,
+       "t": 0.25,
+       "d": 0.9,
+       "w": "sine",
+       "v": 0.24
+      },
+      {
+       "f": 261.63,
+       "t": 0.5,
+       "d": 1.3,
+       "w": "sine",
+       "v": 0.22
+      }
+     ],
+     "unlock": [
+      {
+       "f": 392,
+       "t": 0,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.24
+      },
+      {
+       "f": 523.25,
+       "t": 0.18,
+       "d": 0.45,
+       "w": "sine",
+       "v": 0.22
+      }
+     ],
+     "lock": [
+      {
+       "f": 523.25,
+       "t": 0,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.22
+      },
+      {
+       "f": 392,
+       "t": 0.18,
+       "d": 0.45,
+       "w": "sine",
+       "v": 0.24
+      }
+     ],
+     "launch": [
+      {
+       "f": 494,
+       "t": 0,
+       "d": 0.12,
+       "w": "sine",
+       "v": 0.1
+      }
+     ],
+     "notify": [
+      {
+       "f": 440,
+       "t": 0,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.16
+      },
+      {
+       "f": 587.33,
+       "t": 0.22,
+       "d": 0.55,
+       "w": "sine",
+       "v": 0.14
+      }
+     ],
+     "install": [
+      {
+       "f": 349.23,
+       "t": 0,
+       "d": 0.5,
+       "w": "sine",
+       "v": 0.26
+      },
+      {
+       "f": 440,
+       "t": 0.25,
+       "d": 0.5,
+       "w": "sine",
+       "v": 0.26
+      },
+      {
+       "f": 587.33,
+       "t": 0.5,
+       "d": 0.8,
+       "w": "sine",
+       "v": 0.26
+      }
+     ],
+     "error": [
+      {
+       "f": 174.61,
+       "t": 0,
+       "d": 0.5,
+       "w": "sine",
+       "v": 0.14
+      },
+      {
+       "f": 146.83,
+       "t": 0.3,
+       "d": 0.6,
+       "w": "sine",
+       "v": 0.13
+      }
+     ],
+     "trash": [
+      {
+       "f": 392,
+       "t": 0,
+       "d": 0.25,
+       "w": "sine",
+       "v": 0.2
+      },
+      {
+       "f": 293.66,
+       "t": 0.15,
+       "d": 0.25,
+       "w": "sine",
+       "v": 0.18
+      },
+      {
+       "f": 220,
+       "t": 0.3,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.18
+      }
+     ],
+     "click": [
+      {
+       "f": 600,
+       "t": 0,
+       "d": 0.05,
+       "w": "sine",
+       "v": 0.06
+      }
+     ]
+    },
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "sonar",
+    "type": "soundpack",
+    "name": "Sonar Deep",
+    "version": "1.0.0",
+    "desc": "Submarine pings that bend downward into the deep.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 6400,
+    "sounds": {
+     "startup": [
+      {
+       "f": 740,
+       "t": 0,
+       "d": 0.7,
+       "w": "sine",
+       "v": 0.35,
+       "slide": 370
+      },
+      {
+       "f": 740,
+       "t": 0.35,
+       "d": 0.7,
+       "w": "sine",
+       "v": 0.32,
+       "slide": 370
+      },
+      {
+       "f": 740,
+       "t": 0.7,
+       "d": 1,
+       "w": "sine",
+       "v": 0.3,
+       "slide": 300
+      }
+     ],
+     "shutdown": [
+      {
+       "f": 554.37,
+       "t": 0,
+       "d": 0.8,
+       "w": "sine",
+       "v": 0.3,
+       "slide": 240
+      },
+      {
+       "f": 440,
+       "t": 0.35,
+       "d": 1,
+       "w": "sine",
+       "v": 0.28,
+       "slide": 180
+      }
+     ],
+     "unlock": [
+      {
+       "f": 740,
+       "t": 0,
+       "d": 0.25,
+       "w": "sine",
+       "v": 0.26,
+       "slide": 660
+      },
+      {
+       "f": 988,
+       "t": 0.15,
+       "d": 0.35,
+       "w": "sine",
+       "v": 0.24,
+       "slide": 800
+      }
+     ],
+     "lock": [
+      {
+       "f": 988,
+       "t": 0,
+       "d": 0.25,
+       "w": "sine",
+       "v": 0.24,
+       "slide": 740
+      },
+      {
+       "f": 740,
+       "t": 0.15,
+       "d": 0.35,
+       "w": "sine",
+       "v": 0.26,
+       "slide": 600
+      }
+     ],
+     "launch": [
+      {
+       "f": 880,
+       "t": 0,
+       "d": 0.15,
+       "w": "sine",
+       "v": 0.12,
+       "slide": 700
+      }
+     ],
+     "notify": [
+      {
+       "f": 740,
+       "t": 0,
+       "d": 0.35,
+       "w": "sine",
+       "v": 0.2,
+       "slide": 600
+      },
+      {
+       "f": 740,
+       "t": 0.28,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.18,
+       "slide": 550
+      }
+     ],
+     "install": [
+      {
+       "f": 554.37,
+       "t": 0,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.3,
+       "slide": 444
+      },
+      {
+       "f": 740,
+       "t": 0.2,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.3,
+       "slide": 592
+      },
+      {
+       "f": 1108.73,
+       "t": 0.42,
+       "d": 0.7,
+       "w": "sine",
+       "v": 0.3,
+       "slide": 888
+      }
+     ],
+     "error": [
+      {
+       "f": 185,
+       "t": 0,
+       "d": 0.35,
+       "w": "sine",
+       "v": 0.15,
+       "slide": 140
+      },
+      {
+       "f": 155.56,
+       "t": 0.28,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.14,
+       "slide": 110
+      }
+     ],
+     "trash": [
+      {
+       "f": 493.88,
+       "t": 0,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.22,
+       "slide": 330
+      },
+      {
+       "f": 369.99,
+       "t": 0.18,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.2,
+       "slide": 240
+      },
+      {
+       "f": 277.18,
+       "t": 0.36,
+       "d": 0.45,
+       "w": "sine",
+       "v": 0.2,
+       "slide": 180
+      }
+     ],
+     "click": [
+      {
+       "f": 1000,
+       "t": 0,
+       "d": 0.04,
+       "w": "sine",
+       "v": 0.08,
+       "slide": 880
+      }
+     ]
+    },
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "ivory",
+    "type": "soundpack",
+    "name": "Ivory Keys",
+    "version": "1.0.0",
+    "desc": "Warm triangle-wave piano tones, mid register, felt-soft.",
+    "developer": "Leonux Community",
+    "rating": 4.6,
+    "downloads": 6400,
+    "sounds": {
+     "startup": [
+      {
+       "f": 392,
+       "t": 0,
+       "d": 0.5,
+       "w": "triangle",
+       "v": 0.4
+      },
+      {
+       "f": 493.88,
+       "t": 0.14,
+       "d": 0.5,
+       "w": "triangle",
+       "v": 0.38
+      },
+      {
+       "f": 587.33,
+       "t": 0.28,
+       "d": 0.55,
+       "w": "triangle",
+       "v": 0.38
+      },
+      {
+       "f": 783.99,
+       "t": 0.42,
+       "d": 0.8,
+       "w": "triangle",
+       "v": 0.36
+      }
+     ],
+     "shutdown": [
+      {
+       "f": 587.33,
+       "t": 0,
+       "d": 0.4,
+       "w": "triangle",
+       "v": 0.34
+      },
+      {
+       "f": 493.88,
+       "t": 0.13,
+       "d": 0.4,
+       "w": "triangle",
+       "v": 0.32
+      },
+      {
+       "f": 392,
+       "t": 0.26,
+       "d": 0.6,
+       "w": "triangle",
+       "v": 0.3
+      }
+     ],
+     "unlock": [
+      {
+       "f": 523.25,
+       "t": 0,
+       "d": 0.15,
+       "w": "triangle",
+       "v": 0.3
+      },
+      {
+       "f": 783.99,
+       "t": 0.11,
+       "d": 0.22,
+       "w": "triangle",
+       "v": 0.27
+      }
+     ],
+     "lock": [
+      {
+       "f": 783.99,
+       "t": 0,
+       "d": 0.15,
+       "w": "triangle",
+       "v": 0.27
+      },
+      {
+       "f": 523.25,
+       "t": 0.11,
+       "d": 0.22,
+       "w": "triangle",
+       "v": 0.3
+      }
+     ],
+     "launch": [
+      {
+       "f": 698.46,
+       "t": 0,
+       "d": 0.08,
+       "w": "triangle",
+       "v": 0.12
+      }
+     ],
+     "notify": [
+      {
+       "f": 698.46,
+       "t": 0,
+       "d": 0.16,
+       "w": "triangle",
+       "v": 0.17
+      },
+      {
+       "f": 932.33,
+       "t": 0.12,
+       "d": 0.24,
+       "w": "triangle",
+       "v": 0.15
+      }
+     ],
+     "install": [
+      {
+       "f": 523.25,
+       "t": 0,
+       "d": 0.16,
+       "w": "triangle",
+       "v": 0.3
+      },
+      {
+       "f": 659.25,
+       "t": 0.13,
+       "d": 0.16,
+       "w": "triangle",
+       "v": 0.3
+      },
+      {
+       "f": 1046.5,
+       "t": 0.26,
+       "d": 0.4,
+       "w": "triangle",
+       "v": 0.3
+      }
+     ],
+     "error": [
+      {
+       "f": 196,
+       "t": 0,
+       "d": 0.22,
+       "w": "triangle",
+       "v": 0.13
+      },
+      {
+       "f": 164.81,
+       "t": 0.18,
+       "d": 0.3,
+       "w": "triangle",
+       "v": 0.12
+      }
+     ],
+     "trash": [
+      {
+       "f": 587.33,
+       "t": 0,
+       "d": 0.12,
+       "w": "triangle",
+       "v": 0.22
+      },
+      {
+       "f": 440,
+       "t": 0.09,
+       "d": 0.12,
+       "w": "triangle",
+       "v": 0.2
+      },
+      {
+       "f": 329.63,
+       "t": 0.18,
+       "d": 0.2,
+       "w": "triangle",
+       "v": 0.2
+      }
+     ],
+     "click": [
+      {
+       "f": 880,
+       "t": 0,
+       "d": 0.04,
+       "w": "triangle",
+       "v": 0.08
+      }
+     ]
+    },
+    "updated": "Oct 2026"
+   },
+   {
+    "id": "marimba",
+    "type": "soundpack",
+    "name": "Marimba",
+    "version": "1.0.0",
+    "desc": "Warm wooden mallets — soft, rounded and friendly.",
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 3300,
+    "updated": "Oct 2026",
+    "sounds": {
+     "startup": [
+      {
+       "f": 392,
+       "t": 0,
+       "d": 0.35,
+       "w": "triangle",
+       "v": 0.5
+      },
+      {
+       "f": 523.25,
+       "t": 0.14,
+       "d": 0.35,
+       "w": "triangle",
+       "v": 0.5
+      },
+      {
+       "f": 659.25,
+       "t": 0.28,
+       "d": 0.35,
+       "w": "triangle",
+       "v": 0.5
+      },
+      {
+       "f": 784,
+       "t": 0.42,
+       "d": 0.6,
+       "w": "triangle",
+       "v": 0.5
+      }
+     ],
+     "shutdown": [
+      {
+       "f": 784,
+       "t": 0,
+       "d": 0.3,
+       "w": "triangle",
+       "v": 0.45
+      },
+      {
+       "f": 587.33,
+       "t": 0.14,
+       "d": 0.3,
+       "w": "triangle",
+       "v": 0.45
+      },
+      {
+       "f": 392,
+       "t": 0.28,
+       "d": 0.5,
+       "w": "triangle",
+       "v": 0.45
+      }
+     ],
+     "unlock": [
+      {
+       "f": 523.25,
+       "t": 0,
+       "d": 0.2,
+       "w": "triangle",
+       "v": 0.5
+      },
+      {
+       "f": 783.99,
+       "t": 0.1,
+       "d": 0.4,
+       "w": "triangle",
+       "v": 0.5
+      }
+     ],
+     "lock": [
+      {
+       "f": 659.25,
+       "t": 0,
+       "d": 0.2,
+       "w": "triangle",
+       "v": 0.45
+      },
+      {
+       "f": 440,
+       "t": 0.1,
+       "d": 0.35,
+       "w": "triangle",
+       "v": 0.45
+      }
+     ],
+     "launch": [
+      {
+       "f": 659.25,
+       "t": 0,
+       "d": 0.18,
+       "w": "triangle",
+       "v": 0.4
+      }
+     ],
+     "notify": [
+      {
+       "f": 880,
+       "t": 0,
+       "d": 0.15,
+       "w": "triangle",
+       "v": 0.5
+      },
+      {
+       "f": 1174.66,
+       "t": 0.12,
+       "d": 0.3,
+       "w": "triangle",
+       "v": 0.5
+      }
+     ],
+     "install": [
+      {
+       "f": 392,
+       "t": 0,
+       "d": 0.12,
+       "w": "triangle",
+       "v": 0.45
+      },
+      {
+       "f": 523.25,
+       "t": 0.1,
+       "d": 0.12,
+       "w": "triangle",
+       "v": 0.45
+      },
+      {
+       "f": 659.25,
+       "t": 0.2,
+       "d": 0.12,
+       "w": "triangle",
+       "v": 0.45
+      },
+      {
+       "f": 1046.5,
+       "t": 0.3,
+       "d": 0.4,
+       "w": "triangle",
+       "v": 0.5
+      }
+     ],
+     "error": [
+      {
+       "f": 220,
+       "t": 0,
+       "d": 0.2,
+       "w": "triangle",
+       "v": 0.55
+      },
+      {
+       "f": 185,
+       "t": 0.15,
+       "d": 0.35,
+       "w": "triangle",
+       "v": 0.55
+      }
+     ],
+     "trash": [
+      {
+       "f": 300,
+       "t": 0,
+       "d": 0.12,
+       "w": "triangle",
+       "v": 0.4
+      },
+      {
+       "f": 220,
+       "t": 0.08,
+       "d": 0.12,
+       "w": "triangle",
+       "v": 0.4
+      },
+      {
+       "f": 150,
+       "t": 0.16,
+       "d": 0.2,
+       "w": "triangle",
+       "v": 0.4
+      }
+     ],
+     "click": [
+      {
+       "f": 900,
+       "t": 0,
+       "d": 0.05,
+       "w": "triangle",
+       "v": 0.3
+      }
+     ]
+    }
+   },
+   {
+    "id": "spacebleeps",
+    "type": "soundpack",
+    "name": "Space Bleeps",
+    "version": "1.0.0",
+    "desc": "Retro sci-fi gliding tones and radar pings.",
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 3300,
+    "updated": "Oct 2026",
+    "sounds": {
+     "startup": [
+      {
+       "f": 150,
+       "t": 0,
+       "d": 0.5,
+       "w": "sawtooth",
+       "v": 0.25,
+       "slide": 900
+      },
+      {
+       "f": 900,
+       "t": 0.45,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.35,
+       "slide": 1500
+      },
+      {
+       "f": 1500,
+       "t": 0.8,
+       "d": 0.5,
+       "w": "sine",
+       "v": 0.3
+      }
+     ],
+     "shutdown": [
+      {
+       "f": 1200,
+       "t": 0,
+       "d": 0.5,
+       "w": "sawtooth",
+       "v": 0.25,
+       "slide": 120
+      },
+      {
+       "f": 300,
+       "t": 0.4,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.3,
+       "slide": 80
+      }
+     ],
+     "unlock": [
+      {
+       "f": 400,
+       "t": 0,
+       "d": 0.15,
+       "w": "square",
+       "v": 0.2,
+       "slide": 1200
+      },
+      {
+       "f": 1200,
+       "t": 0.14,
+       "d": 0.2,
+       "w": "sine",
+       "v": 0.3
+      }
+     ],
+     "lock": [
+      {
+       "f": 1200,
+       "t": 0,
+       "d": 0.15,
+       "w": "square",
+       "v": 0.2,
+       "slide": 400
+      },
+      {
+       "f": 400,
+       "t": 0.14,
+       "d": 0.2,
+       "w": "sine",
+       "v": 0.3
+      }
+     ],
+     "launch": [
+      {
+       "f": 500,
+       "t": 0,
+       "d": 0.12,
+       "w": "sawtooth",
+       "v": 0.2,
+       "slide": 1400
+      }
+     ],
+     "notify": [
+      {
+       "f": 1760,
+       "t": 0,
+       "d": 0.08,
+       "w": "sine",
+       "v": 0.4
+      },
+      {
+       "f": 1760,
+       "t": 0.14,
+       "d": 0.08,
+       "w": "sine",
+       "v": 0.4
+      },
+      {
+       "f": 2093,
+       "t": 0.28,
+       "d": 0.2,
+       "w": "sine",
+       "v": 0.4
+      }
+     ],
+     "install": [
+      {
+       "f": 300,
+       "t": 0,
+       "d": 0.4,
+       "w": "sawtooth",
+       "v": 0.22,
+       "slide": 1800
+      },
+      {
+       "f": 1800,
+       "t": 0.4,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.3
+      }
+     ],
+     "error": [
+      {
+       "f": 200,
+       "t": 0,
+       "d": 0.3,
+       "w": "square",
+       "v": 0.3,
+       "slide": 100
+      },
+      {
+       "f": 200,
+       "t": 0.3,
+       "d": 0.3,
+       "w": "square",
+       "v": 0.3,
+       "slide": 100
+      }
+     ],
+     "trash": [
+      {
+       "f": 900,
+       "t": 0,
+       "d": 0.3,
+       "w": "sawtooth",
+       "v": 0.2,
+       "slide": 100
+      }
+     ],
+     "click": [
+      {
+       "f": 1400,
+       "t": 0,
+       "d": 0.04,
+       "w": "square",
+       "v": 0.18
+      }
+     ]
+    }
+   },
+   {
+    "id": "waterdrops",
+    "type": "soundpack",
+    "name": "Water Drops",
+    "version": "1.0.0",
+    "desc": "Soft droplets and gentle ripples.",
+    "developer": "Leonux Community",
+    "rating": 4.5,
+    "downloads": 3300,
+    "updated": "Oct 2026",
+    "sounds": {
+     "startup": [
+      {
+       "f": 1200,
+       "t": 0,
+       "d": 0.25,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 700
+      },
+      {
+       "f": 900,
+       "t": 0.25,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.38,
+       "slide": 520
+      },
+      {
+       "f": 1500,
+       "t": 0.55,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.35,
+       "slide": 900
+      }
+     ],
+     "shutdown": [
+      {
+       "f": 1000,
+       "t": 0,
+       "d": 0.25,
+       "w": "sine",
+       "v": 0.38,
+       "slide": 500
+      },
+      {
+       "f": 700,
+       "t": 0.28,
+       "d": 0.35,
+       "w": "sine",
+       "v": 0.35,
+       "slide": 300
+      }
+     ],
+     "unlock": [
+      {
+       "f": 900,
+       "t": 0,
+       "d": 0.18,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 1300
+      },
+      {
+       "f": 1300,
+       "t": 0.15,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.35,
+       "slide": 1000
+      }
+     ],
+     "lock": [
+      {
+       "f": 1300,
+       "t": 0,
+       "d": 0.18,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 800
+      },
+      {
+       "f": 900,
+       "t": 0.15,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.35,
+       "slide": 500
+      }
+     ],
+     "launch": [
+      {
+       "f": 1000,
+       "t": 0,
+       "d": 0.14,
+       "w": "sine",
+       "v": 0.35,
+       "slide": 1400
+      }
+     ],
+     "notify": [
+      {
+       "f": 1400,
+       "t": 0,
+       "d": 0.2,
+       "w": "sine",
+       "v": 0.45,
+       "slide": 900
+      },
+      {
+       "f": 1800,
+       "t": 0.2,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 1100
+      }
+     ],
+     "install": [
+      {
+       "f": 800,
+       "t": 0,
+       "d": 0.14,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 1200
+      },
+      {
+       "f": 1000,
+       "t": 0.13,
+       "d": 0.14,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 1500
+      },
+      {
+       "f": 1300,
+       "t": 0.26,
+       "d": 0.35,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 1800
+      }
+     ],
+     "error": [
+      {
+       "f": 400,
+       "t": 0,
+       "d": 0.3,
+       "w": "sine",
+       "v": 0.5,
+       "slide": 200
+      },
+      {
+       "f": 300,
+       "t": 0.25,
+       "d": 0.4,
+       "w": "sine",
+       "v": 0.5,
+       "slide": 150
+      }
+     ],
+     "trash": [
+      {
+       "f": 1100,
+       "t": 0,
+       "d": 0.1,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 500
+      },
+      {
+       "f": 800,
+       "t": 0.1,
+       "d": 0.1,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 300
+      },
+      {
+       "f": 500,
+       "t": 0.2,
+       "d": 0.2,
+       "w": "sine",
+       "v": 0.4,
+       "slide": 200
+      }
+     ],
+     "click": [
+      {
+       "f": 1500,
+       "t": 0,
+       "d": 0.05,
+       "w": "sine",
+       "v": 0.3,
+       "slide": 900
+      }
+     ]
+    }
+   }
+  ]
+ }
+}

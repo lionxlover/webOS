@@ -1,0 +1,20 @@
+<!--HEAD:Particle Toy--><!--BASE-->
+.wrap{padding:0;gap:0}canvas{width:100%;flex:1;min-height:0;background:#05070d;cursor:crosshair;touch-action:none}
+.ctl{display:flex;gap:10px;align-items:center;justify-content:center;padding:8px;flex-wrap:wrap}
+</style></head><body><div class="wrap"><canvas id="c"></canvas>
+<div class="ctl"><select id="md"><option value="attract">Attract</option><option value="repel">Repel</option><option value="swirl">Swirl</option><option value="fireworks">Burst</option></select><label>Count <input id="n" type="range" min="100" max="1500" step="50" value="600"></label><label><input id="tr" type="checkbox" checked> Trails</label><button id="rs">Reset</button></div></div><script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s);let W,H,P=[],m={x:-999,y:-999,d:false};
+function fit(){const r=cv.getBoundingClientRect();W=cv.width=r.width;H=cv.height=r.height}addEventListener('resize',fit);fit();
+function spawn(){const n=+$('#n').value;while(P.length<n)P.push({x:Math.random()*W,y:Math.random()*H,vx:0,vy:0,h:Math.random()*360});P.length=n}
+function pos(e){const r=cv.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top}
+cv.onpointermove=pos;cv.onpointerdown=e=>{pos(e);m.d=true;if($('#md').value=='fireworks')burst()};cv.onpointerup=cv.onpointerleave=()=>{m.d=false;if(!m.d)m.x=m.y=-999};
+function burst(){P.forEach(p=>{const a=Math.atan2(p.y-m.y,p.x-m.x),s=2+Math.random()*9;p.vx+=Math.cos(a)*s;p.vy+=Math.sin(a)*s})}
+function step(){spawn();x.fillStyle=$('#tr').checked?'rgba(5,7,13,.18)':'#05070d';x.fillRect(0,0,W,H);const md=$('#md').value;
+ for(const p of P){const dx=m.x-p.x,dy=m.y-p.y,d=Math.hypot(dx,dy)+.1;
+  if(m.x>-900&&md!='fireworks'){const f=Math.min(1.5,260/(d*d/12+20))*.6;
+   if(md=='attract'){p.vx+=dx/d*f;p.vy+=dy/d*f}else if(md=='repel'){p.vx-=dx/d*f*2;p.vy-=dy/d*f*2}else{p.vx+=(dx/d+(-dy/d))*f;p.vy+=(dy/d+dx/d)*f}}
+  p.vx*=.97;p.vy*=.97;p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W){p.vx*=-.8;p.x=Math.max(0,Math.min(W,p.x))}if(p.y<0||p.y>H){p.vy*=-.8;p.y=Math.max(0,Math.min(H,p.y))}
+  p.h=(p.h+.5)%360;const sp=Math.hypot(p.vx,p.vy);x.fillStyle='hsl('+(p.h+sp*20)+',90%,'+(50+Math.min(30,sp*6))+'%)';x.fillRect(p.x,p.y,2,2)}
+ requestAnimationFrame(step)}
+$('#rs').onclick=()=>{P=[]};step();
+</script></body></html>

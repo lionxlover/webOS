@@ -1,0 +1,14 @@
+/* boot + power screens */
+#boot{position:fixed;inset:0;z-index:100000;background:#030409;display:none;flex-direction:column;align-items:center;justify-content:center;gap:34px;transition:opacity .5s}
+#boot.show{display:flex}#boot.done{opacity:0}
+.boot-logo{display:flex;flex-direction:column;align-items:center;gap:16px;animation:popIn .8s var(--ease)}
+.boot-name{font-size:30px;font-weight:300;letter-spacing:.34em;text-transform:uppercase;color:#fff;padding-left:.34em}
+.logo-mark{display:inline-block;width:20px;height:20px;border-radius:50%;background:conic-gradient(from 210deg,var(--accent),var(--purple),#4DD0E1,var(--accent));box-shadow:0 0 14px var(--accent-glow);position:relative}
+.logo-mark::after{content:'';position:absolute;inset:5px;border-radius:50%;background:#0b0d14}
+.logo-mark.big{width:78px;height:78px;box-shadow:0 0 50px var(--accent-glow)}.logo-mark.big::after{inset:20px}
+.boot-bar{width:220px;height:3px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
+.boot-fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--purple));transition:width .25s var(--ease)}
+.boot-log{font:12px var(--mono);color:#6b7385;height:16px}
+#poweroff{position:fixed;inset:0;z-index:100001;background:#000;display:none;align-items:center;justify-content:center}
+#poweroff.show{display:flex;animation:fadeIn .5s}#poweroff.sleep{background:#000}
+.po-box{display:flex;flex-direction:column;align-items:center;gap:18px;color:#8a90a0}.po-t{font-size:15px}

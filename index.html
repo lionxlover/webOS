@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="theme-color" content="#07080d">
+<meta name="description" content="Leonux OS 2 — a complete desktop operating system in your browser. Windows, spaces, an App Store, 26+ apps & games. Installs to your system and runs fully offline.">
+<title>Leonux OS</title>
+<link rel="icon" href="icons/icon-64.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+
+<!-- core styles -->
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/boot.css">
+<link rel="stylesheet" href="css/lockscreen.css">
+<link rel="stylesheet" href="css/desktop.css">
+<link rel="stylesheet" href="css/taskbar.css">
+<link rel="stylesheet" href="css/dock.css">
+<link rel="stylesheet" href="css/windows.css">
+<link rel="stylesheet" href="css/launcher.css">
+<link rel="stylesheet" href="css/notifications.css">
+<link rel="stylesheet" href="css/controlcenter.css">
+<link rel="stylesheet" href="css/contextmenu.css">
+<link rel="stylesheet" href="css/dialogs.css">
+<link rel="stylesheet" href="css/oobe.css">
+<link rel="stylesheet" href="css/spaces.css">
+<!-- app styles -->
+<link rel="stylesheet" href="css/apps-files.css">
+<link rel="stylesheet" href="css/apps-system.css">
+<link rel="stylesheet" href="css/appstore.css">
+<link rel="stylesheet" href="css/apps-productivity.css">
+<link rel="stylesheet" href="css/apps-media.css">
+<link rel="stylesheet" href="css/apps-games.css">
+<link rel="stylesheet" href="css/apps-extra.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- desktop layers -->
+  <div id="desktop">
+    <div id="wallpaper"></div>
+    <div id="widgets"></div>
+    <div id="desktop-icons"></div>
+  </div>
+  <div id="windows"></div>
+  <div id="snap-preview"></div>
+  <nav id="taskbar" aria-label="Taskbar"></nav>
+
+  <!-- panels -->
+  <div id="launcher"></div>
+  <div id="cc"></div>
+  <div id="notif-panel"></div>
+  <div id="search"></div>
+
+  <!-- overlays -->
+  <div id="notifs"></div>
+  <div id="menus"></div>
+  <div id="dialogs"></div>
+  <div id="lock"></div>
+  <div id="poweroff"></div>
+  <div id="boot"></div>
+  <div id="oobe"></div>
+  <div id="night"></div>
+  <div id="dim"></div>
+  <noscript><p style="color:#fff;padding:2rem">Leonux OS needs JavaScript.</p></noscript>
+
+  <!-- core -->
+  <script src="js/core/lx.js"></script>
+  <script src="js/core/bus.js"></script>
+  <script src="js/core/storage.js"></script>
+  <script src="js/core/ui.js"></script>
+  <script src="js/core/icons.js"></script>
+  <script src="js/core/panels.js"></script>
+  <script src="js/core/settings.js"></script>
+  <script src="js/core/theme.js"></script>
+  <script src="js/core/audio.js"></script>
+  <script src="js/core/clipboard.js"></script>
+  <script src="js/core/vfs.js"></script>
+  <script src="js/core/zapps.js"></script>
+  <script src="js/core/appregistry.js"></script>
+  <script src="js/core/packages.js"></script>
+  <script src="js/core/repos.js"></script>
+  <script src="js/core/windowmanager.js"></script>
+  <script src="js/core/snap.js"></script>
+  <script src="js/core/spaces.js"></script>
+  <script src="js/core/contextmenu.js"></script>
+  <script src="js/core/dialogs.js"></script>
+  <script src="js/core/notifications.js"></script>
+  <script src="js/core/proc.js"></script>
+  <script src="js/core/clock.js"></script>
+  <script src="js/core/battery.js"></script>
+  <script src="js/core/taskbar.js"></script>
+  <script src="js/core/desktop.js"></script>
+  <script src="js/core/widgets.js"></script>
+  <script src="js/core/launcher.js"></script>
+  <script src="js/core/search.js"></script>
+  <script src="js/core/controlcenter.js"></script>
+  <script src="js/core/shortcuts.js"></script>
+  <script src="js/core/lockscreen.js"></script>
+  <script src="js/core/power.js"></script>
+  <script src="js/core/pwa.js"></script>
+  <script src="js/core/oobe.js"></script>
+  <script src="js/core/boot.js"></script>
+  <script src="js/core/menubar.js"></script>
+  <script src="js/core/hotcorners.js"></script>
+  <script src="js/core/quicklook.js"></script>
+  <script src="js/core/screensaver.js"></script>
+
+  <!-- apps: files -->
+  <script src="js/apps/files.js"></script>
+  <script src="js/apps/trash.js"></script>
+  <script src="js/apps/texteditor.js"></script>
+  <script src="js/apps/notes.js"></script>
+  <script src="js/apps/markdown.js"></script>
+  <script src="js/apps/stickynotes.js"></script>
+  <!-- apps: system -->
+  <script src="js/apps/settings.js"></script>
+  <script src="js/apps/settings-appearance.js"></script>
+  <script src="js/apps/settings-network.js"></script>
+  <script src="js/apps/settings-system.js"></script>
+  <script src="js/apps/settings-extra.js"></script>
+  <script src="js/apps/taskmanager.js"></script>
+  <script src="js/apps/sysmonitor.js"></script>
+  <script src="js/apps/about.js"></script>
+  <script src="js/apps/softwarecenter.js"></script>
+  <script src="js/apps/terminal.js"></script>
+  <script src="js/apps/terminal-commands.js"></script>
+  <script src="js/apps/terminal-extra.js"></script>
+  <script src="js/apps/lionapps.js"></script>
+  <!-- apps: productivity -->
+  <script src="js/apps/calculator.js"></script>
+  <script src="js/apps/calendar.js"></script>
+  <script src="js/apps/clock.js"></script>
+  <script src="js/apps/weather.js"></script>
+  <script src="js/apps/contacts.js"></script>
+  <script src="js/apps/mail.js"></script>
+  <script src="js/apps/converter.js"></script>
+  <!-- apps: media -->
+  <script src="js/apps/photos.js"></script>
+  <script src="js/apps/music.js"></script>
+  <script src="js/apps/video.js"></script>
+  <script src="js/apps/camera.js"></script>
+  <script src="js/apps/recorder.js"></script>
+  <script src="js/apps/paint.js"></script>
+  <script src="js/apps/browser.js"></script>
+  <!-- apps: games (built-in) -->
+  <script src="js/apps/snake.js"></script>
+  <script src="js/apps/minesweeper.js"></script>
+  <script src="js/apps/game2048.js"></script>
+  <script src="js/apps/tetris.js"></script>
+  <script src="js/apps/memory.js"></script>
+  <script src="js/apps/sudoku.js"></script>
+
+  <!-- store apps: productivity & tools -->
+  <script src="js/apps/codestudio.js"></script>
+  <script src="js/apps/spreadsheets.js"></script>
+  <script src="js/apps/kanban.js"></script>
+  <script src="js/apps/pomodoro.js"></script>
+  <script src="js/apps/habits.js"></script>
+  <script src="js/apps/flashcards.js"></script>
+  <script src="js/apps/finance.js"></script>
+  <script src="js/apps/vault.js"></script>
+  <script src="js/apps/zipman.js"></script>
+  <script src="js/apps/colorpicker.js"></script>
+  <script src="js/apps/hexedit.js"></script>
+  <script src="js/apps/regexlab.js"></script>
+  <script src="js/apps/jsonstudio.js"></script>
+  <script src="js/apps/diff.js"></script>
+  <script src="js/apps/pdffox.js"></script>
+  <script src="js/apps/tides.js"></script>
+  <!-- store apps: media & social -->
+  <script src="js/apps/sketchbook.js"></script>
+  <script src="js/apps/wavefm.js"></script>
+  <script src="js/apps/chatter.js"></script>
+  <script src="js/apps/screenstudio.js"></script>
+  <!-- store apps: games -->
+  <script src="js/apps/chess.js"></script>
+  <script src="js/apps/solitaire.js"></script>
+  <script src="js/apps/liondle.js"></script>
+  <script src="js/apps/pong.js"></script>
+  <script src="js/apps/breakout.js"></script>
+  <script src="js/apps/flappylion.js"></script>
+
+  <script src="js/apps/todo.js"></script>
+  <script src="js/apps/whiteboard.js"></script>
+  <script src="js/apps/clipboardmgr.js"></script>
+  <script src="js/apps/assistant.js"></script>
+  <script src="js/core/main.js"></script>
+</body>
+</html>

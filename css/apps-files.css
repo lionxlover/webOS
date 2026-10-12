@@ -1,0 +1,100 @@
+/* Leonux apps: files, trash, texteditor, notes, markdown, stickynotes */
+/* ---------- Files ---------- */
+.app-files{background:var(--surface)}
+.app-files .f-toolbar{flex-wrap:nowrap}
+.app-files .f-path{flex:1;display:flex;align-items:center;gap:2px;min-width:0;overflow:hidden;background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:3px 6px;height:30px}
+.app-files .f-crumb{padding:2px 7px;border-radius:6px;font-size:13px;white-space:nowrap;color:var(--text-muted);display:inline-flex;align-items:center}
+.app-files button.f-crumb:hover{background:var(--surface-3);color:var(--text)}.app-files .f-crumb.cur{color:var(--text);font-weight:600}
+.app-files .f-sep{color:var(--text-faint);font-size:12px}
+.app-files .f-search{width:150px;flex:0 1 150px;padding:5px 10px;height:30px}
+.app-files .f-main{flex:1;display:flex;min-height:0}
+.app-files .f-side{width:176px;display:flex;flex-direction:column;gap:2px}
+.app-files .f-side-h{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint);padding:4px 10px 6px}
+.app-files .f-place{padding:7px 10px;font-size:13px;gap:10px}
+.app-files .f-usage{margin-top:auto;padding:10px 6px 2px;display:flex;flex-direction:column;gap:6px}
+.app-files .f-content{flex:1;min-width:0;padding:12px;outline:none;position:relative}
+.app-files .f-content.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(92px,1fr));grid-auto-rows:min-content;gap:6px}
+.app-files .f-item{cursor:default;border-radius:10px;border:1px solid transparent;user-select:none}
+.app-files .f-item:hover{background:var(--surface-2)}
+.app-files .f-item.sel{background:rgba(var(--accent-rgb),.22);border-color:rgba(var(--accent-rgb),.5)}
+.app-files .f-item.cut{opacity:.45}.app-files .f-item.drop{outline:2px dashed var(--accent);background:rgba(var(--accent-rgb),.12)}
+.app-files .grid .f-item{display:flex;flex-direction:column;align-items:center;padding:8px 4px;gap:4px;min-width:0}
+.app-files .f-ico{height:52px;display:flex;align-items:center;justify-content:center}
+.app-files .f-ico img{max-width:72px;max-height:52px;border-radius:5px;object-fit:cover;box-shadow:0 1px 6px rgba(0,0,0,.4)}
+.app-files .f-name{font-size:12px;text-align:center;max-width:100%;word-break:break-word;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.25}
+.app-files .list{display:block}
+.app-files .f-row{display:grid;grid-template-columns:minmax(0,1fr) 90px 150px;align-items:center;gap:10px;padding:6px 10px;font-size:13px}
+.app-files .f-head{position:sticky;top:-12px;background:var(--surface);z-index:1;color:var(--text-muted);font-size:12px;border-bottom:1px solid var(--border);margin:-12px -12px 4px;padding:8px 22px}
+.app-files .f-head span{cursor:pointer}.app-files .f-head .on{color:var(--accent)}
+.app-files .f-c-name{display:flex;align-items:center;gap:10px;min-width:0}.app-files .f-c-size,.app-files .f-c-date{color:var(--text-muted);font-size:12px;white-space:nowrap}
+.app-files .f-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--text-faint);pointer-events:none}
+.app-files .f-status{padding:5px 14px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);flex-shrink:0}
+@media (max-width:560px){.app-files .f-side{display:none}.app-files .f-row{grid-template-columns:minmax(0,1fr) 70px}.app-files .f-c-date{display:none}}
+.app-files-props .f-props{padding:16px;display:flex;flex-direction:column;gap:10px;overflow:auto}
+.app-files-props .f-prow{display:grid;grid-template-columns:90px 1fr;gap:10px;font-size:13px;word-break:break-all}
+/* ---------- Trash ---------- */
+.app-trash .tr-list{flex:1;padding:8px;min-height:0;position:relative}
+.app-trash .tr-item{padding:8px 12px;margin-bottom:2px}.app-trash .tr-ico{color:var(--text-muted)}
+.app-trash .tr-meta{min-width:0;display:flex;flex-direction:column}.app-trash .tr-size{min-width:60px;text-align:right}.app-trash .tr-date{white-space:nowrap}
+.app-trash .tr-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--text-faint)}
+.app-trash .tr-status{padding:5px 14px;font-size:12px;border-top:1px solid var(--border)}
+@media (max-width:480px){.app-trash .tr-date{display:none}}
+/* ---------- Text editor ---------- */
+.app-texteditor .te-tabs{align-items:center;flex-shrink:0;padding:4px 8px 0}
+.app-texteditor .te-tab{display:flex;align-items:center;gap:8px;cursor:default;max-width:200px}
+.app-texteditor .te-x{opacity:.5;display:inline-flex;border-radius:4px;padding:2px}.app-texteditor .te-x:hover{opacity:1;background:var(--surface-3)}
+.app-texteditor .te-find .input{width:140px;padding:4px 8px}
+.app-texteditor .te-wrap{flex:1;display:flex;min-height:0;background:var(--surface-2);font-family:var(--mono);font-size:13px;line-height:19.5px}
+.app-texteditor .te-gutter{width:48px;flex-shrink:0;overflow:hidden;text-align:right;padding:10px 8px 10px 0;color:var(--text-faint);white-space:pre;border-right:1px solid var(--border);user-select:none;font:inherit}
+.app-texteditor .nolines .te-gutter{display:none}
+.app-texteditor .te-ta{flex:1;min-width:0;resize:none;border:0;outline:0;background:transparent;color:var(--text);font:inherit;padding:10px 14px;tab-size:2;white-space:pre;overflow:auto}
+.app-texteditor .wrap .te-ta{white-space:pre-wrap;word-break:break-word}
+.app-texteditor .te-status{padding:4px 14px;font-size:12px;color:var(--text-muted);border-top:1px solid var(--border);flex-shrink:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+/* ---------- Notes ---------- */
+.app-notes .nt-root{flex:1;display:flex;min-height:0}
+.app-notes .nt-side{width:250px;display:flex;flex-direction:column;gap:8px;padding:10px}
+.app-notes .nt-sh{display:flex;gap:6px;align-items:center}.app-notes .nt-sh .input{flex:1;padding:6px 10px}
+.app-notes .nt-list{flex:1;display:flex;flex-direction:column;gap:6px;min-height:0}
+.app-notes .nt-item{padding:9px 11px;border-radius:10px;background:var(--surface-2);border:1px solid var(--border);border-left:4px solid var(--nc,var(--border-strong));cursor:pointer;display:flex;flex-direction:column;gap:2px;min-width:0}
+.app-notes .nt-item:hover{background:var(--surface-3)}.app-notes .nt-item.active{border-color:var(--accent);border-left-color:var(--nc,var(--accent));background:rgba(var(--accent-rgb),.15)}
+.app-notes .nt-it{display:flex;align-items:center;gap:5px;font-weight:600;font-size:13px;color:var(--text)}.app-notes .nt-ib{font-size:12px;color:var(--text-muted)}
+.app-notes .nt-none{padding:16px;text-align:center}
+.app-notes .nt-main{flex:1;min-width:0;display:flex;flex-direction:column}
+.app-notes .nt-editor{flex:1;display:flex;flex-direction:column;min-height:0;border-top:3px solid var(--nc,var(--accent))}
+.app-notes .nt-editor.hidden,.app-notes .nt-empty.hidden{display:none}
+.app-notes .nt-bar{display:flex;align-items:center;gap:6px;padding:10px 16px 0}
+.app-notes .nt-title{flex:1;min-width:0;background:transparent;border:0;outline:0;font-size:22px;font-weight:700;color:var(--text);font-family:var(--font)}
+.app-notes .nt-sw{display:flex;gap:7px;padding:8px 16px}.app-notes .nt-dot{width:18px;height:18px;border-radius:50%;border:2px solid transparent;cursor:pointer}.app-notes .nt-dot.on{border-color:var(--text)}
+.app-notes .nt-body{flex:1;resize:none;background:transparent;border:0;outline:0;padding:4px 16px 10px;color:var(--text);font:14px/1.6 var(--font);min-height:0}
+.app-notes .nt-foot{padding:6px 16px;border-top:1px solid var(--border)}
+.app-notes .nt-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--text-faint)}
+@media (max-width:560px){.app-notes .nt-side{width:140px}}
+/* ---------- Markdown ---------- */
+.app-markdown .md-split{flex:1;display:grid;grid-template-columns:1fr 1fr;min-height:0}
+.app-markdown .md-split[data-mode=edit]{grid-template-columns:1fr 0}.app-markdown .md-split[data-mode=preview]{grid-template-columns:0 1fr}
+.app-markdown .md-split[data-mode=edit] .md-preview,.app-markdown .md-split[data-mode=preview] .md-ta{display:none}
+.app-markdown .md-ta{resize:none;border:0;border-right:1px solid var(--border);outline:0;background:var(--surface-2);color:var(--text);font:13px/1.6 var(--mono);padding:14px;min-width:0;tab-size:2}
+.app-markdown .md-preview{padding:18px 24px;font-size:14.5px;line-height:1.65;min-width:0;word-wrap:break-word}
+.app-markdown .toolbar .btn.active{background:rgba(var(--accent-rgb),.25);color:var(--accent)}
+.app-markdown .md-foot{padding:4px 14px;border-top:1px solid var(--border);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.app-markdown .md-preview h1,.app-markdown .md-preview h2{border-bottom:1px solid var(--border);padding-bottom:.3em}
+.app-markdown .md-preview h1{font-size:1.9em;margin:.2em 0 .6em}.app-markdown .md-preview h2{font-size:1.45em;margin:1.2em 0 .6em}.app-markdown .md-preview h3{font-size:1.2em;margin:1em 0 .5em}.app-markdown .md-preview h4,.app-markdown .md-preview h5,.app-markdown .md-preview h6{margin:1em 0 .4em}
+.app-markdown .md-preview p{margin:.6em 0}.app-markdown .md-preview a{color:var(--accent);text-decoration:underline}
+.app-markdown .md-preview code{font-family:var(--mono);font-size:.9em;background:var(--surface-3);padding:.15em .4em;border-radius:5px}
+.app-markdown .md-preview pre{background:var(--surface-2);border:1px solid var(--border);border-radius:10px;padding:12px 14px;overflow:auto}.app-markdown .md-preview pre code{background:none;padding:0}
+.app-markdown .md-preview blockquote{margin:.8em 0;padding:.2em 1em;border-left:4px solid var(--accent);color:var(--text-muted);background:var(--surface-2);border-radius:0 8px 8px 0}
+.app-markdown .md-preview ul,.app-markdown .md-preview ol{padding-left:1.6em;margin:.5em 0}.app-markdown .md-preview li.task{list-style:none;margin-left:-1.4em}
+.app-markdown .md-preview table{border-collapse:collapse;margin:.8em 0;max-width:100%;display:block;overflow:auto}.app-markdown .md-preview th,.app-markdown .md-preview td{border:1px solid var(--border-strong);padding:6px 12px}.app-markdown .md-preview th{background:var(--surface-3)}
+.app-markdown .md-preview hr{border:0;border-top:1px solid var(--border-strong);margin:1.4em 0}.app-markdown .md-preview img{max-width:100%;border-radius:8px}
+@media (max-width:560px){.app-markdown .md-split{grid-template-columns:1fr}.app-markdown .md-split[data-mode=split] .md-preview{display:none}}
+/* ---------- Sticky notes ---------- */
+.app-stickynotes .sn-board{flex:1;position:relative;overflow:auto;background:radial-gradient(circle,var(--border) 1px,transparent 1px) 0 0/22px 22px,var(--surface-2);min-height:0}
+.app-stickynotes .sn-note{position:absolute;display:flex;flex-direction:column;background:var(--sc);color:#2a2320;border-radius:6px;box-shadow:0 6px 18px rgba(0,0,0,.35),0 1px 2px rgba(0,0,0,.3);min-width:0}
+.app-stickynotes .sn-head{display:flex;align-items:center;gap:2px;padding:4px 6px;background:rgba(0,0,0,.12);border-radius:6px 6px 0 0;cursor:grab;touch-action:none;flex-shrink:0}
+.app-stickynotes .sn-head:active{cursor:grabbing}.app-stickynotes .sn-grip{opacity:.5;display:inline-flex}
+.app-stickynotes .sn-b{width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:5px;color:#2a2320;opacity:.65}.app-stickynotes .sn-b:hover{opacity:1;background:rgba(0,0,0,.15)}
+.app-stickynotes .sn-ta{flex:1;min-height:0;resize:none;border:0;outline:0;background:transparent;color:#2a2320;font:15px/1.45 "Segoe Print","Comic Sans MS",var(--font);padding:8px 10px}
+.app-stickynotes .sn-ta::placeholder{color:rgba(42,35,32,.5)}
+.app-stickynotes .sn-resize{position:absolute;right:0;bottom:0;width:18px;height:18px;cursor:nwse-resize;touch-action:none;background:linear-gradient(135deg,transparent 50%,rgba(0,0,0,.3) 50%,rgba(0,0,0,.3) 58%,transparent 58%,transparent 72%,rgba(0,0,0,.3) 72%,rgba(0,0,0,.3) 80%,transparent 80%);border-radius:0 0 6px 0}
+.app-stickynotes .sn-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--text-faint);pointer-events:none}
+.app-stickynotes .sn-count{white-space:nowrap}

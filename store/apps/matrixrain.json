@@ -1,0 +1,24 @@
+{
+ "id": "matrixrain",
+ "type": "app",
+ "name": "Matrix Rain",
+ "version": "1.0.0",
+ "category": "Media",
+ "icon": "💊",
+ "color": "#00ff66",
+ "desc": "Cascading code rain with adjustable style",
+ "long": "Falling glyphs in katakana, binary, hex or symbols, with speed, size and colour controls including a rainbow mode. Great as a screensaver window.",
+ "changelog": "First release",
+ "developer": "Leonux Community",
+ "permissions": [
+  "Runs offline",
+  "Sandboxed"
+ ],
+ "window": {
+  "width": 560,
+  "height": 420,
+  "minWidth": 320,
+  "minHeight": 260
+ },
+ "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Matrix Rain</title><style>*{box-sizing:border-box;margin:0}\n:root{--bg:#10131c;--fg:#e8ecf6;--mut:#8b94ab;--ac:#7EE787;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.05)}\nhtml,body{height:100%}\nbody{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:linear-gradient(165deg,#10131c,#161a28);color:var(--fg);overflow:hidden;user-select:none;-webkit-user-select:none}\nbutton{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:9px;padding:7px 13px;cursor:pointer;transition:background .12s,transform .08s}\nbutton:hover{background:rgba(255,255,255,.15)}button:active{transform:scale(.96)}\nbutton.pri{background:var(--ac);color:#0b1020;border-color:transparent;font-weight:700}\ninput,select,textarea{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:8px;padding:6px 9px;outline:none;user-select:text;-webkit-user-select:text}\ninput:focus,select:focus,textarea:focus{border-color:var(--ac)}select option{background:#1b2030}\n.wrap{height:100%;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px;overflow:auto}\n.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}\n.stat{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;text-align:center}.stat b{display:block;color:var(--ac);font-size:20px;letter-spacing:0}\nh1{font-size:16px}h1 span{color:var(--ac)}\n.muted{color:var(--mut);font-size:12px}\ncanvas{display:block;max-width:100%}\nlabel{font-size:12px;color:var(--mut)}\nbody{background:#000}.wrap{padding:0;gap:0}canvas{width:100%;flex:1;min-height:0}\n.ctl{display:flex;gap:10px;align-items:center;justify-content:center;padding:8px;background:rgba(0,0,0,.7);flex-wrap:wrap}\n</style></head><body><div class=\"wrap\"><canvas id=\"c\"></canvas>\n<div class=\"ctl\"><label>Speed <input id=\"sp\" type=\"range\" min=\"1\" max=\"10\" value=\"5\"></label><label>Size <input id=\"sz\" type=\"range\" min=\"10\" max=\"32\" value=\"16\"></label>\n<select id=\"cl\"><option value=\"#00ff66\">Green</option><option value=\"#38bdf8\">Cyan</option><option value=\"#f43f5e\">Red</option><option value=\"#fbbf24\">Amber</option><option value=\"rainbow\">Rainbow</option></select><select id=\"cs\"><option>Katakana</option><option>Binary</option><option>Hex</option><option>Symbols</option></select></div></div><script>\nconst cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s);\nconst SETS={Katakana:'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789',Binary:'01',Hex:'0123456789ABCDEF',Symbols:'+-*/=<>{}[]()#$%&@!?~^'};\nlet cols=[],W,H,sz=16,acc=0;\nfunction fit(){const r=cv.getBoundingClientRect();cv.width=W=r.width;cv.height=H=r.height;sz=+$('#sz').value;cols=Array.from({length:Math.ceil(W/sz)},()=>Math.random()*-50|0);x.fillStyle='#000';x.fillRect(0,0,W,H)}\naddEventListener('resize',fit);$('#sz').oninput=fit;\nfunction step(){const set=SETS[$('#cs').value],c=$('#cl').value;x.fillStyle='rgba(0,0,0,.07)';x.fillRect(0,0,W,H);x.font=sz+'px monospace';\n cols.forEach((y,i)=>{const ch=set[Math.random()*set.length|0];x.fillStyle=c=='rainbow'?'hsl('+((i*7+y*3)%360)+',100%,60%)':c;x.fillText(ch,i*sz,y*sz);\n  x.fillStyle='rgba(255,255,255,.85)';if(y>0&&Math.random()<.3)x.fillRect(i*sz,y*sz,1,1);\n  cols[i]=y*sz>H&&Math.random()>.975?0:y+1})}\nlet last=0;function loop(t){if(t-last>(110-$('#sp').value*10)){last=t;step()}requestAnimationFrame(loop)}\nfit();requestAnimationFrame(loop);\n</script></body></html>\n"
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hangman</title><style><!--BASE-->
+.word{font:700 30px ui-monospace,Menlo,monospace;letter-spacing:.35em;min-height:42px;text-align:center}
+.kb{display:grid;grid-template-columns:repeat(9,1fr);gap:5px;max-width:420px;width:100%}
+.kb button{padding:8px 0;font-weight:700}.kb button:disabled{opacity:.25;cursor:default}.kb .hit{background:#166534}.kb .miss{background:#7f1d1d}
+</style></head><body><div class="wrap">
+<h1><span>Hangman</span></h1>
+<div class="bar"><select id="cat"><option>Animals</option><option>Tech</option><option>Countries</option><option>Food</option></select><button class="pri" id="new">New word</button></div>
+<canvas id="c" width="220" height="200"></canvas>
+<div class="word" id="w"></div><div class="muted" id="msg"></div>
+<div class="kb" id="kb"></div>
+</div><script>
+const WORDS={Animals:'elephant giraffe penguin dolphin kangaroo cheetah octopus flamingo hedgehog panther crocodile squirrel gorilla buffalo lobster'.split(' '),Tech:'keyboard internet algorithm browser database compiler network pixel kernel software firmware protocol bandwidth encryption variable'.split(' '),Countries:'brazil germany norway portugal vietnam argentina morocco thailand ireland australia colombia indonesia switzerland'.split(' '),Food:'spaghetti avocado pancake burrito dumpling croissant lasagna mushroom broccoli pretzel sandwich chocolate pineapple'.split(' ')};
+const $=s=>document.querySelector(s),x=$('#c').getContext('2d');let word,got,miss,over,streak=0;
+function start(){const l=WORDS[$('#cat').value];word=l[Math.random()*l.length|0];got=new Set;miss=0;over=false;$('#msg').textContent='Streak: '+streak+' · 7 mistakes allowed';kb();draw()}
+function kb(){const k=$('#kb');k.innerHTML='';'abcdefghijklmnopqrstuvwxyz'.split('').forEach(ch=>{const b=document.createElement('button');b.textContent=ch.toUpperCase();b.id='k'+ch;b.onclick=()=>guess(ch);k.appendChild(b)})}
+function guess(ch){if(over||got.has(ch))return;got.add(ch);const b=$('#k'+ch);b.disabled=true;if(word.includes(ch))b.className='hit';else{b.className='miss';miss++}
+ const solved=[...word].every(c=>got.has(c));if(solved){over=true;streak++;$('#msg').textContent='You got it! Streak: '+streak}else if(miss>=7){over=true;streak=0;$('#msg').textContent='Out of tries — it was '+word.toUpperCase()}draw()}
+function draw(){x.clearRect(0,0,220,200);x.strokeStyle='#8b94ab';x.lineWidth=4;x.lineCap='round';const L=(a,b,c,d)=>{x.beginPath();x.moveTo(a,b);x.lineTo(c,d);x.stroke()};
+ L(20,190,120,190);L(50,190,50,15);L(50,15,140,15);L(140,15,140,40);
+ x.strokeStyle='#7EE787';if(miss>0){x.beginPath();x.arc(140,55,15,0,7);x.stroke()}if(miss>1)L(140,70,140,125);if(miss>2)L(140,85,118,108);if(miss>3)L(140,85,162,108);if(miss>4)L(140,125,120,160);if(miss>5)L(140,125,160,160);
+ if(miss>6){x.strokeStyle='#ef4444';L(133,50,139,56);L(139,50,133,56);L(143,50,149,56);L(149,50,143,56)}
+ $('#w').textContent=[...word].map(c=>got.has(c)||over&&miss>=7?c.toUpperCase():'_').join(' ')}
+document.addEventListener('keydown',e=>{if(/^[a-z]$/i.test(e.key)&&!e.ctrlKey&&!e.metaKey&&document.activeElement.tagName!=='SELECT')guess(e.key.toLowerCase())});
+$('#new').onclick=start;$('#cat').onchange=start;start();
+</script></body></html>

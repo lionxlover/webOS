@@ -1,0 +1,24 @@
+{
+ "id": "barcode",
+ "type": "app",
+ "name": "Barcode Maker",
+ "version": "1.0.0",
+ "category": "Utilities",
+ "icon": "▮▯▮",
+ "color": "#e5e7eb",
+ "desc": "Create Code 39 barcodes and export as SVG",
+ "long": "Type text and get a scannable Code 39 barcode instantly. Adjust the height, download a crisp vector SVG or copy its markup.",
+ "changelog": "First release",
+ "developer": "Leonux Community",
+ "permissions": [
+  "Runs offline",
+  "Sandboxed"
+ ],
+ "window": {
+  "width": 520,
+  "height": 440,
+  "minWidth": 360,
+  "minHeight": 380
+ },
+ "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title> Barcode Maker</title><style>*{box-sizing:border-box;margin:0}\n:root{--bg:#10131c;--fg:#e8ecf6;--mut:#8b94ab;--ac:#7EE787;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.05)}\nhtml,body{height:100%}\nbody{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:linear-gradient(165deg,#10131c,#161a28);color:var(--fg);overflow:hidden;user-select:none;-webkit-user-select:none}\nbutton{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:9px;padding:7px 13px;cursor:pointer;transition:background .12s,transform .08s}\nbutton:hover{background:rgba(255,255,255,.15)}button:active{transform:scale(.96)}\nbutton.pri{background:var(--ac);color:#0b1020;border-color:transparent;font-weight:700}\ninput,select,textarea{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:8px;padding:6px 9px;outline:none;user-select:text;-webkit-user-select:text}\ninput:focus,select:focus,textarea:focus{border-color:var(--ac)}select option{background:#1b2030}\n.wrap{height:100%;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px;overflow:auto}\n.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}\n.stat{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;text-align:center}.stat b{display:block;color:var(--ac);font-size:20px;letter-spacing:0}\nh1{font-size:16px}h1 span{color:var(--ac)}\n.muted{color:var(--mut);font-size:12px}\ncanvas{display:block;max-width:100%}\nlabel{font-size:12px;color:var(--mut)}\n.wrap{justify-content:flex-start}#out{background:#fff;border-radius:10px;padding:14px;max-width:100%;overflow:auto}#out svg{display:block}\ninput[type=text]{width:240px}\n</style></head><body><div class=\"wrap\">\n<h1>Barcode <span>Maker</span></h1>\n<div class=\"bar\"><input id=\"v\" type=\"text\" value=\"LEONUX 22\" maxlength=\"30\" placeholder=\"A-Z 0-9 - . space $ / + %\"><label>Height <input id=\"h\" type=\"range\" min=\"40\" max=\"140\" value=\"80\"></label></div>\n<div class=\"muted\">Code 39 format · characters outside the set are skipped</div>\n<div id=\"out\"></div><div class=\"bar\"><button class=\"pri\" id=\"dl\">Download SVG</button><button id=\"cp\">Copy SVG</button></div><div class=\"muted\" id=\"msg\"></div>\n</div><script>\nconst C={'0':'nnnwwnwnn','1':'wnnwnnnnw','2':'nnwwnnnnw','3':'wnwwnnnnn','4':'nnnwwnnnw','5':'wnnwwnnnn','6':'nnwwwnnnn','7':'nnnwnnwnw','8':'wnnwnnwnn','9':'nnwwnnwnn',A:'wnnnnwnnw',B:'nnwnnwnnw',C:'wnwnnwnnn',D:'nnnnwwnnw',E:'wnnnwwnnn',F:'nnwnwwnnn',G:'nnnnnwwnw',H:'wnnnnwwnn',I:'nnwnnwwnn',J:'nnnnwwwnn',K:'wnnnnnnww',L:'nnwnnnnww',M:'wnwnnnnwn',N:'nnnnwnnww',O:'wnnnwnnwn',P:'nnwnwnnwn',Q:'nnnnnnwww',R:'wnnnnnwwn',S:'nnwnnnwwn',T:'nnnnwnwwn',U:'wwnnnnnnw',V:'nwwnnnnnw',W:'wwwnnnnnn',X:'nwnnwnnnw',Y:'wwnnwnnnn',Z:'nwwnwnnnn','-':'nwnnnnwnw','.':'wwnnnnwnn',' ':'nwwnnnwnn','*':'nwnnwnwnn','$':'nwnwnwnnn','/':'nwnwnnnwn','+':'nwnnnwnwn','%':'nnnwnwnwn'};\nconst $=s=>document.querySelector(s);let svg='';\nfunction make(){const txt=$('#v').value.toUpperCase().split('').filter(c=>C[c]&&c!='*').join(''),s='*'+txt+'*',hh=+$('#h').value;let x=10,bars='';\n for(const ch of s){let bar=true;for(const w of C[ch]){const wd=w=='w'?3:1;if(bar)bars+='<rect x=\"'+x+'\" y=\"10\" width=\"'+wd+'\" height=\"'+hh+'\"/>';x+=wd;bar=!bar}x+=1}\n svg='<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"'+(x+10)+'\" height=\"'+(hh+34)+'\" viewBox=\"0 0 '+(x+10)+' '+(hh+34)+'\"><rect width=\"100%\" height=\"100%\" fill=\"#fff\"/><g fill=\"#000\">'+bars+'</g><text x=\"'+(x+10)/2+'\" y=\"'+(hh+27)+'\" text-anchor=\"middle\" font-family=\"monospace\" font-size=\"13\">'+s+'</text></svg>';\n $('#out').innerHTML=svg;$('#msg').textContent=txt.length+' characters encoded'}\n$('#v').oninput=make;$('#h').oninput=make;\n$('#dl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));a.download='barcode.svg';a.click()};\n$('#cp').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(svg).then(()=>$('#msg').textContent='SVG copied',()=>$('#msg').textContent='Copy blocked — use Download')};make();\n</script></body></html>\n"
+}

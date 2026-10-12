@@ -1,0 +1,24 @@
+{
+ "id": "boxshadow",
+ "type": "app",
+ "name": "Shadow Lab",
+ "version": "1.0.0",
+ "category": "Design",
+ "icon": "🔲",
+ "color": "#94a3b8",
+ "desc": "Design box-shadows and copy the CSS",
+ "long": "Sliders for offset, blur, spread, opacity and radius, inset toggle and custom colours — with ready-to-paste CSS output.",
+ "changelog": "First release",
+ "developer": "Leonux Community",
+ "permissions": [
+  "Runs offline",
+  "Sandboxed"
+ ],
+ "window": {
+  "width": 480,
+  "height": 640,
+  "minWidth": 380,
+  "minHeight": 540
+ },
+ "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title> Shadow Lab</title><style>*{box-sizing:border-box;margin:0}\n:root{--bg:#10131c;--fg:#e8ecf6;--mut:#8b94ab;--ac:#7EE787;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.05)}\nhtml,body{height:100%}\nbody{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:linear-gradient(165deg,#10131c,#161a28);color:var(--fg);overflow:hidden;user-select:none;-webkit-user-select:none}\nbutton{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:9px;padding:7px 13px;cursor:pointer;transition:background .12s,transform .08s}\nbutton:hover{background:rgba(255,255,255,.15)}button:active{transform:scale(.96)}\nbutton.pri{background:var(--ac);color:#0b1020;border-color:transparent;font-weight:700}\ninput,select,textarea{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:8px;padding:6px 9px;outline:none;user-select:text;-webkit-user-select:text}\ninput:focus,select:focus,textarea:focus{border-color:var(--ac)}select option{background:#1b2030}\n.wrap{height:100%;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px;overflow:auto}\n.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}\n.stat{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;text-align:center}.stat b{display:block;color:var(--ac);font-size:20px;letter-spacing:0}\nh1{font-size:16px}h1 span{color:var(--ac)}\n.muted{color:var(--mut);font-size:12px}\ncanvas{display:block;max-width:100%}\nlabel{font-size:12px;color:var(--mut)}\n.wrap{align-items:stretch}#stage{height:180px;border-radius:14px;display:grid;place-items:center;flex:none;transition:background .2s}\n#box{width:110px;height:110px;background:#e8ecf6;border-radius:18px}\n.g{display:grid;grid-template-columns:90px 1fr 40px;gap:6px 10px;align-items:center;font-size:12px}.g span:last-child{color:var(--mut);text-align:right}\npre{background:rgba(0,0,0,.35);border-radius:9px;padding:10px;font:12px ui-monospace,monospace;white-space:pre-wrap;user-select:text;-webkit-user-select:text;color:#cde}\n</style></head><body><div class=\"wrap\">\n<h1>Shadow <span>Lab</span></h1><div id=\"stage\"><div id=\"box\"></div></div>\n<div class=\"g\" id=\"g\"></div>\n<div class=\"bar\"><label>Shadow <input type=\"color\" id=\"sc\" value=\"#000000\"></label><label>Backdrop <input type=\"color\" id=\"bg\" value=\"#2a3350\"></label><label><input type=\"checkbox\" id=\"in\"> Inset</label></div>\n<pre id=\"css\"></pre><button class=\"pri\" id=\"cp\">Copy CSS</button>\n</div><script>\nconst $=s=>document.querySelector(s),P=[['X offset','x',-60,60,10],['Y offset','y',-60,60,14],['Blur','b',0,100,30],['Spread','s',-40,60,0],['Opacity','o',0,100,45],['Radius','r',0,60,18]],V={};\nP.forEach(p=>{V[p[1]]=p[4];$('#g').insertAdjacentHTML('beforeend','<span>'+p[0]+'</span><input type=\"range\" id=\"r'+p[1]+'\" min=\"'+p[2]+'\" max=\"'+p[3]+'\" value=\"'+p[4]+'\"><span id=\"v'+p[1]+'\">'+p[4]+'</span>');});\nfunction upd(){P.forEach(p=>{V[p[1]]=+$('#r'+p[1]).value;$('#v'+p[1]).textContent=V[p[1]]});const h=$('#sc').value,c=[1,3,5].map(i=>parseInt(h.substr(i,2),16)).join(',');\n const sh=($('#in').checked?'inset ':'')+V.x+'px '+V.y+'px '+V.b+'px '+V.s+'px rgba('+c+','+(V.o/100).toFixed(2)+')';\n $('#box').style.boxShadow=sh;$('#box').style.borderRadius=V.r+'px';$('#stage').style.background=$('#bg').value;$('#css').textContent='box-shadow: '+sh+';\\nborder-radius: '+V.r+'px;'}\ndocument.querySelectorAll('input').forEach(i=>i.oninput=upd);\n$('#cp').onclick=()=>{const t=$('#css').textContent;navigator.clipboard?navigator.clipboard.writeText(t).then(()=>$('#cp').textContent='Copied!',()=>getSelection().selectAllChildren($('#css'))):getSelection().selectAllChildren($('#css'));setTimeout(()=>$('#cp').textContent='Copy CSS',1200)};upd();\n</script></body></html>\n"
+}

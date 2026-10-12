@@ -1,0 +1,24 @@
+<!--HEAD:EMI Calculator--><!--BASE-->
+.wrap{align-items:stretch;max-width:520px;margin:auto}.g{display:grid;grid-template-columns:110px 1fr 90px;gap:8px 10px;align-items:center;font-size:13px}.g input[type=number]{width:90px}
+.big{text-align:center;padding:14px;border-radius:14px;background:var(--card);border:1px solid var(--line)}.big b{display:block;font-size:30px;color:var(--ac)}
+canvas{align-self:center}.row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-bottom:1px solid var(--line)}
+</style></head><body><div class="wrap">
+<h1>Loan <span>EMI</span> Calculator</h1>
+<div class="g"><span>Amount</span><input type="range" id="pr" min="1000" max="2000000" step="1000" value="250000"><input type="number" id="pn" value="250000">
+<span>Interest % / yr</span><input type="range" id="rr" min="0.5" max="30" step="0.1" value="8.5"><input type="number" id="rn" value="8.5" step="0.1">
+<span>Tenure (months)</span><input type="range" id="tr" min="6" max="360" step="1" value="60"><input type="number" id="tn" value="60"></div>
+<div class="big">Monthly EMI<b id="emi"></b></div>
+<canvas id="c" width="160" height="160"></canvas>
+<div id="sum"></div>
+</div><script>
+const $=s=>document.querySelector(s),f=n=>n.toLocaleString(undefined,{maximumFractionDigits:0});
+function link(a,b){$(a).oninput=()=>{$(b).value=$(a).value;calc()};$(b).oninput=()=>{$(a).value=$(b).value;calc()}}
+link('#pr','#pn');link('#rr','#rn');link('#tr','#tn');
+function calc(){const P=+$('#pn').value||0,r=(+$('#rn').value||0)/1200,n=Math.max(1,+$('#tn').value||1);
+ const e=r?P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):P/n,tot=e*n,int=tot-P;
+ $('#emi').textContent=f(e);$('#sum').innerHTML='<div class="row"><span>Principal</span><b>'+f(P)+'</b></div><div class="row"><span>Total interest</span><b>'+f(int)+'</b></div><div class="row"><span>Total payment</span><b>'+f(tot)+'</b></div>';
+ const x=$('#c').getContext('2d');x.clearRect(0,0,160,160);const a=tot?P/tot*Math.PI*2:0;
+ x.lineWidth=26;x.strokeStyle='#4f8cff';x.beginPath();x.arc(80,80,56,-Math.PI/2,-Math.PI/2+a);x.stroke();x.strokeStyle='#f59e0b';x.beginPath();x.arc(80,80,56,-Math.PI/2+a,Math.PI*1.5);x.stroke();
+ x.fillStyle='#e8ecf6';x.font='11px sans-serif';x.textAlign='center';x.fillText(tot?Math.round(int/tot*100)+'% interest':'',80,84)}
+calc();
+</script></body></html>

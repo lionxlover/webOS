@@ -1,0 +1,24 @@
+{
+ "id": "emicalc",
+ "type": "app",
+ "name": "Loan EMI Calculator",
+ "version": "1.0.0",
+ "category": "Finance",
+ "icon": "🏦",
+ "color": "#60a5fa",
+ "desc": "Monthly instalments, interest and totals at a glance",
+ "long": "Slide amount, rate and tenure to see your EMI, total interest and total payment, with a principal-vs-interest chart.",
+ "changelog": "First release",
+ "developer": "Leonux Community",
+ "permissions": [
+  "Runs offline",
+  "Sandboxed"
+ ],
+ "window": {
+  "width": 520,
+  "height": 640,
+  "minWidth": 380,
+  "minHeight": 560
+ },
+ "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>EMI Calculator</title><style>*{box-sizing:border-box;margin:0}\n:root{--bg:#10131c;--fg:#e8ecf6;--mut:#8b94ab;--ac:#7EE787;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.05)}\nhtml,body{height:100%}\nbody{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:linear-gradient(165deg,#10131c,#161a28);color:var(--fg);overflow:hidden;user-select:none;-webkit-user-select:none}\nbutton{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:9px;padding:7px 13px;cursor:pointer;transition:background .12s,transform .08s}\nbutton:hover{background:rgba(255,255,255,.15)}button:active{transform:scale(.96)}\nbutton.pri{background:var(--ac);color:#0b1020;border-color:transparent;font-weight:700}\ninput,select,textarea{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:8px;padding:6px 9px;outline:none;user-select:text;-webkit-user-select:text}\ninput:focus,select:focus,textarea:focus{border-color:var(--ac)}select option{background:#1b2030}\n.wrap{height:100%;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px;overflow:auto}\n.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}\n.stat{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;text-align:center}.stat b{display:block;color:var(--ac);font-size:20px;letter-spacing:0}\nh1{font-size:16px}h1 span{color:var(--ac)}\n.muted{color:var(--mut);font-size:12px}\ncanvas{display:block;max-width:100%}\nlabel{font-size:12px;color:var(--mut)}\n.wrap{align-items:stretch;max-width:520px;margin:auto}.g{display:grid;grid-template-columns:110px 1fr 90px;gap:8px 10px;align-items:center;font-size:13px}.g input[type=number]{width:90px}\n.big{text-align:center;padding:14px;border-radius:14px;background:var(--card);border:1px solid var(--line)}.big b{display:block;font-size:30px;color:var(--ac)}\ncanvas{align-self:center}.row{display:flex;justify-content:space-between;font-size:13px;padding:4px 0;border-bottom:1px solid var(--line)}\n</style></head><body><div class=\"wrap\">\n<h1>Loan <span>EMI</span> Calculator</h1>\n<div class=\"g\"><span>Amount</span><input type=\"range\" id=\"pr\" min=\"1000\" max=\"2000000\" step=\"1000\" value=\"250000\"><input type=\"number\" id=\"pn\" value=\"250000\">\n<span>Interest % / yr</span><input type=\"range\" id=\"rr\" min=\"0.5\" max=\"30\" step=\"0.1\" value=\"8.5\"><input type=\"number\" id=\"rn\" value=\"8.5\" step=\"0.1\">\n<span>Tenure (months)</span><input type=\"range\" id=\"tr\" min=\"6\" max=\"360\" step=\"1\" value=\"60\"><input type=\"number\" id=\"tn\" value=\"60\"></div>\n<div class=\"big\">Monthly EMI<b id=\"emi\"></b></div>\n<canvas id=\"c\" width=\"160\" height=\"160\"></canvas>\n<div id=\"sum\"></div>\n</div><script>\nconst $=s=>document.querySelector(s),f=n=>n.toLocaleString(undefined,{maximumFractionDigits:0});\nfunction link(a,b){$(a).oninput=()=>{$(b).value=$(a).value;calc()};$(b).oninput=()=>{$(a).value=$(b).value;calc()}}\nlink('#pr','#pn');link('#rr','#rn');link('#tr','#tn');\nfunction calc(){const P=+$('#pn').value||0,r=(+$('#rn').value||0)/1200,n=Math.max(1,+$('#tn').value||1);\n const e=r?P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):P/n,tot=e*n,int=tot-P;\n $('#emi').textContent=f(e);$('#sum').innerHTML='<div class=\"row\"><span>Principal</span><b>'+f(P)+'</b></div><div class=\"row\"><span>Total interest</span><b>'+f(int)+'</b></div><div class=\"row\"><span>Total payment</span><b>'+f(tot)+'</b></div>';\n const x=$('#c').getContext('2d');x.clearRect(0,0,160,160);const a=tot?P/tot*Math.PI*2:0;\n x.lineWidth=26;x.strokeStyle='#4f8cff';x.beginPath();x.arc(80,80,56,-Math.PI/2,-Math.PI/2+a);x.stroke();x.strokeStyle='#f59e0b';x.beginPath();x.arc(80,80,56,-Math.PI/2+a,Math.PI*1.5);x.stroke();\n x.fillStyle='#e8ecf6';x.font='11px sans-serif';x.textAlign='center';x.fillText(tot?Math.round(int/tot*100)+'% interest':'',80,84)}\ncalc();\n</script></body></html>\n"
+}

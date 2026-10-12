@@ -1,0 +1,24 @@
+<!--HEAD:Lorem Forge--><!--BASE-->
+.wrap{align-items:stretch}#o{flex:1;min-height:140px;background:rgba(0,0,0,.3);border:1px solid var(--line);border-radius:10px;padding:12px;font-size:14px;line-height:1.55;overflow:auto;user-select:text;-webkit-user-select:text}#o p{margin:0 0 .8em}
+</style></head><body><div class="wrap">
+<h1>Lorem <span>Forge</span></h1>
+<div class="bar"><select id="th"><option value="lorem">Classic Latin</option><option value="hip">Hipster</option><option value="tech">Corporate tech</option><option value="space">Space opera</option></select>
+<label>Paragraphs <input id="n" type="number" min="1" max="20" value="3" style="width:56px"></label><label><input type="checkbox" id="cl" checked> Start with classic line</label>
+<select id="u"><option value="p">Paragraphs</option><option value="s">Sentences</option><option value="w">Words</option></select><button class="pri" id="g">Generate</button></div>
+<div id="o"></div><div class="bar"><button id="cp">Copy text</button><span class="muted" id="m"></span></div>
+</div><script>
+const W={lorem:'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum',
+hip:'artisan kombucha sriracha vinyl cold-pressed tote bag fixie letterpress selvage flannel pour-over sustainable organic gluten-free vegan beard bicycle skateboard typewriter cardigan mustache thundercats retro ethical aesthetic gastropub tattooed microdosing banjo locavore pickled raw denim',
+tech:'synergy scalable paradigm stakeholder deliverable leverage cloud-native pipeline roadmap agile sprint backlog throughput bandwidth ecosystem disrupt iterate platform workflow onboarding KPI dashboard metrics holistic mission-critical best-practice alignment innovation bleeding-edge infrastructure',
+space:'nebula starship warp reactor captain galaxy plasma quantum hyperdrive asteroid orbit cosmic fleet cruiser stardust wormhole gravity photon comet void pulsar outpost colony engines shields beacon voyage horizon alien signal'};
+const $=s=>document.querySelector(s),pick=a=>a[Math.random()*a.length|0],CL='Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+function sentence(w){const n=6+Math.random()*10|0;let a=[];for(let i=0;i<n;i++)a.push(pick(w));if(n>9&&Math.random()<.6)a.splice(4+Math.random()*3|0,0,a.splice(4,1)[0]+',');const s=a.join(' ');return s[0].toUpperCase()+s.slice(1)+'.'}
+function gen(){const w=W[$('#th').value].split(' '),u=$('#u').value,n=Math.max(1,+$('#n').value||1);let out=[];
+ if(u=='w'){const a=[];for(let i=0;i<n*10;i++)a.push(pick(w));out=[a.join(' ')]}
+ else if(u=='s'){const a=[];for(let i=0;i<n*3;i++)a.push(sentence(w));out=[a.join(' ')]}
+ else for(let i=0;i<n;i++){const a=[];for(let j=0;j<3+Math.random()*4|0;j++)a.push(sentence(w));out.push(a.join(' '))}
+ if($('#cl').checked&&$('#th').value=='lorem'&&out.length)out[0]=CL+' '+out[0];
+ $('#o').innerHTML=out.map(p=>'<p>'+p+'</p>').join('');const t=out.join(' ');$('#m').textContent=t.split(/\s+/).length+' words · '+t.length+' chars'}
+$('#g').onclick=gen;$('#th').onchange=gen;
+$('#cp').onclick=()=>{const t=[...$('#o').children].map(p=>p.textContent).join('\n\n');navigator.clipboard?navigator.clipboard.writeText(t).then(()=>$('#m').textContent='Copied to clipboard',()=>getSelection().selectAllChildren($('#o'))):getSelection().selectAllChildren($('#o'))};gen();
+</script></body></html>

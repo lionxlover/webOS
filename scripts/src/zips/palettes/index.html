@@ -1,0 +1,8 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Color Palettes</title><link rel="stylesheet" href="css/style.css"></head><body>
+<header><img src="assets/logo.svg" width="26" height="26" alt=""><h1>Color <span>Palettes</span></h1>
+<select id="mode"><option value="analogous">Analogous</option><option value="complementary">Complementary</option><option value="triadic">Triadic</option><option value="split">Split-complementary</option><option value="mono">Monochrome</option><option value="random">Random</option></select>
+<input type="color" id="base" value="#4f8cff"><button id="gen" class="pri">Generate (space)</button></header>
+<div id="strip"></div>
+<section><h2>Saved palettes</h2><div id="saved"></div></section>
+<footer><button id="save">Save palette</button><button id="css">Copy CSS vars</button><span id="msg"></span></footer>
+<script src="js/color.js"></script><script src="js/main.js"></script></body></html>

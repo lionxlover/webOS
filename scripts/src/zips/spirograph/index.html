@@ -1,0 +1,11 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Spirograph</title><link rel="stylesheet" href="css/style.css"></head><body>
+<canvas id="c"></canvas>
+<aside><h1>Spiro<span>graph</span></h1>
+<label>Outer ring R <input id="R" type="range" min="40" max="200" value="140"></label>
+<label>Inner wheel r <input id="r" type="range" min="5" max="150" value="52"></label>
+<label>Pen offset d <input id="d" type="range" min="1" max="200" value="80"></label>
+<label>Line width <input id="w" type="range" min="1" max="6" step=".5" value="1.5"></label>
+<label>Hue shift <input id="hue" type="range" min="0" max="360" value="140"></label>
+<div class="row"><button id="draw" class="pri">Draw</button><button id="rnd">Random</button><button id="clr">Clear</button></div>
+<div class="row"><button id="png">Save PNG</button></div><p id="info"></p></aside>
+<script src="js/spiro.js"></script><script src="js/main.js"></script></body></html>

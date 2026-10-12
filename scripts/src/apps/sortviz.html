@@ -1,0 +1,25 @@
+<!--HEAD:Sort Visualizer--><!--BASE-->
+.wrap{padding:10px}canvas{width:100%;flex:1;min-height:0;background:#05070d;border-radius:12px}
+</style></head><body><div class="wrap">
+<div class="bar"><select id="al"><option value="bubble">Bubble sort</option><option value="insertion">Insertion sort</option><option value="selection">Selection sort</option><option value="quick">Quick sort</option><option value="merge">Merge sort</option><option value="heap">Heap sort</option></select>
+<label>Size <input id="n" type="range" min="10" max="150" value="60"></label><label>Speed <input id="sp" type="range" min="1" max="10" value="6"></label><button id="sh">Shuffle</button><button class="pri" id="go">Sort</button></div>
+<canvas id="c"></canvas><div class="muted" id="m"></div>
+</div><script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s);let A=[],hl={},busy=false,stop=false,ops=0;
+function fit(){const r=cv.getBoundingClientRect();cv.width=r.width;cv.height=r.height;draw()}addEventListener('resize',fit);
+function shuffle(){stop=true;A=Array.from({length:+$('#n').value},(_,i)=>i+1);for(let i=A.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[A[i],A[j]]=[A[j],A[i]]}hl={};ops=0;$('#m').textContent='';draw()}
+function draw(){x.clearRect(0,0,cv.width,cv.height);const w=cv.width/A.length,mx=A.length;A.forEach((v,i)=>{const h=v/mx*(cv.height-6);x.fillStyle=hl[i]||'hsl('+(v/mx*260+100)+',70%,55%)';x.fillRect(i*w+.5,cv.height-h,Math.max(1,w-1),h)})}
+const sleep=()=>new Promise(r=>setTimeout(r,Math.max(0,(11-$('#sp').value)*(11-$('#sp').value)/6)));
+async function cmp(i,j){hl={[i]:'#fff',[j]:'#f43f5e'};ops++;draw();await sleep();if(stop)throw 0}
+async function swp(i,j){[A[i],A[j]]=[A[j],A[i]];draw()}
+const ALG={
+ async bubble(){for(let i=0;i<A.length;i++)for(let j=0;j<A.length-i-1;j++){await cmp(j,j+1);if(A[j]>A[j+1])await swp(j,j+1)}},
+ async insertion(){for(let i=1;i<A.length;i++)for(let j=i;j>0;j--){await cmp(j,j-1);if(A[j]<A[j-1])await swp(j,j-1);else break}},
+ async selection(){for(let i=0;i<A.length;i++){let m=i;for(let j=i+1;j<A.length;j++){await cmp(j,m);if(A[j]<A[m])m=j}await swp(i,m)}},
+ async quick(l=0,r=A.length-1){if(l>=r)return;const p=A[r];let i=l;for(let j=l;j<r;j++){await cmp(j,r);if(A[j]<p)await swp(i++,j)}await swp(i,r);await ALG.quick(l,i-1);await ALG.quick(i+1,r)},
+ async merge(l=0,r=A.length-1){if(l>=r)return;const m=l+r>>1;await ALG.merge(l,m);await ALG.merge(m+1,r);const L=A.slice(l,m+1),R=A.slice(m+1,r+1);let i=0,j=0,k=l;while(i<L.length||j<R.length){await cmp(k,Math.min(r,m+1+j));A[k++]=j>=R.length||(i<L.length&&L[i]<=R[j])?L[i++]:R[j++];draw()}},
+ async heap(){const n=A.length;async function sift(i,n){for(;;){let l=2*i+1,r=l+1,m=i;if(l<n){await cmp(l,m);if(A[l]>A[m])m=l}if(r<n){await cmp(r,m);if(A[r]>A[m])m=r}if(m==i)return;await swp(i,m);i=m}}
+  for(let i=n>>1;i>=0;i--)await sift(i,n);for(let e=n-1;e>0;e--){await swp(0,e);await sift(0,e)}}};
+$('#go').onclick=async()=>{if(busy)return;busy=true;stop=false;ops=0;try{await ALG[$('#al').value]();hl={};for(let i=0;i<A.length;i++){hl={[i]:'#7EE787'};draw();await new Promise(r=>setTimeout(r,6))}hl={};draw();$('#m').textContent='Sorted — '+ops+' comparisons'}catch(e){}busy=false};
+$('#sh').onclick=()=>{shuffle()};$('#n').oninput=shuffle;shuffle();fit();
+</script></body></html>

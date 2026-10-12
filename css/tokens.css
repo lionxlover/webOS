@@ -1,0 +1,25 @@
+/* design tokens */
+:root{
+  --font:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:'JetBrains Mono','SF Mono',Consolas,'Courier New',monospace;
+  --bg:#07080d;--surface:rgba(22,24,32,.8);--surface-2:rgba(255,255,255,.055);--surface-3:rgba(255,255,255,.1);
+  --text:#e8eaf0;--text-muted:#9aa1b0;--text-faint:#5f6676;
+  --accent:#5B9DFA;--accent-glow:rgba(91,157,250,.35);--accent-rgb:91,157,250;--accent-fg:#06101f;
+  --border:rgba(255,255,255,.08);--border-strong:rgba(255,255,255,.16);
+  --danger:#F28B82;--success:#9ECE6A;--warning:#F6C177;--purple:#CBA6F7;
+  --radius:12px;--radius-s:8px;--radius-l:18px;--ease:cubic-bezier(.2,1,.2,1);
+  --shadow:0 30px 80px -20px rgba(0,0,0,.8),0 0 0 1px rgba(255,255,255,.05);
+  --glass:blur(30px) saturate(170%);--taskbar-h:56px;--font-scale:1;
+  color-scheme:dark;
+}
+[data-theme=light]{
+  --bg:#eef0f5;--surface:rgba(250,251,254,.84);--surface-2:rgba(0,0,0,.05);--surface-3:rgba(0,0,0,.09);
+  --text:#1b1d23;--text-muted:#5a6070;--text-faint:#9096a4;--border:rgba(0,0,0,.09);--border-strong:rgba(0,0,0,.2);
+  --shadow:0 30px 70px -20px rgba(0,0,0,.35),0 0 0 1px rgba(0,0,0,.06);--danger:#d64545;--success:#3f9b3f;--warning:#c27a10;--purple:#7c4dd6;
+  color-scheme:light;
+}
+.hc{--border:rgba(255,255,255,.4);--border-strong:rgba(255,255,255,.8);--text-muted:#d0d4de;--surface:rgba(0,0,0,.94)}
+.hc[data-theme=light]{--border:rgba(0,0,0,.5);--border-strong:#000;--text-muted:#222;--surface:#fff}
+.hc *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.batt-saver *{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+/* Leonux OS 2.2 — layout vars + spring easing */
+:root{--mb-h:0px;--dock-icon:50px;--spring:cubic-bezier(.34,1.56,.64,1);--ease-in:cubic-bezier(.5,0,.8,.3)}

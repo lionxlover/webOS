@@ -1,0 +1,44 @@
+/* Leonux OS 2 — dock mode for the taskbar (floating pill + magnification) */
+body.dock #taskbar{
+  left:50%;transform:translateX(-50%);right:auto;bottom:8px;height:64px;width:min(92vw,860px);
+  border-radius:22px;border:1px solid var(--border-strong);
+  background:var(--surface);backdrop-filter:blur(40px) saturate(180%);-webkit-backdrop-filter:blur(40px) saturate(180%);
+  box-shadow:0 18px 50px -12px rgba(0,0,0,.65),0 0 0 1px rgba(255,255,255,.04) inset;
+  padding:0 10px;
+}
+body.dock.tb-top #taskbar{bottom:auto;top:8px}
+body.dock #taskbar{--taskbar-h:64px}
+/* start button becomes a glowing lion button */
+body.dock .tb-start{width:46px;height:46px;border-radius:50%;background:linear-gradient(140deg,var(--accent),rgba(var(--accent-rgb),.55));border:none;box-shadow:0 4px 14px var(--accent-glow)}
+body.dock .tb-start:hover{filter:brightness(1.12)}
+body.dock .tb-start .logo-mark{margin:0;filter:drop-shadow(0 1px 2px rgba(0,0,0,.35))}
+/* app buttons */
+body.dock .tb-app{width:50px;height:50px;border-radius:14px;margin:0 1px;transition:transform .16s var(--ease),background .15s}
+body.dock .tb-app .tb-ico{transition:transform .16s var(--ease)}
+body.dock .tb-app:hover{background:var(--surface-3)}
+body.dock .tb-app.running::after{bottom:1px}
+body.dock .tb-app.focused{background:var(--surface-2)}
+body.dock .tb-search{width:40px;height:46px;border-radius:50%}
+body.dock .tb-tray{border-radius:14px;padding:0 12px;height:46px}
+body.dock .tb-clock{border-radius:14px;height:46px}
+body.dock .tb-showdesk{width:10px;height:46px;border-radius:8px;margin-left:6px;border-left:1px solid var(--border)}
+/* launch bounce */
+@keyframes tbBounce{
+  0%{transform:translateY(0)}18%{transform:translateY(-16px)}36%{transform:translateY(0)}
+  52%{transform:translateY(-9px)}68%{transform:translateY(0)}82%{transform:translateY(-4px)}100%{transform:translateY(0)}
+}
+.tb-app.bounce{animation:tbBounce .95s var(--ease)}
+/* update alert pip on the App Store icon */
+.tb-alert{position:absolute;top:2px;right:2px;min-width:16px;height:16px;padding:0 4px;border-radius:9px;background:var(--danger);color:#fff;font-size:10px;font-weight:800;display:grid;place-items:center;box-shadow:0 2px 6px rgba(242,139,130,.5)}
+/* spaces tray chip */
+.tray-ico.spaces{cursor:pointer;padding:2px 8px;border-radius:9px;margin-left:4px;background:var(--surface-3)}
+.tray-ico.spaces:hover{background:rgba(var(--accent-rgb),.25)}
+/* classic bar tweak: keep .tb-app normal (no transform) when not dock */
+@media (hover:none){body.dock .tb-app{margin:0 2px}}
+
+/* Leonux OS 2.2 — dock polish: running dot, sizing */
+body.dock{--taskbar-h:64px}
+body.dock .tb-apps{overflow:visible}
+body.dock .tb-app{position:relative}
+body.dock .tb-app.running::after{bottom:2px}
+.tb-trash .tb-ico{transition:color .2s}

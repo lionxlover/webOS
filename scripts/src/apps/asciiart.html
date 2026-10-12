@@ -1,0 +1,25 @@
+<!--HEAD:ASCII Art--><!--BASE-->
+.wrap{align-items:stretch}pre{background:#05070d;border:1px solid var(--line);border-radius:10px;padding:10px;font:7px/7px ui-monospace,Menlo,monospace;color:#7EE787;overflow:auto;flex:1;min-height:120px;user-select:text;-webkit-user-select:text;white-space:pre}
+.tabs{display:flex;gap:6px}.tabs .on{background:var(--ac);color:#0b1020}
+</style></head><body><div class="wrap">
+<h1>ASCII <span>Art</span></h1>
+<div class="tabs"><button id="t1" class="on">From image</button><button id="t2">Big text</button></div>
+<div class="bar" id="p1"><input type="file" id="f" accept="image/*"><label>Width <input type="range" id="w" min="30" max="160" value="90"></label><label><input type="checkbox" id="inv"> Invert</label></div>
+<div class="bar" id="p2" style="display:none"><input id="tx" value="LEONUX" maxlength="14" style="width:180px"></div>
+<pre id="o">Pick an image (or drop one onto the app) to turn it into text.</pre>
+<div class="bar"><button class="pri" id="cp">Copy</button><span class="muted" id="m"></span></div>
+</div><script>
+const $=s=>document.querySelector(s),R=' .:-=+*#%@';let img=null,mode=1;
+function conv(){if(!img)return;const w=+$('#w').value,h=Math.round(w*img.height/img.width*.5),c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,w,h);g.drawImage(img,0,0,w,h);
+ const d=g.getImageData(0,0,w,h).data;let s='';for(let y=0;y<h;y++){for(let i=0;i<w;i++){const k=(y*w+i)*4;let l=(d[k]*.3+d[k+1]*.59+d[k+2]*.11)/255;if(!$('#inv').checked)l=1-l;s+=R[Math.min(R.length-1,l*R.length|0)]}s+='\n'}
+ $('#o').style.fontSize='7px';$('#o').textContent=s;$('#m').textContent=w+' x '+h+' chars'}
+function load(file){if(!file)return;const u=URL.createObjectURL(file),i=new Image();i.onload=()=>{img=i;conv()};i.src=u}
+$('#f').onchange=e=>load(e.target.files[0]);addEventListener('dragover',e=>e.preventDefault());addEventListener('drop',e=>{e.preventDefault();load(e.dataTransfer.files[0])});
+$('#w').oninput=conv;$('#inv').onchange=conv;
+// big text: render with canvas and threshold
+function big(){const t=$('#tx').value||' ',c=document.createElement('canvas'),g=c.getContext('2d');g.font='bold 22px monospace';const w=Math.ceil(g.measureText(t).width)+4;c.width=w;c.height=26;g.font='bold 22px monospace';g.fillStyle='#000';g.fillRect(0,0,w,26);g.fillStyle='#fff';g.fillText(t,2,21);
+ const d=g.getImageData(0,0,w,26).data;let s='';for(let y=0;y<26;y+=2){for(let i=0;i<w;i++){const a=d[(y*w+i)*4],b=d[((y+1)*w+i)*4];s+=a>100&&b>100?'█':a>100?'▀':b>100?'▄':' '}s+='\n'}$('#o').style.fontSize='12px';$('#o').textContent=s;$('#m').textContent=''}
+function tab(n){mode=n;$('#t1').className=n==1?'on':'';$('#t2').className=n==2?'on':'';$('#p1').style.display=n==1?'':'none';$('#p2').style.display=n==2?'':'none';n==1?(img?conv():$('#o').textContent='Pick an image (or drop one onto the app).'):big()}
+$('#t1').onclick=()=>tab(1);$('#t2').onclick=()=>tab(2);$('#tx').oninput=big;
+$('#cp').onclick=()=>{const t=$('#o').textContent;navigator.clipboard?navigator.clipboard.writeText(t).then(()=>$('#m').textContent='Copied',()=>getSelection().selectAllChildren($('#o'))):getSelection().selectAllChildren($('#o'))};
+</script></body></html>

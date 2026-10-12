@@ -1,0 +1,76 @@
+/* apps-games: shared look for Snake, Minesweeper, 2048, Tetris, Memory, Sudoku */
+.app-snake,.app-minesweeper,.app-game2048,.app-tetris,.app-memory,.app-sudoku{outline:none;user-select:none;-webkit-user-select:none}
+.app-snake .g-bar,.app-minesweeper .g-bar,.app-game2048 .g-bar,.app-tetris .g-bar,.app-memory .g-bar,.app-sudoku .g-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid var(--border);flex-wrap:wrap;flex-shrink:0;background:rgba(0,0,0,.06)}
+.app-snake .g-stat,.app-minesweeper .g-stat,.app-game2048 .g-stat,.app-tetris .g-stat,.app-memory .g-stat,.app-sudoku .g-stat{display:flex;flex-direction:column;align-items:center;min-width:54px;padding:3px 10px;border-radius:var(--radius-s);background:var(--surface-2);border:1px solid var(--border)}
+.app-snake .g-stat small,.app-minesweeper .g-stat small,.app-game2048 .g-stat small,.app-tetris .g-stat small,.app-memory .g-stat small,.app-sudoku .g-stat small{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted)}
+.app-snake .g-stat b,.app-minesweeper .g-stat b,.app-game2048 .g-stat b,.app-tetris .g-stat b,.app-memory .g-stat b,.app-sudoku .g-stat b{font:600 15px var(--mono);color:var(--text)}
+.app-snake .g-lbl,.app-minesweeper .g-lbl,.app-tetris .g-lbl,.app-memory .g-lbl,.app-sudoku .g-lbl{font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:6px}
+.app-snake .g-stage,.app-minesweeper .g-stage,.app-game2048 .g-stage,.app-tetris .g-stage,.app-memory .g-stage,.app-sudoku .g-stage{flex:1;min-height:0;min-width:0;position:relative;display:flex;align-items:center;justify-content:center;padding:10px;overflow:hidden}
+.app-snake canvas,.app-tetris canvas{display:block;border-radius:var(--radius);box-shadow:0 8px 30px -12px rgba(0,0,0,.6);border:1px solid var(--border-strong);touch-action:none}
+.app-snake .g-ov,.app-minesweeper .g-ov,.app-game2048 .g-ov,.app-tetris .g-ov,.app-memory .g-ov,.app-sudoku .g-ov{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;text-align:center;background:rgba(0,0,0,.5);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);z-index:5;animation:popIn .2s;padding:16px}
+.app-snake .g-ov h2,.app-minesweeper .g-ov h2,.app-game2048 .g-ov h2,.app-tetris .g-ov h2,.app-memory .g-ov h2,.app-sudoku .g-ov h2{margin:0;font-size:22px;color:#fff}
+.app-snake .g-ov p,.app-minesweeper .g-ov p,.app-game2048 .g-ov p,.app-tetris .g-ov p,.app-memory .g-ov p,.app-sudoku .g-ov p{margin:0;font-size:13px;color:rgba(255,255,255,.8)}
+.app-snake .g-ov.hidden,.app-minesweeper .g-ov.hidden,.app-game2048 .g-ov.hidden,.app-tetris .g-ov.hidden,.app-memory .g-ov.hidden,.app-sudoku .g-ov.hidden{display:none}
+
+/* minesweeper */
+.app-minesweeper .ms-board{display:grid;gap:2px;padding:6px;background:var(--surface-2);border:1px solid var(--border-strong);border-radius:var(--radius);touch-action:manipulation}
+.app-minesweeper .ms-c{display:flex;align-items:center;justify-content:center;border-radius:4px;background:var(--surface-3);font:700 calc(var(--cs,26px)*.55) var(--mono);cursor:pointer;border:1px solid var(--border);transition:background .1s;line-height:1;overflow:hidden}
+.app-minesweeper .ms-c:hover:not(.open){background:var(--border-strong)}
+.app-minesweeper .ms-c.open{background:transparent;border-color:transparent;cursor:default}
+.app-minesweeper .ms-c.mine{background:var(--danger);border-color:var(--danger)}
+.app-minesweeper .ms-c.wrong{background:color-mix(in srgb,var(--danger) 35%,transparent)}
+.app-minesweeper .ms-c svg{width:60%;height:60%}
+.app-minesweeper .n1{color:#5B9DFA}.app-minesweeper .n2{color:#7EE787}.app-minesweeper .n3{color:#FF6B6B}.app-minesweeper .n4{color:#B58CFF}.app-minesweeper .n5{color:#F6C177}.app-minesweeper .n6{color:#4DD0E1}.app-minesweeper .n7{color:var(--text)}.app-minesweeper .n8{color:var(--text-muted)}
+.app-minesweeper .ms-flag{color:var(--warning)}
+
+/* 2048 */
+.app-game2048 .g-stage{flex-direction:column}
+.app-game2048 .t48-board{position:relative;background:var(--surface-2);border:1px solid var(--border-strong);border-radius:var(--radius);touch-action:none;flex-shrink:0}
+.app-game2048 .t48-cell{position:absolute;border-radius:8px;background:var(--surface-3);opacity:.6}
+.app-game2048 .t48-tile{position:absolute;display:flex;align-items:center;justify-content:center;border-radius:8px;font-weight:800;color:#1b1b1f;transition:transform .12s ease-out;will-change:transform}
+.app-game2048 .t48-in{display:flex;width:100%;height:100%;align-items:center;justify-content:center;border-radius:8px;transition:background .15s}
+.app-game2048 .t48-new .t48-in{animation:t48pop .18s ease-out}
+.app-game2048 .t48-merge .t48-in{animation:t48bump .2s ease-out}
+@keyframes t48pop{from{transform:scale(0)}to{transform:scale(1)}}
+@keyframes t48bump{50%{transform:scale(1.18)}}
+.app-game2048 .t48-hint{font-size:12px;color:var(--text-muted);margin-top:8px}
+
+/* tetris */
+.app-tetris .tt-wrap{display:flex;gap:12px;align-items:flex-start;justify-content:center;width:100%;height:100%}
+.app-tetris .tt-side{display:flex;flex-direction:column;gap:8px;width:92px;flex-shrink:0}
+.app-tetris .tt-side canvas{width:92px;height:70px;border-radius:var(--radius-s);background:var(--surface-2);box-shadow:none}
+.app-tetris .tt-side .lbl{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-muted);margin-bottom:-4px}
+.app-tetris .tt-main{flex:1;min-width:0;min-height:0;height:100%;display:flex;align-items:center;justify-content:center;position:relative}
+.app-tetris .tt-help{font-size:11px;color:var(--text-faint);line-height:1.6}
+
+/* memory */
+.app-memory .mem-grid{display:grid;gap:8px;width:100%;height:100%;max-width:640px;margin:auto}
+.app-memory .mem-card{perspective:600px;position:relative;cursor:pointer;min-width:0;min-height:0;border:0;background:none;padding:0;outline:none}
+.app-memory .mem-in{position:absolute;inset:0;transition:transform .35s var(--ease);transform-style:preserve-3d}
+.app-memory .mem-card.up .mem-in{transform:rotateY(180deg)}
+.app-memory .mem-f,.app-memory .mem-b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--border-strong)}
+.app-memory .mem-b{background:linear-gradient(135deg,var(--accent),var(--purple));color:var(--accent-fg);font-size:calc(var(--ms,40px)*.5);opacity:.9}
+.app-memory .mem-f{background:var(--surface-2);transform:rotateY(180deg);font-size:calc(var(--ms,40px)*.6)}
+.app-memory .mem-card.done .mem-f{background:color-mix(in srgb,var(--success) 25%,var(--surface-2));border-color:var(--success)}
+.app-memory .mem-card:hover:not(.up):not(.done) .mem-in{transform:translateY(-2px)}
+.app-memory .mem-card:focus-visible .mem-b{outline:2px solid var(--accent);outline-offset:2px}
+
+/* sudoku */
+.app-sudoku .sd-main{display:flex;gap:14px;align-items:center;justify-content:center;width:100%;height:100%;flex-wrap:wrap;overflow:auto}
+.app-sudoku .sd-board{display:grid;grid-template-columns:repeat(9,1fr);border:2px solid var(--text-muted);border-radius:6px;overflow:hidden;background:var(--surface-2);flex-shrink:0}
+.app-sudoku .sd-c{position:relative;display:flex;align-items:center;justify-content:center;border:1px solid var(--border);cursor:pointer;font:500 calc(var(--sz,40px)*.55) var(--font);color:var(--accent);min-width:0;min-height:0}
+.app-sudoku .sd-c.r2,.app-sudoku .sd-c.r5{border-bottom:2px solid var(--text-muted)}
+.app-sudoku .sd-c.c2,.app-sudoku .sd-c.c5{border-right:2px solid var(--text-muted)}
+.app-sudoku .sd-c.given{color:var(--text);font-weight:700}
+.app-sudoku .sd-c.peer{background:var(--surface-3)}
+.app-sudoku .sd-c.same{background:color-mix(in srgb,var(--accent) 28%,transparent)}
+.app-sudoku .sd-c.sel{background:color-mix(in srgb,var(--accent) 50%,transparent)}
+.app-sudoku .sd-c.bad{color:var(--danger);background:color-mix(in srgb,var(--danger) 22%,transparent)}
+.app-sudoku .sd-notes{position:absolute;inset:1px;display:grid;grid-template-columns:repeat(3,1fr);font:500 calc(var(--sz,40px)*.22) var(--font);color:var(--text-muted);text-align:center;line-height:1;pointer-events:none}
+.app-sudoku .sd-notes span{display:flex;align-items:center;justify-content:center}
+.app-sudoku .sd-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;width:170px;flex-shrink:0}
+.app-sudoku .sd-pad .btn{justify-content:center;padding:10px 0;font-size:16px;font-weight:600}
+.app-sudoku .sd-pad .btn.wide{grid-column:span 3;font-size:13px;font-weight:500;padding:8px 0}
+.app-sudoku .sd-pad .btn.on{background:var(--accent);color:var(--accent-fg)}
+.app-sudoku .sd-pad .btn:disabled{opacity:.3}
+.app-minesweeper .ms-c.cur{outline:2px solid var(--accent);outline-offset:-2px}

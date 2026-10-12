@@ -1,0 +1,29 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Connect Four</title><style><!--BASE-->
+canvas{border-radius:14px;cursor:pointer;touch-action:manipulation}
+.sw{display:inline-block;width:12px;height:12px;border-radius:50%;vertical-align:-1px;margin-right:5px}
+</style></head><body><div class="wrap">
+<h1>Connect <span>Four</span></h1>
+<div class="bar"><div class="stat">You<b id="sy">0</b></div><div class="stat">Draws<b id="sd">0</b></div><div class="stat" id="who">CPU<b id="sc">0</b></div></div>
+<canvas id="c" width="420" height="360"></canvas>
+<div class="bar"><span id="msg" class="muted">Your move — click a column</span><select id="lvl"><option value="2">Easy</option><option value="4" selected>Medium</option><option value="6">Hard</option></select><button class="pri" id="new">New game</button></div>
+</div><script>
+const R=6,Cn=7,cv=document.getElementById('c'),x=cv.getContext('2d'),S=60;
+let g,turn,over,win,score={y:0,d:0,c:0},hover=-1,busy=false;
+const $=s=>document.querySelector(s);
+function reset(){g=Array.from({length:R},()=>Array(Cn).fill(0));turn=1;over=false;win=null;busy=false;$('#msg').textContent='Your move — click a column';draw()}
+function drop(b,c,p){for(let r=R-1;r>=0;r--)if(!b[r][c]){b[r][c]=p;return r}return -1}
+function check(b,p){const D=[[0,1],[1,0],[1,1],[1,-1]];for(let r=0;r<R;r++)for(let c=0;c<Cn;c++){if(b[r][c]!==p)continue;for(const[dr,dc]of D){const cells=[[r,c]];for(let k=1;k<4;k++){const rr=r+dr*k,cc=c+dc*k;if(rr<0||rr>=R||cc<0||cc>=Cn||b[rr][cc]!==p)break;cells.push([rr,cc])}if(cells.length===4)return cells}}return null}
+function full(b){return b[0].every(v=>v)}
+function evalB(b){let s=0;const W=(a)=>{const n2=a.filter(v=>v===2).length,n1=a.filter(v=>v===1).length,e=a.filter(v=>!v).length;if(n2===4)s+=1000;else if(n2===3&&e===1)s+=8;else if(n2===2&&e===2)s+=2;if(n1===3&&e===1)s-=9};
+ for(let r=0;r<R;r++)for(let c=0;c<Cn;c++){if(c+3<Cn)W([0,1,2,3].map(k=>b[r][c+k]));if(r+3<R)W([0,1,2,3].map(k=>b[r+k][c]));if(r+3<R&&c+3<Cn)W([0,1,2,3].map(k=>b[r+k][c+k]));if(r+3<R&&c-3>=0)W([0,1,2,3].map(k=>b[r+k][c-k]))}
+ for(let r=0;r<R;r++)if(b[r][3]===2)s+=3;return s}
+function mm(b,d,a,be,max){if(check(b,2))return 1e5+d;if(check(b,1))return -1e5-d;if(full(b))return 0;if(!d)return evalB(b);const order=[3,2,4,1,5,0,6];let v=max?-1e9:1e9;for(const c of order){if(b[0][c])continue;const r=drop(b,c,max?2:1);const s=mm(b,d-1,a,be,!max);b[r][c]=0;if(max){v=Math.max(v,s);a=Math.max(a,v)}else{v=Math.min(v,s);be=Math.min(be,v)}if(a>=be)break}return v}
+function cpu(){const d=+$('#lvl').value;let best=-1,bs=-1e9;const cols=[3,2,4,1,5,0,6].filter(c=>!g[0][c]);for(const c of cols){const r=drop(g,c,2);let s=mm(g,d-1,-1e9,1e9,false)+(d===2?Math.random()*40:0);g[r][c]=0;if(s>bs){bs=s;best=c}}return best}
+function place(c,p){const r=drop(g,c,p);if(r<0)return false;const w=check(g,p);if(w){over=true;win=w;if(p===1){score.y++;$('#msg').textContent='You win!'}else{score.c++;$('#msg').textContent='CPU wins'}}else if(full(g)){over=true;score.d++;$('#msg').textContent='Draw'}$('#sy').textContent=score.y;$('#sd').textContent=score.d;$('#sc').textContent=score.c;draw();return true}
+cv.onclick=e=>{if(over||busy)return;const rc=cv.getBoundingClientRect(),c=Math.floor((e.clientX-rc.left)/rc.width*Cn);if(!place(c,1))return;if(over)return;busy=true;$('#msg').textContent='CPU thinking…';setTimeout(()=>{place(cpu(),2);busy=false;if(!over)$('#msg').textContent='Your move'},60)};
+cv.onmousemove=e=>{const rc=cv.getBoundingClientRect();hover=Math.floor((e.clientX-rc.left)/rc.width*Cn);draw()};cv.onmouseleave=()=>{hover=-1;draw()};
+function draw(){x.clearRect(0,0,420,360);x.fillStyle='#1d4ed8';x.beginPath();x.roundRect(0,0,420,360,14);x.fill();
+ for(let r=0;r<R;r++)for(let c=0;c<Cn;c++){const v=g[r][c];x.beginPath();x.arc(c*S+30,r*S+30,24,0,7);x.fillStyle=v===1?'#facc15':v===2?'#ef4444':(hover===c&&!over?'#274fb5':'#0b1d57');x.fill()}
+ if(win){x.strokeStyle='#fff';x.lineWidth=5;x.beginPath();x.moveTo(win[0][1]*S+30,win[0][0]*S+30);x.lineTo(win[3][1]*S+30,win[3][0]*S+30);x.stroke()}}
+$('#new').onclick=reset;reset();
+</script></body></html>

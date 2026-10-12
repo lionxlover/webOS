@@ -1,0 +1,12 @@
+/* lock screen */
+#lock{position:fixed;inset:0;z-index:99000;display:none;flex-direction:column;align-items:center;justify-content:center;background:rgba(5,6,10,.35);backdrop-filter:blur(40px) saturate(150%) brightness(.7);-webkit-backdrop-filter:blur(40px) saturate(150%) brightness(.7);outline:none;cursor:pointer}
+#lock.show{display:flex;animation:fadeIn .4s}
+#lock.unlocking{opacity:0;transform:translateY(-40px) scale(1.04);transition:all .45s var(--ease)}
+.lk-time{font-size:clamp(64px,13vw,128px);font-weight:200;color:#fff;letter-spacing:-.03em;line-height:1;text-shadow:0 8px 40px rgba(0,0,0,.4)}
+.lk-date{font-size:clamp(15px,2.2vw,22px);color:rgba(255,255,255,.75);margin:10px 0 42px}
+.lk-card{display:flex;flex-direction:column;align-items:center;gap:10px;padding:26px 34px;border-radius:24px;background:rgba(20,22,30,.5);border:1px solid rgba(255,255,255,.1);cursor:default}
+.lk-card.shake{animation:shake .4s}
+.lk-avatar{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;font-size:26px;font-weight:600;background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff}
+.lk-name{font-size:17px;font-weight:600;color:#fff}.lk-pw{width:220px;text-align:center}
+.lk-err{min-height:16px;font-size:12px;color:var(--danger)}.lk-hint{font-size:12px;color:rgba(255,255,255,.55)}
+.lk-foot{position:absolute;bottom:24px;font-size:12px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.35)}

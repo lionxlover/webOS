@@ -1,0 +1,24 @@
+{
+ "id": "fractaltree",
+ "type": "app",
+ "name": "Fractal Tree",
+ "version": "1.0.0",
+ "category": "Education",
+ "icon": "🌳",
+ "color": "#4ade80",
+ "desc": "A wind-swept recursive tree through the seasons",
+ "long": "Tweak depth, branch angle and shrink factor, add wind and flip through the seasons. Every seed grows a different tree.",
+ "changelog": "First release",
+ "developer": "Leonux Community",
+ "permissions": [
+  "Runs offline",
+  "Sandboxed"
+ ],
+ "window": {
+  "width": 560,
+  "height": 560,
+  "minWidth": 380,
+  "minHeight": 420
+ },
+ "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Fractal Tree</title><style>*{box-sizing:border-box;margin:0}\n:root{--bg:#10131c;--fg:#e8ecf6;--mut:#8b94ab;--ac:#7EE787;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.05)}\nhtml,body{height:100%}\nbody{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:linear-gradient(165deg,#10131c,#161a28);color:var(--fg);overflow:hidden;user-select:none;-webkit-user-select:none}\nbutton{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:9px;padding:7px 13px;cursor:pointer;transition:background .12s,transform .08s}\nbutton:hover{background:rgba(255,255,255,.15)}button:active{transform:scale(.96)}\nbutton.pri{background:var(--ac);color:#0b1020;border-color:transparent;font-weight:700}\ninput,select,textarea{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:8px;padding:6px 9px;outline:none;user-select:text;-webkit-user-select:text}\ninput:focus,select:focus,textarea:focus{border-color:var(--ac)}select option{background:#1b2030}\n.wrap{height:100%;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px;overflow:auto}\n.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}\n.stat{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;text-align:center}.stat b{display:block;color:var(--ac);font-size:20px;letter-spacing:0}\nh1{font-size:16px}h1 span{color:var(--ac)}\n.muted{color:var(--mut);font-size:12px}\ncanvas{display:block;max-width:100%}\nlabel{font-size:12px;color:var(--mut)}\n.wrap{padding:8px}canvas{width:100%;flex:1;min-height:0;background:linear-gradient(#0b1220,#162036);border-radius:12px}\n.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:6px 14px;width:100%;font-size:12px}.ctl label{display:flex;flex-direction:column;gap:2px}\n</style></head><body><div class=\"wrap\"><canvas id=\"c\"></canvas>\n<div class=\"ctl\"><label>Depth <input id=\"d\" type=\"range\" min=\"2\" max=\"13\" value=\"10\"></label><label>Angle <input id=\"a\" type=\"range\" min=\"5\" max=\"60\" value=\"24\"></label><label>Shrink <input id=\"s\" type=\"range\" min=\"55\" max=\"85\" value=\"73\"></label><label>Wind <input id=\"w\" type=\"range\" min=\"0\" max=\"10\" value=\"3\"></label></div>\n<div class=\"bar\"><select id=\"sea\"><option>Spring</option><option>Summer</option><option>Autumn</option><option>Winter</option></select><button id=\"sd\">New seed</button></div>\n</div><script>\nconst cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s),COL={Spring:['#f9a8d4','#fbcfe8'],Summer:['#4ade80','#22c55e'],Autumn:['#f97316','#fbbf24'],Winter:['#e2e8f0','#bae6fd']};\nlet W,H,seed=7,t=0;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;\nfunction fit(){const r=cv.getBoundingClientRect();cv.width=W=r.width;cv.height=H=r.height}addEventListener('resize',fit);fit();\nfunction branch(px,py,len,ang,d,max,sp,sh,wind,r){const sway=Math.sin(t+d*.5)*wind*.01*(max-d+1)*.4;const a=ang+sway,nx=px+Math.cos(a)*len,ny=py+Math.sin(a)*len;\n x.strokeStyle='hsl(28,'+(35-d*2)+'%,'+(18+(max-d)*2.2)+'%)';x.lineWidth=Math.max(.6,(d)*1.1);x.beginPath();x.moveTo(px,py);x.lineTo(nx,ny);x.stroke();\n if(d<=1){const c=COL[$('#sea').value];x.fillStyle=c[r()<.5?0:1];if(!(($('#sea').value=='Winter')&&r()<.5)){x.beginPath();x.arc(nx,ny,3+r()*2,0,7);x.fill()}return}\n const j=(r()-.5)*.25;branch(nx,ny,len*sh,a-sp+j,d-1,max,sp,sh,wind,r);branch(nx,ny,len*sh*(.9+r()*.1),a+sp+j,d-1,max,sp,sh,wind,r)}\nfunction frame(){x.clearRect(0,0,W,H);const r=(()=>{let s=seed;return()=>(s=(s*16807)%2147483647)/2147483647})(),d=+$('#d').value;\n branch(W/2,H-6,Math.min(H,W)*.22,-Math.PI/2,d,d,$('#a').value*Math.PI/180,$('#s').value/100,+$('#w').value,r);t+=.03;requestAnimationFrame(frame)}\n$('#sd').onclick=()=>{seed=Math.random()*1e6|0+1};frame();\n</script></body></html>\n"
+}

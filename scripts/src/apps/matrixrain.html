@@ -1,0 +1,18 @@
+<!--HEAD:Matrix Rain--><!--BASE-->
+body{background:#000}.wrap{padding:0;gap:0}canvas{width:100%;flex:1;min-height:0}
+.ctl{display:flex;gap:10px;align-items:center;justify-content:center;padding:8px;background:rgba(0,0,0,.7);flex-wrap:wrap}
+</style></head><body><div class="wrap"><canvas id="c"></canvas>
+<div class="ctl"><label>Speed <input id="sp" type="range" min="1" max="10" value="5"></label><label>Size <input id="sz" type="range" min="10" max="32" value="16"></label>
+<select id="cl"><option value="#00ff66">Green</option><option value="#38bdf8">Cyan</option><option value="#f43f5e">Red</option><option value="#fbbf24">Amber</option><option value="rainbow">Rainbow</option></select><select id="cs"><option>Katakana</option><option>Binary</option><option>Hex</option><option>Symbols</option></select></div></div><script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s);
+const SETS={Katakana:'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ0123456789',Binary:'01',Hex:'0123456789ABCDEF',Symbols:'+-*/=<>{}[]()#$%&@!?~^'};
+let cols=[],W,H,sz=16,acc=0;
+function fit(){const r=cv.getBoundingClientRect();cv.width=W=r.width;cv.height=H=r.height;sz=+$('#sz').value;cols=Array.from({length:Math.ceil(W/sz)},()=>Math.random()*-50|0);x.fillStyle='#000';x.fillRect(0,0,W,H)}
+addEventListener('resize',fit);$('#sz').oninput=fit;
+function step(){const set=SETS[$('#cs').value],c=$('#cl').value;x.fillStyle='rgba(0,0,0,.07)';x.fillRect(0,0,W,H);x.font=sz+'px monospace';
+ cols.forEach((y,i)=>{const ch=set[Math.random()*set.length|0];x.fillStyle=c=='rainbow'?'hsl('+((i*7+y*3)%360)+',100%,60%)':c;x.fillText(ch,i*sz,y*sz);
+  x.fillStyle='rgba(255,255,255,.85)';if(y>0&&Math.random()<.3)x.fillRect(i*sz,y*sz,1,1);
+  cols[i]=y*sz>H&&Math.random()>.975?0:y+1})}
+let last=0;function loop(t){if(t-last>(110-$('#sp').value*10)){last=t;step()}requestAnimationFrame(loop)}
+fit();requestAnimationFrame(loop);
+</script></body></html>

@@ -1,0 +1,18 @@
+<!--HEAD:Fractal Tree--><!--BASE-->
+.wrap{padding:8px}canvas{width:100%;flex:1;min-height:0;background:linear-gradient(#0b1220,#162036);border-radius:12px}
+.ctl{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:6px 14px;width:100%;font-size:12px}.ctl label{display:flex;flex-direction:column;gap:2px}
+</style></head><body><div class="wrap"><canvas id="c"></canvas>
+<div class="ctl"><label>Depth <input id="d" type="range" min="2" max="13" value="10"></label><label>Angle <input id="a" type="range" min="5" max="60" value="24"></label><label>Shrink <input id="s" type="range" min="55" max="85" value="73"></label><label>Wind <input id="w" type="range" min="0" max="10" value="3"></label></div>
+<div class="bar"><select id="sea"><option>Spring</option><option>Summer</option><option>Autumn</option><option>Winter</option></select><button id="sd">New seed</button></div>
+</div><script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s),COL={Spring:['#f9a8d4','#fbcfe8'],Summer:['#4ade80','#22c55e'],Autumn:['#f97316','#fbbf24'],Winter:['#e2e8f0','#bae6fd']};
+let W,H,seed=7,t=0;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647;
+function fit(){const r=cv.getBoundingClientRect();cv.width=W=r.width;cv.height=H=r.height}addEventListener('resize',fit);fit();
+function branch(px,py,len,ang,d,max,sp,sh,wind,r){const sway=Math.sin(t+d*.5)*wind*.01*(max-d+1)*.4;const a=ang+sway,nx=px+Math.cos(a)*len,ny=py+Math.sin(a)*len;
+ x.strokeStyle='hsl(28,'+(35-d*2)+'%,'+(18+(max-d)*2.2)+'%)';x.lineWidth=Math.max(.6,(d)*1.1);x.beginPath();x.moveTo(px,py);x.lineTo(nx,ny);x.stroke();
+ if(d<=1){const c=COL[$('#sea').value];x.fillStyle=c[r()<.5?0:1];if(!(($('#sea').value=='Winter')&&r()<.5)){x.beginPath();x.arc(nx,ny,3+r()*2,0,7);x.fill()}return}
+ const j=(r()-.5)*.25;branch(nx,ny,len*sh,a-sp+j,d-1,max,sp,sh,wind,r);branch(nx,ny,len*sh*(.9+r()*.1),a+sp+j,d-1,max,sp,sh,wind,r)}
+function frame(){x.clearRect(0,0,W,H);const r=(()=>{let s=seed;return()=>(s=(s*16807)%2147483647)/2147483647})(),d=+$('#d').value;
+ branch(W/2,H-6,Math.min(H,W)*.22,-Math.PI/2,d,d,$('#a').value*Math.PI/180,$('#s').value/100,+$('#w').value,r);t+=.03;requestAnimationFrame(frame)}
+$('#sd').onclick=()=>{seed=Math.random()*1e6|0+1};frame();
+</script></body></html>

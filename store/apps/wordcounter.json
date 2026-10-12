@@ -1,0 +1,24 @@
+{
+ "id": "wordcounter",
+ "type": "app",
+ "name": "Word Counter",
+ "version": "1.0.0",
+ "category": "Productivity",
+ "icon": "🔢",
+ "color": "#38bdf8",
+ "desc": "Words, characters, reading time and top keywords",
+ "long": "Live counts for words, characters, sentences and paragraphs, estimated read time, keyword frequency and quick case tools.",
+ "changelog": "First release",
+ "developer": "Leonux Community",
+ "permissions": [
+  "Runs offline",
+  "Sandboxed"
+ ],
+ "window": {
+  "width": 560,
+  "height": 560,
+  "minWidth": 400,
+  "minHeight": 440
+ },
+ "html": "<!DOCTYPE html><html><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>Word Counter</title><style>*{box-sizing:border-box;margin:0}\n:root{--bg:#10131c;--fg:#e8ecf6;--mut:#8b94ab;--ac:#7EE787;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.05)}\nhtml,body{height:100%}\nbody{font-family:-apple-system,'Segoe UI',system-ui,sans-serif;background:linear-gradient(165deg,#10131c,#161a28);color:var(--fg);overflow:hidden;user-select:none;-webkit-user-select:none}\nbutton{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:9px;padding:7px 13px;cursor:pointer;transition:background .12s,transform .08s}\nbutton:hover{background:rgba(255,255,255,.15)}button:active{transform:scale(.96)}\nbutton.pri{background:var(--ac);color:#0b1020;border-color:transparent;font-weight:700}\ninput,select,textarea{font:inherit;font-size:13px;color:var(--fg);background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:8px;padding:6px 9px;outline:none;user-select:text;-webkit-user-select:text}\ninput:focus,select:focus,textarea:focus{border-color:var(--ac)}select option{background:#1b2030}\n.wrap{height:100%;display:flex;flex-direction:column;align-items:center;gap:10px;padding:14px;overflow:auto}\n.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:center}\n.stat{font-size:11px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;text-align:center}.stat b{display:block;color:var(--ac);font-size:20px;letter-spacing:0}\nh1{font-size:16px}h1 span{color:var(--ac)}\n.muted{color:var(--mut);font-size:12px}\ncanvas{display:block;max-width:100%}\nlabel{font-size:12px;color:var(--mut)}\n.wrap{align-items:stretch}textarea{flex:1;min-height:160px;resize:none;font-size:14px;line-height:1.5}\n.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:8px}.stats .stat{background:var(--card);border-radius:10px;padding:8px}\n.kw{display:flex;gap:6px;flex-wrap:wrap}.kw span{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:2px 9px;font-size:12px}.kw b{color:var(--ac)}\n</style></head><body><div class=\"wrap\">\n<h1>Word <span>Counter</span></h1>\n<textarea id=\"t\" placeholder=\"Paste or type your text here...\"></textarea>\n<div class=\"stats\"><div class=\"stat\">Words<b id=\"w\">0</b></div><div class=\"stat\">Characters<b id=\"c\">0</b></div><div class=\"stat\">No spaces<b id=\"cn\">0</b></div><div class=\"stat\">Sentences<b id=\"s\">0</b></div><div class=\"stat\">Paragraphs<b id=\"p\">0</b></div><div class=\"stat\">Read time<b id=\"r\">0m</b></div></div>\n<div class=\"muted\">Top keywords</div><div class=\"kw\" id=\"k\"></div>\n<div class=\"bar\"><button id=\"up\">UPPERCASE</button><button id=\"lo\">lowercase</button><button id=\"ti\">Title Case</button><button id=\"sp\">Trim spaces</button><button id=\"cl\">Clear</button></div>\n</div><script>\nconst $=s=>document.querySelector(s),STOP=new Set('the a an and or but of to in on at for with is are was were be it this that as by from i you he she we they not'.split(' '));\nfunction calc(){const t=$('#t').value,w=t.match(/[\\p{L}\\p{N}'’-]+/gu)||[];$('#w').textContent=w.length;$('#c').textContent=t.length;$('#cn').textContent=t.replace(/\\s/g,'').length;\n $('#s').textContent=(t.match(/[^.!?]+[.!?]+(\\s|$)/g)||[]).length||(t.trim()?1:0);$('#p').textContent=t.split(/\\n\\s*\\n/).filter(x=>x.trim()).length;\n const m=w.length/200;$('#r').textContent=m<1?(w.length?'<1m':'0m'):Math.round(m)+'m';\n const f={};w.forEach(x=>{x=x.toLowerCase();if(x.length>2&&!STOP.has(x))f[x]=(f[x]||0)+1});\n $('#k').innerHTML=Object.entries(f).sort((a,b)=>b[1]-a[1]).slice(0,10).map(e=>'<span>'+e[0].replace(/</g,'&lt;')+' <b>'+e[1]+'</b></span>').join('')}\n$('#t').oninput=calc;\nconst ap=fn=>()=>{$('#t').value=fn($('#t').value);calc()};\n$('#up').onclick=ap(s=>s.toUpperCase());$('#lo').onclick=ap(s=>s.toLowerCase());$('#ti').onclick=ap(s=>s.toLowerCase().replace(/(^|\\s)\\S/g,m=>m.toUpperCase()));$('#sp').onclick=ap(s=>s.replace(/[ \\t]+/g,' ').replace(/\\n{3,}/g,'\\n\\n').trim());$('#cl').onclick=ap(()=>'');calc();\n</script></body></html>\n"
+}

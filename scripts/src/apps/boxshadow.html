@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title> Shadow Lab</title><style><!--BASE-->
+.wrap{align-items:stretch}#stage{height:180px;border-radius:14px;display:grid;place-items:center;flex:none;transition:background .2s}
+#box{width:110px;height:110px;background:#e8ecf6;border-radius:18px}
+.g{display:grid;grid-template-columns:90px 1fr 40px;gap:6px 10px;align-items:center;font-size:12px}.g span:last-child{color:var(--mut);text-align:right}
+pre{background:rgba(0,0,0,.35);border-radius:9px;padding:10px;font:12px ui-monospace,monospace;white-space:pre-wrap;user-select:text;-webkit-user-select:text;color:#cde}
+</style></head><body><div class="wrap">
+<h1>Shadow <span>Lab</span></h1><div id="stage"><div id="box"></div></div>
+<div class="g" id="g"></div>
+<div class="bar"><label>Shadow <input type="color" id="sc" value="#000000"></label><label>Backdrop <input type="color" id="bg" value="#2a3350"></label><label><input type="checkbox" id="in"> Inset</label></div>
+<pre id="css"></pre><button class="pri" id="cp">Copy CSS</button>
+</div><script>
+const $=s=>document.querySelector(s),P=[['X offset','x',-60,60,10],['Y offset','y',-60,60,14],['Blur','b',0,100,30],['Spread','s',-40,60,0],['Opacity','o',0,100,45],['Radius','r',0,60,18]],V={};
+P.forEach(p=>{V[p[1]]=p[4];$('#g').insertAdjacentHTML('beforeend','<span>'+p[0]+'</span><input type="range" id="r'+p[1]+'" min="'+p[2]+'" max="'+p[3]+'" value="'+p[4]+'"><span id="v'+p[1]+'">'+p[4]+'</span>');});
+function upd(){P.forEach(p=>{V[p[1]]=+$('#r'+p[1]).value;$('#v'+p[1]).textContent=V[p[1]]});const h=$('#sc').value,c=[1,3,5].map(i=>parseInt(h.substr(i,2),16)).join(',');
+ const sh=($('#in').checked?'inset ':'')+V.x+'px '+V.y+'px '+V.b+'px '+V.s+'px rgba('+c+','+(V.o/100).toFixed(2)+')';
+ $('#box').style.boxShadow=sh;$('#box').style.borderRadius=V.r+'px';$('#stage').style.background=$('#bg').value;$('#css').textContent='box-shadow: '+sh+';\nborder-radius: '+V.r+'px;'}
+document.querySelectorAll('input').forEach(i=>i.oninput=upd);
+$('#cp').onclick=()=>{const t=$('#css').textContent;navigator.clipboard?navigator.clipboard.writeText(t).then(()=>$('#cp').textContent='Copied!',()=>getSelection().selectAllChildren($('#css'))):getSelection().selectAllChildren($('#css'));setTimeout(()=>$('#cp').textContent='Copy CSS',1200)};upd();
+</script></body></html>

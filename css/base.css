@@ -1,0 +1,21 @@
+/* reset + root layers */
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{width:100%;height:100%;overflow:hidden;background:#000;color:var(--text);font-family:var(--font);font-size:16px;-webkit-font-smoothing:antialiased;user-select:none;-webkit-user-select:none}
+input,textarea,[contenteditable],.selectable,.selectable *{user-select:text;-webkit-user-select:text}
+button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
+input,select,textarea{font:inherit;color:inherit;outline:none}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+::-webkit-scrollbar{width:10px;height:10px}::-webkit-scrollbar-thumb{background:var(--surface-3);border-radius:6px;border:2px solid transparent;background-clip:padding-box}::-webkit-scrollbar-thumb:hover{background:var(--border-strong);background-clip:padding-box;border:2px solid transparent}::-webkit-scrollbar-corner{background:transparent}
+.ico{display:inline-block;vertical-align:middle;flex-shrink:0}
+.hidden{display:none!important}
+#desktop{position:fixed;inset:0;overflow:hidden;z-index:1}
+#wallpaper{position:absolute;inset:0;background:#07080d;transition:background .6s}
+#windows{position:fixed;inset:0;z-index:10;pointer-events:none}
+#windows>.win{pointer-events:auto}
+#snap-preview{position:fixed;z-index:9;border-radius:14px;background:rgba(var(--accent-rgb),.18);border:2px solid rgba(var(--accent-rgb),.6);opacity:0;pointer-events:none;transition:opacity .15s,left .12s,top .12s,width .12s,height .12s}
+#snap-preview.show{opacity:1}
+#dim{position:fixed;inset:0;background:#000;opacity:0;pointer-events:none;z-index:99990;transition:opacity .2s}
+#night{position:fixed;inset:0;background:rgba(255,150,40,.16);mix-blend-mode:multiply;pointer-events:none;z-index:99989;opacity:0;transition:opacity .4s}
+.app-crash{padding:20px;color:var(--danger);overflow:auto}.app-crash pre{margin-top:10px;font:12px var(--mono);white-space:pre-wrap;color:var(--text-muted)}
+.no-anim *,.no-anim *::before,.no-anim *::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+.dragging iframe,.dragging webview{pointer-events:none!important}.dragging{cursor:grabbing}

@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Game of Life</title><style><!--BASE-->
+.wrap{padding:10px}canvas{border-radius:8px;background:#0b0e16;cursor:crosshair;touch-action:none;width:100%;flex:1;min-height:0}
+</style></head><body><div class="wrap">
+<div class="bar"><button class="pri" id="run">Play</button><button id="step">Step</button><button id="rnd">Random</button><button id="clr">Clear</button>
+<select id="pat"><option value="">Stamp…</option><option value="glider">Glider</option><option value="lwss">Spaceship</option><option value="gun">Gosper gun</option><option value="pulsar">Pulsar</option><option value="rpent">R-pentomino</option></select>
+<label>Speed <input type="range" id="sp" min="1" max="60" value="15"></label><span class="muted" id="inf">Gen 0 · 0 alive</span></div>
+<canvas id="c"></canvas>
+</div><script>
+const cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s);const W=90,H=60;let g=new Uint8Array(W*H),gen=0,run=false,last=0,cur='';
+const P={glider:['.O.','..O','OOO'],lwss:['.OOOO','O...O','....O','O..O.'],rpent:['.OO','OO.','.O.'],pulsar:['..OOO...OOO..','','O....O.O....O','O....O.O....O','O....O.O....O','..OOO...OOO..','','..OOO...OOO..','O....O.O....O','O....O.O....O','O....O.O....O','','..OOO...OOO..'],
+gun:['........................O...........','......................O.O...........','............OO......OO............OO','...........O...O....OO............OO','OO........O.....O...OO..............','OO........O...O.OO....O.O...........','..........O.....O.......O...........','...........O...O....................','............OO......................']};
+function size(){const r=cv.getBoundingClientRect();cv.width=r.width;cv.height=r.height;draw()}
+function stamp(k,ox,oy){P[k].forEach((row,j)=>[...row].forEach((ch,i)=>{if(ch==='O'){const a=(ox+i+W)%W,b=(oy+j+H)%H;g[b*W+a]=1}}))}
+function step(){const n=new Uint8Array(W*H);for(let y=0;y<H;y++)for(let xx=0;xx<W;xx++){let c=0;for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++)if(dx||dy)c+=g[((y+dy+H)%H)*W+(xx+dx+W)%W];const a=g[y*W+xx];n[y*W+xx]=(c===3||(a&&c===2))?1:0}g=n;gen++;draw()}
+function draw(){const cw=cv.width/W,ch=cv.height/H;x.fillStyle='#0b0e16';x.fillRect(0,0,cv.width,cv.height);x.fillStyle='#7EE787';let alive=0;for(let y=0;y<H;y++)for(let i=0;i<W;i++)if(g[y*W+i]){alive++;x.fillRect(i*cw+.5,y*ch+.5,cw-1,ch-1)}$('#inf').textContent='Gen '+gen+' · '+alive+' alive'}
+function loop(t){if(run&&t-last>1000/$('#sp').value){last=t;step()}requestAnimationFrame(loop)}
+function cellAt(e){const r=cv.getBoundingClientRect();return[Math.floor((e.clientX-r.left)/r.width*W),Math.floor((e.clientY-r.top)/r.height*H)]}
+let paint=null;cv.onpointerdown=e=>{const[a,b]=cellAt(e);if(cur){stamp(cur,a,b);cur='';$('#pat').value=''}else{paint=g[b*W+a]?0:1;g[b*W+a]=paint}draw();cv.setPointerCapture(e.pointerId)};
+cv.onpointermove=e=>{if(paint===null)return;const[a,b]=cellAt(e);if(a>=0&&b>=0&&a<W&&b<H){g[b*W+a]=paint;draw()}};cv.onpointerup=()=>paint=null;
+$('#run').onclick=()=>{run=!run;$('#run').textContent=run?'Pause':'Play'};$('#step').onclick=step;$('#clr').onclick=()=>{g.fill(0);gen=0;draw()};
+$('#rnd').onclick=()=>{for(let i=0;i<g.length;i++)g[i]=Math.random()<.25?1:0;gen=0;draw()};$('#pat').onchange=e=>cur=e.target.value;
+addEventListener('resize',size);stamp('gun',5,5);stamp('glider',60,35);size();requestAnimationFrame(loop);
+</script></body></html>

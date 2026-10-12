@@ -1,0 +1,21 @@
+<!--HEAD:Word Counter--><!--BASE-->
+.wrap{align-items:stretch}textarea{flex:1;min-height:160px;resize:none;font-size:14px;line-height:1.5}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(86px,1fr));gap:8px}.stats .stat{background:var(--card);border-radius:10px;padding:8px}
+.kw{display:flex;gap:6px;flex-wrap:wrap}.kw span{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:2px 9px;font-size:12px}.kw b{color:var(--ac)}
+</style></head><body><div class="wrap">
+<h1>Word <span>Counter</span></h1>
+<textarea id="t" placeholder="Paste or type your text here..."></textarea>
+<div class="stats"><div class="stat">Words<b id="w">0</b></div><div class="stat">Characters<b id="c">0</b></div><div class="stat">No spaces<b id="cn">0</b></div><div class="stat">Sentences<b id="s">0</b></div><div class="stat">Paragraphs<b id="p">0</b></div><div class="stat">Read time<b id="r">0m</b></div></div>
+<div class="muted">Top keywords</div><div class="kw" id="k"></div>
+<div class="bar"><button id="up">UPPERCASE</button><button id="lo">lowercase</button><button id="ti">Title Case</button><button id="sp">Trim spaces</button><button id="cl">Clear</button></div>
+</div><script>
+const $=s=>document.querySelector(s),STOP=new Set('the a an and or but of to in on at for with is are was were be it this that as by from i you he she we they not'.split(' '));
+function calc(){const t=$('#t').value,w=t.match(/[\p{L}\p{N}'’-]+/gu)||[];$('#w').textContent=w.length;$('#c').textContent=t.length;$('#cn').textContent=t.replace(/\s/g,'').length;
+ $('#s').textContent=(t.match(/[^.!?]+[.!?]+(\s|$)/g)||[]).length||(t.trim()?1:0);$('#p').textContent=t.split(/\n\s*\n/).filter(x=>x.trim()).length;
+ const m=w.length/200;$('#r').textContent=m<1?(w.length?'<1m':'0m'):Math.round(m)+'m';
+ const f={};w.forEach(x=>{x=x.toLowerCase();if(x.length>2&&!STOP.has(x))f[x]=(f[x]||0)+1});
+ $('#k').innerHTML=Object.entries(f).sort((a,b)=>b[1]-a[1]).slice(0,10).map(e=>'<span>'+e[0].replace(/</g,'&lt;')+' <b>'+e[1]+'</b></span>').join('')}
+$('#t').oninput=calc;
+const ap=fn=>()=>{$('#t').value=fn($('#t').value);calc()};
+$('#up').onclick=ap(s=>s.toUpperCase());$('#lo').onclick=ap(s=>s.toLowerCase());$('#ti').onclick=ap(s=>s.toLowerCase().replace(/(^|\s)\S/g,m=>m.toUpperCase()));$('#sp').onclick=ap(s=>s.replace(/[ \t]+/g,' ').replace(/\n{3,}/g,'\n\n').trim());$('#cl').onclick=ap(()=>'');calc();
+</script></body></html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title> Barcode Maker</title><style><!--BASE-->
+.wrap{justify-content:flex-start}#out{background:#fff;border-radius:10px;padding:14px;max-width:100%;overflow:auto}#out svg{display:block}
+input[type=text]{width:240px}
+</style></head><body><div class="wrap">
+<h1>Barcode <span>Maker</span></h1>
+<div class="bar"><input id="v" type="text" value="LEONUX 22" maxlength="30" placeholder="A-Z 0-9 - . space $ / + %"><label>Height <input id="h" type="range" min="40" max="140" value="80"></label></div>
+<div class="muted">Code 39 format · characters outside the set are skipped</div>
+<div id="out"></div><div class="bar"><button class="pri" id="dl">Download SVG</button><button id="cp">Copy SVG</button></div><div class="muted" id="msg"></div>
+</div><script>
+const C={'0':'nnnwwnwnn','1':'wnnwnnnnw','2':'nnwwnnnnw','3':'wnwwnnnnn','4':'nnnwwnnnw','5':'wnnwwnnnn','6':'nnwwwnnnn','7':'nnnwnnwnw','8':'wnnwnnwnn','9':'nnwwnnwnn',A:'wnnnnwnnw',B:'nnwnnwnnw',C:'wnwnnwnnn',D:'nnnnwwnnw',E:'wnnnwwnnn',F:'nnwnwwnnn',G:'nnnnnwwnw',H:'wnnnnwwnn',I:'nnwnnwwnn',J:'nnnnwwwnn',K:'wnnnnnnww',L:'nnwnnnnww',M:'wnwnnnnwn',N:'nnnnwnnww',O:'wnnnwnnwn',P:'nnwnwnnwn',Q:'nnnnnnwww',R:'wnnnnnwwn',S:'nnwnnnwwn',T:'nnnnwnwwn',U:'wwnnnnnnw',V:'nwwnnnnnw',W:'wwwnnnnnn',X:'nwnnwnnnw',Y:'wwnnwnnnn',Z:'nwwnwnnnn','-':'nwnnnnwnw','.':'wwnnnnwnn',' ':'nwwnnnwnn','*':'nwnnwnwnn','$':'nwnwnwnnn','/':'nwnwnnnwn','+':'nwnnnwnwn','%':'nnnwnwnwn'};
+const $=s=>document.querySelector(s);let svg='';
+function make(){const txt=$('#v').value.toUpperCase().split('').filter(c=>C[c]&&c!='*').join(''),s='*'+txt+'*',hh=+$('#h').value;let x=10,bars='';
+ for(const ch of s){let bar=true;for(const w of C[ch]){const wd=w=='w'?3:1;if(bar)bars+='<rect x="'+x+'" y="10" width="'+wd+'" height="'+hh+'"/>';x+=wd;bar=!bar}x+=1}
+ svg='<svg xmlns="http://www.w3.org/2000/svg" width="'+(x+10)+'" height="'+(hh+34)+'" viewBox="0 0 '+(x+10)+' '+(hh+34)+'"><rect width="100%" height="100%" fill="#fff"/><g fill="#000">'+bars+'</g><text x="'+(x+10)/2+'" y="'+(hh+27)+'" text-anchor="middle" font-family="monospace" font-size="13">'+s+'</text></svg>';
+ $('#out').innerHTML=svg;$('#msg').textContent=txt.length+' characters encoded'}
+$('#v').oninput=make;$('#h').oninput=make;
+$('#dl').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml'}));a.download='barcode.svg';a.click()};
+$('#cp').onclick=()=>{navigator.clipboard&&navigator.clipboard.writeText(svg).then(()=>$('#msg').textContent='SVG copied',()=>$('#msg').textContent='Copy blocked — use Download')};make();
+</script></body></html>

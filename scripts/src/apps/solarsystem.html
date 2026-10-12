@@ -1,0 +1,27 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title> Solar System</title><style><!--BASE-->
+.wrap{padding:8px}canvas{border-radius:12px;background:#05070d;cursor:pointer;width:100%;flex:1;min-height:0}
+#info{font-size:12px;color:var(--mut);text-align:center;min-height:34px}#info b{color:var(--ac)}
+</style></head><body><div class="wrap">
+<canvas id="c"></canvas><div id="info">Click a planet to learn about it</div>
+<div class="bar"><button id="pp">Pause</button><label>Speed <input id="sp" type="range" min="0" max="10" step=".5" value="2"></label><label><input type="checkbox" id="ob" checked> Orbits</label></div>
+</div><script>
+const P=[['Mercury',.39,4,'#b5b5b5',.24,'Smallest planet, 88-day year, no moons.'],['Venus',.72,7,'#e8c27a',.62,'Hottest planet — a runaway greenhouse at 465 C.'],['Earth',1,7.5,'#5aa9ff',1,'Our home; the only world known to host life.'],['Mars',1.52,5.5,'#e2623a',1.88,'The red planet, home to Olympus Mons.'],['Jupiter',2.6,16,'#d9a066',11.86,'A gas giant with a storm bigger than Earth.'],['Saturn',3.6,14,'#ead29a',29.4,'Famous rings made of ice and rock.'],['Uranus',4.5,10,'#8fe3e8',84,'An ice giant rolling on its side.'],['Neptune',5.3,10,'#4f6cf0',165,'Windiest planet, 165-year orbit.']];
+const cv=document.getElementById('c'),x=cv.getContext('2d'),$=s=>document.querySelector(s);
+let W,Hh,t=0,run=true,sel=2,pos=[];const stars=Array.from({length:120},()=>[Math.random(),Math.random(),Math.random()*1.4]);
+function fit(){const r=cv.getBoundingClientRect(),d=devicePixelRatio||1;cv.width=r.width*d;cv.height=r.height*d;W=cv.width;Hh=cv.height}
+addEventListener('resize',fit);fit();
+function frame(){x.clearRect(0,0,W,Hh);const d=devicePixelRatio||1,cx=W/2,cy=Hh/2,sc=Math.min(W,Hh)/2/6;
+ x.fillStyle='#fff';stars.forEach(s=>{x.globalAlpha=.3+s[2]/3;x.fillRect(s[0]*W,s[1]*Hh,s[2]*d,s[2]*d)});x.globalAlpha=1;
+ const g=x.createRadialGradient(cx,cy,0,cx,cy,22*d);g.addColorStop(0,'#fff6b0');g.addColorStop(.4,'#ffc83d');g.addColorStop(1,'rgba(255,160,0,0)');x.fillStyle=g;x.beginPath();x.arc(cx,cy,22*d,0,7);x.fill();
+ pos=[];P.forEach((p,i)=>{const r=(.9+p[1])*sc*.92,a=t/p[4]*.9+i*1.7;
+  if($('#ob').checked){x.strokeStyle='rgba(255,255,255,.1)';x.beginPath();x.arc(cx,cy,r,0,7);x.stroke()}
+  const px=cx+Math.cos(a)*r,py=cy+Math.sin(a)*r*.82,rad=p[2]*.8*d;pos.push([px,py,rad]);
+  if(p[0]=='Saturn'){x.strokeStyle='rgba(234,210,154,.7)';x.lineWidth=3*d;x.beginPath();x.ellipse(px,py,rad*1.9,rad*.6,-.3,0,7);x.stroke();x.lineWidth=1}
+  x.fillStyle=p[3];x.beginPath();x.arc(px,py,rad,0,7);x.fill();
+  if(i==sel){x.strokeStyle='#7EE787';x.lineWidth=2*d;x.beginPath();x.arc(px,py,rad+5*d,0,7);x.stroke();x.lineWidth=1}
+  x.fillStyle='rgba(255,255,255,.7)';x.font=(10*d)+'px sans-serif';x.textAlign='center';x.fillText(p[0],px,py+rad+14*d)});
+ if(run)t+=parseFloat($('#sp').value)*.004;requestAnimationFrame(frame)}
+function show(){const p=P[sel];$('#info').innerHTML='<b>'+p[0]+'</b> · '+p[1]+' AU · year '+p[4]+' Earth yrs<br>'+p[5]}
+cv.onclick=e=>{const r=cv.getBoundingClientRect(),d=W/r.width,mx=(e.clientX-r.left)*d,my=(e.clientY-r.top)*d;let b=-1,bd=1e9;pos.forEach((q,i)=>{const dd=Math.hypot(q[0]-mx,q[1]-my);if(dd<bd&&dd<q[2]+22*d){bd=dd;b=i}});if(b>=0){sel=b;show()}};
+$('#pp').onclick=e=>{run=!run;e.target.textContent=run?'Pause':'Play'};show();frame();
+</script></body></html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title> Gradient Studio</title><style><!--BASE-->
+.wrap{align-items:stretch}#pv{height:150px;border-radius:14px;border:1px solid var(--line);flex:none}
+.stops{display:flex;flex-direction:column;gap:6px}.stop{display:flex;gap:8px;align-items:center}.stop input[type=color]{width:38px;height:28px;padding:0;border:0;background:none}.stop input[type=range]{flex:1}
+pre{background:rgba(0,0,0,.35);border-radius:9px;padding:10px;font:12px ui-monospace,monospace;white-space:pre-wrap;user-select:text;-webkit-user-select:text;color:#cde}
+</style></head><body><div class="wrap">
+<h1>Gradient <span>Studio</span></h1><div id="pv"></div>
+<div class="bar"><select id="ty"><option value="linear">Linear</option><option value="radial">Radial</option><option value="conic">Conic</option></select><label>Angle <input id="an" type="range" min="0" max="360" value="135"></label><button id="add">+ Stop</button><button id="rnd">Random</button></div>
+<div class="stops" id="st"></div><pre id="css"></pre><button class="pri" id="cp">Copy CSS</button>
+</div><script>
+const $=s=>document.querySelector(s);let S=[['#7EE787',0],['#4f8cff',55],['#c084fc',100]];
+function css(){const st=S.slice().sort((a,b)=>a[1]-b[1]).map(s=>s[0]+' '+s[1]+'%').join(', '),a=$('#an').value,t=$('#ty').value;return t=='linear'?'linear-gradient('+a+'deg, '+st+')':t=='radial'?'radial-gradient(circle at center, '+st+')':'conic-gradient(from '+a+'deg, '+st+')'}
+function render(){$('#st').innerHTML='';S.forEach((s,i)=>{const d=document.createElement('div');d.className='stop';d.innerHTML='<input type="color" value="'+s[0]+'"><input type="range" min="0" max="100" value="'+s[1]+'"><span class="muted" style="width:34px">'+s[1]+'%</span><button>&times;</button>';
+ d.children[0].oninput=e=>{s[0]=e.target.value;upd()};d.children[1].oninput=e=>{s[1]=+e.target.value;d.children[2].textContent=s[1]+'%';upd()};d.children[3].onclick=()=>{if(S.length>2){S.splice(i,1);render()}};$('#st').appendChild(d)});upd()}
+function upd(){const c=css();$('#pv').style.background=c;$('#css').textContent='background: '+c+';'}
+const rc=()=>'#'+Math.floor(Math.random()*16777215).toString(16).padStart(6,'0');
+$('#add').onclick=()=>{if(S.length<8){S.push([rc(),100]);render()}};$('#rnd').onclick=()=>{S=S.map((s,i)=>[rc(),s[1]]);$('#an').value=Math.random()*360|0;render()};
+$('#ty').onchange=upd;$('#an').oninput=upd;
+$('#cp').onclick=()=>{const t=$('#css').textContent;navigator.clipboard?navigator.clipboard.writeText(t).then(()=>$('#cp').textContent='Copied!',()=>{getSelection().selectAllChildren($('#css'))}):getSelection().selectAllChildren($('#css'));setTimeout(()=>$('#cp').textContent='Copy CSS',1200)};render();
+</script></body></html>
